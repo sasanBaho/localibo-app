@@ -546,9 +546,9 @@ export default function Home() {
       >
         {(
           [
-            { id: "beauty", label: "Beauty", icon: "/service-one-icon-black.png", active: "#be185d", activeBg: "#fce7f3" },
-            { id: "tailor", label: "Tailor", icon: "/service-two-icon-black.png", active: "#7c3aed", activeBg: "#ede9fe" },
-            { id: "cook",   label: "Cook",   icon: "/service-three-icon-black.png", active: "#b45309", activeBg: "#fef3c7" },
+            { id: "beauty", label: "Beauty", icon: "/service-one-icon-black.png", active: "#ea7d9a"},
+            { id: "tailor", label: "Tailor", icon: "/service-two-icon-black.png", active: "#a393c9"},
+            { id: "cook",   label: "Cook",   icon: "/service-three-icon-black.png", active: "#53acff"},
           ] as const
         ).map((svc) => (
           <button
@@ -556,9 +556,9 @@ export default function Home() {
             onClick={() => handleServiceChange(svc.id)}
             style={{
               border: activeService === svc.id ? `1px solid ${svc.active}` : "1px solid #e2e8f0",
-              background: activeService === svc.id ? svc.activeBg : "#f8fafc",
+              background: "#f8fafc",
               fontWeight: 700,
-              fontSize: 15,
+              fontSize: 14,
               color: activeService === svc.id ? svc.active : "#64748b",
               cursor: "pointer",
               display: "flex",
@@ -569,7 +569,7 @@ export default function Home() {
               transition: "all 0.15s ease",
             }}
           >
-            <img src={svc.icon} alt={svc.label} style={{ width: 20, height: 20, objectFit: "contain" }} />
+            <img src={svc.icon} alt={svc.label} style={{ width: 22, height: 22, objectFit: "contain" }} />
             {!isSmallScreen && <span>{svc.label}</span>}
           </button>
         ))}

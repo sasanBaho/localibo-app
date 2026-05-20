@@ -59,9 +59,9 @@ function getDescription(description: any, serviceKey: string): string {
 }
 
 function getAccent(serviceKey: string) {
-  if (serviceKey === "service-two") return { accent: "#7c3aed", light: "#ede9fe" };
-  if (serviceKey === "service-three") return { accent: "#ea580c", light: "#ffedd5" };
-  return { accent: "#e11d48", light: "#fce7f3" };
+  if (serviceKey === "service-two") return { accent: "#a393c9", light: "#ede9fe" };
+  if (serviceKey === "service-three") return { accent: "#53acff", light: "#dbeeff" };
+  return { accent: "#ea7d9a", light: "#fce4f0" };
 }
 
 // ─── generateStaticParams ─────────────────────────────────────────────────────

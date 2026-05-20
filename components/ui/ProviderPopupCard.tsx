@@ -47,9 +47,9 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
   })();
 
   const SERVICE_CONFIG: Record<string, { label: string; key: string; color: string; light: string; icon: string }> = {
-    beauty: { label: "Beauty", key: "service-one", color: "#e11d48", light: "#fce7f3", icon: "/service-one-icon-black.png" },
-    tailor: { label: "Tailor", key: "service-two", color: "#7c3aed", light: "#ede9fe", icon: "/service-two-icon-black.png" },
-    cook:   { label: "Cook",   key: "service-three", color: "#ea580c", light: "#ffedd5", icon: "/service-three-icon-black.png" },
+    beauty: { label: "Beauty", key: "service-one", color: "#ea7d9a", light: "#fce4f0", icon: "/service-one-icon-black.png" },
+    tailor: { label: "Tailor", key: "service-two", color: "#a393c9", light: "#ede9fe", icon: "/service-two-icon-black.png" },
+    cook:   { label: "Cook",   key: "service-three", color: "#53acff", light: "#dbeeff", icon: "/service-three-icon-black.png" },
   };
   const cfg = SERVICE_CONFIG[activeService ?? "beauty"] ?? SERVICE_CONFIG.beauty;
   const accentColor = cfg.color;
@@ -355,7 +355,7 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
                 onClick={() => { trackEvent("Provider_Call_Tapped", getAnalyticsPayload()); recordInteraction("call"); }}
                 style={{
                   flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-                  background: accentColor, color: "#fff", borderRadius: 14, padding: "13px 0",
+                  background: accentColor + "80", color: "#fff", borderRadius: 14, padding: "13px 0",
                   fontWeight: 700, fontSize: 15, textDecoration: "none",
                 }}
               >
@@ -371,7 +371,7 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
                   onClick={() => { trackEvent("Provider_Call_Tapped", getAnalyticsPayload()); recordInteraction("call"); }}
                   style={{
                     flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-                    background: accentColor, color: "#fff", borderRadius: 14, padding: "14px 0",
+                    background: accentColor + "80", color: "#fff", borderRadius: 14, padding: "14px 0",
                     fontWeight: 700, fontSize: 16, textDecoration: "none",
                     boxShadow: `0 4px 14px ${accentColor}44`,
                   }}
