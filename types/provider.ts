@@ -5,6 +5,7 @@ export type PaymentMethod = string;
 export type ServiceLocation = string;
 
 export type Provider = {
+  id?: string;
   createdAt?: Date;
   imageUrl?: string;
   phoneNumber: string;
