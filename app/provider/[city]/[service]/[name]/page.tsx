@@ -198,7 +198,7 @@ export default async function ProviderPage({
     };
   }
 
-  const serviceIcon = svc.key === "service-two" ? "/service-two-icon.png" : svc.key === "service-three" ? "/service-three-icon.png" : "/service-one-icon.png";
+  const serviceIcon = svc.key === "service-two" ? "/service-two-icon-black.png" : svc.key === "service-three" ? "/service-three-icon-black.png" : "/service-one-icon-black.png";
 
   return (
     <>

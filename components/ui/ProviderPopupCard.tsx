@@ -47,9 +47,9 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
   })();
 
   const SERVICE_CONFIG: Record<string, { label: string; key: string; color: string; light: string; icon: string }> = {
-    beauty: { label: "Beauty", key: "service-one", color: "#e11d48", light: "#fce7f3", icon: "/service-one-icon.png" },
-    tailor: { label: "Tailor", key: "service-two", color: "#7c3aed", light: "#ede9fe", icon: "/service-two-icon.png" },
-    cook:   { label: "Cook",   key: "service-three", color: "#ea580c", light: "#ffedd5", icon: "/service-three-icon.png" },
+    beauty: { label: "Beauty", key: "service-one", color: "#e11d48", light: "#fce7f3", icon: "/service-one-icon-black.png" },
+    tailor: { label: "Tailor", key: "service-two", color: "#7c3aed", light: "#ede9fe", icon: "/service-two-icon-black.png" },
+    cook:   { label: "Cook",   key: "service-three", color: "#ea580c", light: "#ffedd5", icon: "/service-three-icon-black.png" },
   };
   const cfg = SERVICE_CONFIG[activeService ?? "beauty"] ?? SERVICE_CONFIG.beauty;
   const accentColor = cfg.color;

@@ -64,9 +64,9 @@ interface ProviderProfileModalProps {
 }
 
 const SERVICE_META: Record<string, { shortName: string; icon: string }> = {
-  "service-one": { shortName: "Beauty", icon: "/service-one-icon.png" },
-  "service-two": { shortName: "Tailor", icon: "/service-two-icon.png" },
-  "service-three": { shortName: "Cook", icon: "/service-three-icon.png" },
+  "service-one": { shortName: "Beauty", icon: "/service-one-icon-black.png" },
+  "service-two": { shortName: "Tailor", icon: "/service-two-icon-black.png" },
+  "service-three": { shortName: "Cook", icon: "/service-three-icon-black.png" },
 };
 
 const GreenCheck: React.FC = () => (

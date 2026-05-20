@@ -546,9 +546,9 @@ export default function Home() {
       >
         {(
           [
-            { id: "beauty", label: "Beauty",  emoji: "✂️", active: "#be185d", activeBg: "#fce7f3" },
-            { id: "tailor", label: "Tailor",  emoji: "🧵", active: "#7c3aed", activeBg: "#ede9fe" },
-            { id: "cook",   label: "Cook",    emoji: "🍳", active: "#b45309", activeBg: "#fef3c7" },
+            { id: "beauty", label: "Beauty", icon: "/service-one-icon-black.png", active: "#be185d", activeBg: "#fce7f3" },
+            { id: "tailor", label: "Tailor", icon: "/service-two-icon-black.png", active: "#7c3aed", activeBg: "#ede9fe" },
+            { id: "cook",   label: "Cook",   icon: "/service-three-icon-black.png", active: "#b45309", activeBg: "#fef3c7" },
           ] as const
         ).map((svc) => (
           <button
@@ -569,7 +569,7 @@ export default function Home() {
               transition: "all 0.15s ease",
             }}
           >
-            <span style={{ fontSize: 20 }}>{svc.emoji}</span>
+            <img src={svc.icon} alt={svc.label} style={{ width: 20, height: 20, objectFit: "contain" }} />
             {!isSmallScreen && <span>{svc.label}</span>}
           </button>
         ))}
