@@ -7,7 +7,7 @@ import RatingModal from "./RatingModal";
 export interface ProviderPopupCardProps {
   provider: any;
   onClose: () => void;
-  activeService?: "snow" | "lawn";
+  activeService?: "beauty" | "tailor" | "cook";
   isOwnerInactive?: boolean;
   isOwnProfile?: boolean;
   onSubscribe?: () => void;
@@ -46,12 +46,17 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
     return rawPhone;
   })();
 
-  const isSnow = activeService === "snow";
-  const accentColor = isSnow ? "#0ea5e9" : "#22c55e";
-  const accentLight = isSnow ? "#e0f2fe" : "#f0fdf4";
-  const serviceLabel = isSnow ? "Snow Removal" : "Lawn Care";
-  const serviceIcon = isSnow ? "/shovel-blue.png" : "/lawn-mower-green.png";
-  const serviceKey = isSnow ? "service-two" : "service-one";
+  const SERVICE_CONFIG: Record<string, { label: string; key: string; color: string; light: string; icon: string }> = {
+    beauty: { label: "Beauty", key: "service-one", color: "#e11d48", light: "#fce7f3", icon: "/service-one-icon.png" },
+    tailor: { label: "Tailor", key: "service-two", color: "#7c3aed", light: "#ede9fe", icon: "/service-two-icon.png" },
+    cook:   { label: "Cook",   key: "service-three", color: "#ea580c", light: "#ffedd5", icon: "/service-three-icon.png" },
+  };
+  const cfg = SERVICE_CONFIG[activeService ?? "beauty"] ?? SERVICE_CONFIG.beauty;
+  const accentColor = cfg.color;
+  const accentLight = cfg.light;
+  const serviceLabel = cfg.label;
+  const serviceIcon = cfg.icon;
+  const serviceKey = cfg.key;
 
   const descriptionText = (() => {
     const d = provider.description;

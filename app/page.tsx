@@ -187,7 +187,7 @@ export default function Home() {
     pitch: 0,
   });
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
-  const [activeService, setActiveService] = useState<"snow" | "lawn">("lawn");
+  const [activeService, setActiveService] = useState<"beauty" | "tailor" | "cook">("beauty");
   const [isSmallScreen, setIsSmallScreen] = useState(true);
   const [showAuth, setShowAuth] = useState(false);
   const [authDefaultStep, setAuthDefaultStep] = useState<"login" | "create">("login");
@@ -415,27 +415,25 @@ export default function Home() {
     fetchProviders();
   }, [mounted]);
 
+  const SERVICE_KEY: Record<"beauty" | "tailor" | "cook", string> = {
+    beauty: "service-one",
+    tailor: "service-two",
+    cook: "service-three",
+  };
+
   // Filtering logic for providers
   const filteredProviders = providers.filter((provider) => {
     if (provider.isAvailable === false) return false;
     const sub = provider.subscriptionStatus;
     if (sub && !["active", "trialing"].includes(sub)) return false;
-    if (activeService === "snow") {
-      return provider.selectedServices?.includes("service-two");
-    } else {
-      return provider.selectedServices?.includes("service-one");
-    }
+    return provider.selectedServices?.includes(SERVICE_KEY[activeService]);
   });
 
   // Helper to get relevant description for popup
   function getRelevantDescription(provider: Provider | null) {
     if (!provider) return "";
     if (provider.description && typeof provider.description === "object") {
-      if (activeService === "snow") {
-        return provider.description["service-two"] || "";
-      } else {
-        return provider.description["service-one"] || "";
-      }
+      return provider.description[SERVICE_KEY[activeService]] || "";
     }
     return provider.description || "";
   }
@@ -517,19 +515,17 @@ export default function Home() {
     }
   };
 
-  function handleServiceChange(service: "snow" | "lawn") {
+  function handleServiceChange(service: "beauty" | "tailor" | "cook") {
     trackEvent("Service Filter Switched", {
       selectedService: service,
       previousService: activeService,
-      providerResultsCount:
-        service === "snow"
-          ? providers.filter((provider) => provider.selectedServices?.includes("service-two")).length
-          : providers.filter((provider) => provider.selectedServices?.includes("service-one")).length,
+      providerResultsCount: providers.filter((p) =>
+        p.selectedServices?.includes(SERVICE_KEY[service])
+      ).length,
     });
 
     if (selectedProvider) {
-      const serviceKey = service === "snow" ? "service-two" : "service-one";
-      if (!selectedProvider.selectedServices?.includes(serviceKey)) {
+      if (!selectedProvider.selectedServices?.includes(SERVICE_KEY[service])) {
         setSelectedProvider(null);
       }
     }
@@ -548,55 +544,35 @@ export default function Home() {
         onCancelSubscription={handleCancelSubscription}
         canCancelSubscription={["active", "trialing"].includes(currentProviderData?.subscriptionStatus ?? "")}
       >
-        <button
-          onClick={() => handleServiceChange("snow")}
-          style={{
-            border: activeService === "snow" ? "1px solid #0369a1" : "1px solid #e2e8f0",
-            background: activeService === "snow" ? "#e0f2fe" : "#f8fafc",
-            fontWeight: 700,
-            fontSize: 15,
-            color: activeService === "snow" ? "#0369a1" : "#64748b",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            gap: 6,
-            padding: isSmallScreen ? "7px 10px" : "7px 16px",
-            borderRadius: 9999,
-            transition: "all 0.15s ease",
-          }}
-        >
-          <img
-            src={activeService === "snow" ? "/shovel-darkblue.png" : "/shovel-gray.png"}
-            alt="Shovel icon"
-            style={{ width: 28, height: 28 }}
-          />
-          {!isSmallScreen && <span>Snow Removal</span>}
-        </button>
-
-        <button
-          onClick={() => handleServiceChange("lawn")}
-          style={{
-            border: activeService === "lawn" ? "1px solid #15803d" : "1px solid #e2e8f0",
-            background: activeService === "lawn" ? "#dcfce7" : "#f8fafc",
-            fontWeight: 700,
-            fontSize: 15,
-            color: activeService === "lawn" ? "#15803d" : "#64748b",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            gap: 6,
-            padding: isSmallScreen ? "7px 10px" : "7px 16px",
-            borderRadius: 9999,
-            transition: "all 0.15s ease",
-          }}
-        >
-          <img
-            src={activeService === "lawn" ? "/lawn-mower-darkgreen.png" : "/lawn-mower-gray.png"}
-            alt="Lawn mower icon"
-            style={{ width: 30, height: 30 }}
-          />
-          {!isSmallScreen && <span>Lawn Care</span>}
-        </button>
+        {(
+          [
+            { id: "beauty", label: "Beauty",  emoji: "✂️", active: "#be185d", activeBg: "#fce7f3" },
+            { id: "tailor", label: "Tailor",  emoji: "🧵", active: "#7c3aed", activeBg: "#ede9fe" },
+            { id: "cook",   label: "Cook",    emoji: "🍳", active: "#b45309", activeBg: "#fef3c7" },
+          ] as const
+        ).map((svc) => (
+          <button
+            key={svc.id}
+            onClick={() => handleServiceChange(svc.id)}
+            style={{
+              border: activeService === svc.id ? `1px solid ${svc.active}` : "1px solid #e2e8f0",
+              background: activeService === svc.id ? svc.activeBg : "#f8fafc",
+              fontWeight: 700,
+              fontSize: 15,
+              color: activeService === svc.id ? svc.active : "#64748b",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
+              padding: isSmallScreen ? "7px 10px" : "7px 16px",
+              borderRadius: 9999,
+              transition: "all 0.15s ease",
+            }}
+          >
+            <span style={{ fontSize: 20 }}>{svc.emoji}</span>
+            {!isSmallScreen && <span>{svc.label}</span>}
+          </button>
+        ))}
       </Navbar>
       {/* Map Section */}
       <div
@@ -649,9 +625,7 @@ export default function Home() {
 
           {/* Owner's own greyscale pin — only visible to themselves when unsubscribed and available */}
           {showOwnPin && providerLocation && currentProviderData && currentProviderData.isAvailable !== false &&
-            (activeService === "snow"
-              ? currentProviderData.selectedServices?.includes("service-two")
-              : currentProviderData.selectedServices?.includes("service-one")) && (
+            currentProviderData.selectedServices?.includes(SERVICE_KEY[activeService]) && (
             <MapMarker longitude={providerLocation.lng} latitude={providerLocation.lat}>
               <MarkerContent>
                 <div

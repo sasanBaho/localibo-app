@@ -64,8 +64,9 @@ interface ProviderProfileModalProps {
 }
 
 const SERVICE_META: Record<string, { shortName: string; icon: string }> = {
-  "service-one": { shortName: "Lawn Care", icon: "/lawn-mower-green.png" },
-  "service-two": { shortName: "Snow Removal", icon: "/shovel-blue.png" },
+  "service-one": { shortName: "Beauty", icon: "/service-one-icon.png" },
+  "service-two": { shortName: "Tailor", icon: "/service-two-icon.png" },
+  "service-three": { shortName: "Cook", icon: "/service-three-icon.png" },
 };
 
 const GreenCheck: React.FC = () => (
@@ -142,11 +143,12 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
   const nameInputRef = useRef<HTMLInputElement>(null);
 
   const SERVICE_SLUG: Record<string, string> = {
-    "service-one": "lawn-care",
-    "service-two": "snow-removal",
+    "service-one": "beauty",
+    "service-two": "tailor",
+    "service-three": "cook",
   };
 
-  const firstServiceSlug = SERVICE_SLUG[profileState.selectedServices?.[0]] ?? "lawn-care";
+  const firstServiceSlug = SERVICE_SLUG[profileState.selectedServices?.[0]] ?? "beauty";
   const _citySlug = profileState.citySlug ?? slugifyStr(profileState.city ?? "");
   const _nameSlug = profileState.nameSlug ?? slugifyStr(profileState.name ?? "");
   const profileUrl =

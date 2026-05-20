@@ -5,15 +5,21 @@ import ModalBase from "./ModalBase";
 const SERVICES = [
   {
     id: "service-one",
-    name: "Lawn Care & Maintenance",
+    name: "Beauty",
     image: "/service-one.png",
     hasToolsOption: false,
   },
   {
     id: "service-two",
-    name: "Driveway & Sidewalk Snow Clearing",
+    name: "Tailor",
     image: "/service-two.png",
-    hasToolsOption: true,
+    hasToolsOption: false,
+  },
+  {
+    id: "service-three",
+    name: "Cook",
+    image: "/service-three.png",
+    hasToolsOption: false,
   },
 ] as const;
 
@@ -95,13 +101,19 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
         "service-two": {
           selected: initialData.selectedServices.includes("service-two"),
           description: initialData.descriptions["service-two"] ?? "",
-          hasTools: initialData.hasTools,
+          hasTools: false,
+        },
+        "service-three": {
+          selected: initialData.selectedServices.includes("service-three"),
+          description: initialData.descriptions["service-three"] ?? "",
+          hasTools: false,
         },
       };
     }
     return {
       "service-one": { selected: false, description: "", hasTools: false },
-      "service-two": { selected: false, description: "", hasTools: true },
+      "service-two": { selected: false, description: "", hasTools: false },
+      "service-three": { selected: false, description: "", hasTools: false },
     };
   });
   const [payments, setPayments] = useState<Record<string, boolean>>(() => {
@@ -133,7 +145,7 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
     onDone({
       selectedServices: selectedIds,
       descriptions,
-      hasTools: services["service-two"].hasTools,
+      hasTools: initialData?.hasTools ?? false,
       paymentMethods: Object.entries(payments)
         .filter(([, v]) => v)
         .map(([k]) => k),

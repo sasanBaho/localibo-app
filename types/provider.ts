@@ -1,5 +1,5 @@
 // Provider type for TypeScript
-export type ServiceFilter = "service-one" | "service-two";
+export type ServiceFilter = "service-one" | "service-two" | "service-three";
 export type ServiceType = ServiceFilter;
 export type PaymentMethod = string;
 export type ServiceLocation = string;

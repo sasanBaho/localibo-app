@@ -14,13 +14,15 @@ const BASE_URL = "https://localibo.com";
 const ACTIVE_STATUSES = ["active", "trialing"];
 
 const SERVICE_MAP: Record<string, { key: string; label: string }> = {
-  "lawn-care": { key: "service-one", label: "Lawn Care" },
-  "snow-removal": { key: "service-two", label: "Snow Removal" },
+  "beauty": { key: "service-one", label: "Beauty" },
+  "tailor": { key: "service-two", label: "Tailor" },
+  "cook": { key: "service-three", label: "Cook" },
 };
 
 const SERVICE_SLUG: Record<string, string> = {
-  "service-one": "lawn-care",
-  "service-two": "snow-removal",
+  "service-one": "beauty",
+  "service-two": "tailor",
+  "service-three": "cook",
 };
 
 // ─── Data fetching ────────────────────────────────────────────────────────────
@@ -57,9 +59,9 @@ function getDescription(description: any, serviceKey: string): string {
 }
 
 function getAccent(serviceKey: string) {
-  return serviceKey === "service-two"
-    ? { accent: "#0ea5e9", light: "#e0f2fe" }
-    : { accent: "#22c55e", light: "#f0fdf4" };
+  if (serviceKey === "service-two") return { accent: "#7c3aed", light: "#ede9fe" };
+  if (serviceKey === "service-three") return { accent: "#ea580c", light: "#ffedd5" };
+  return { accent: "#e11d48", light: "#fce7f3" };
 }
 
 // ─── generateStaticParams ─────────────────────────────────────────────────────
@@ -103,7 +105,7 @@ export async function generateMetadata({
   if (!p) return { title: "Provider Not Found" };
 
   const svc = SERVICE_MAP[service];
-  const serviceLabel = svc?.label ?? "Lawn Care";
+  const serviceLabel = svc?.label ?? "Beauty";
   const providerName: string = p.providerName ?? "Provider";
   const cityName: string = p.city ?? "";
   const ratingPart =
@@ -196,7 +198,7 @@ export default async function ProviderPage({
     };
   }
 
-  const serviceIcon = svc.key === "service-two" ? "/shovel-blue.png" : "/lawn-mower-green.png";
+  const serviceIcon = svc.key === "service-two" ? "/service-two-icon.png" : svc.key === "service-three" ? "/service-three-icon.png" : "/service-one-icon.png";
 
   return (
     <>

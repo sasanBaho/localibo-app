@@ -4,8 +4,9 @@ import { getAdminDb } from "@/lib/firebaseAdmin";
 const BASE_URL = "https://localibo.com";
 
 const SERVICE_SLUG: Record<string, string> = {
-  "service-one": "lawn-care",
-  "service-two": "snow-removal",
+  "service-one": "beauty",
+  "service-two": "tailor",
+  "service-three": "cook",
 };
 
 const staticPages = [
