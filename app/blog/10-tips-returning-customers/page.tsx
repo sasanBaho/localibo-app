@@ -10,12 +10,12 @@ import {
 } from "@/components/blog/BlogPostLayout";
 
 export const metadata: Metadata = {
-  title: "10 Proven Tips to Turn First-Time Clients Into Happy, Returning Customers | Yardyman Blog",
+  title: "10 Proven Tips to Turn First-Time Clients Into Happy, Returning Customers | Localibo Blog",
   description:
-    "Want clients who book you again and again? From business cards to follow-up messages, these 10 practical tips will help Yardyman providers build lasting relationships and grow a steady income with repeat business.",
+    "Want clients who book you again and again? From business cards to follow-up messages, these 10 practical tips will help Localibo providers build lasting relationships and grow a steady income with repeat business.",
   keywords: [
     "how to get repeat customers lawn care",
-    "yardyman provider tips",
+    "localibo provider tips",
     "returning customers yard work",
     "grow lawn care business",
     "customer retention tips for providers",
@@ -43,7 +43,7 @@ export default function Post3() {
         Getting your first call from a homeowner is exciting. But turning that first job into a long-term, recurring relationship? That's where real income growth happens. Repeat customers book you regularly, refer you to neighbors, and leave the best reviews — all without you spending a single extra dollar on marketing.
       </P>
       <P>
-        The providers who earn the most on Yardyman aren't necessarily the ones who hustle for new clients every week. They're the ones who treat every job as an opportunity to earn a loyal customer for life. Here are 10 tips that will help you do exactly that.
+        The providers who earn the most on Localibo aren't necessarily the ones who hustle for new clients every week. They're the ones who treat every job as an opportunity to earn a loyal customer for life. Here are 10 tips that will help you do exactly that.
       </P>
 
       <img
@@ -64,7 +64,7 @@ export default function Post3() {
       <TipCard number={1} title="Always Carry a Business Card">
         A business card is the simplest marketing tool you own. After every job, hand the homeowner your card and say: <em>"If you ever need anything again — or know a neighbor who does — I'd love to help."</em> People hold onto cards. They stick them on their fridge. They share them with friends. A stack of cards costs next to nothing and pays off for months.
         <br /><br />
-        Your card should include your name, phone number, the services you offer, and your Yardyman profile link. Keep it simple and clean — homeowners will keep it if it looks professional.
+        Your card should include your name, phone number, the services you offer, and your Localibo profile link. Keep it simple and clean — homeowners will keep it if it looks professional.
       </TipCard>
 
       <TipCard number={2} title="Ask for Referrals — Don't Wait for Them">

@@ -5,9 +5,9 @@ import type { ReactNode } from "react";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Learn how Yardyman collects, uses, and protects your information. Our Privacy Policy covers data handling for both service providers and clients on the platform.",
+    "Learn how Localibo collects, uses, and protects your information. Our Privacy Policy covers data handling for both service providers and clients on the platform.",
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://yardyman.com/privacy" },
+  alternates: { canonical: "https://localibo.com/privacy" },
 };
 
 function PageHeader({ title }: { title: string }) {
@@ -76,7 +76,7 @@ function ContactBox() {
     <div style={{ background: "#f0fdf4", borderRadius: 12, padding: "14px 16px", marginTop: 8 }}>
       <p style={{ margin: "0 0 5px", fontSize: 14, color: "#374151" }}>
         <strong>Email:</strong>{" "}
-        <a href="mailto:hi@yardyman.com" style={{ color: "#22c55e", textDecoration: "none" }}>hi@yardyman.com</a>
+        <a href="mailto:hi@localibo.com" style={{ color: "#22c55e", textDecoration: "none" }}>hi@localibo.com</a>
       </p>
 
     </div>
@@ -108,7 +108,7 @@ export default function PrivacyPage() {
         <h2 style={{ margin: "0 0 6px", fontSize: 26, fontWeight: 700, color: "#111827" }}>Privacy Policy</h2>
         <p style={{ margin: "0 0 8px", fontSize: 13, color: "#9ca3af" }}>Last updated: Nov 4, 2025</p>
         <p style={{ margin: "0 0 32px", fontSize: 15, color: "#6b7280", lineHeight: 1.7 }}>
-          Yardyman respects your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our web application.
+          Localibo respects your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our web application.
         </p>
 
         <div style={{ background: "#fff", borderRadius: 16, padding: "28px 24px", boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}>
@@ -173,7 +173,7 @@ export default function PrivacyPage() {
 
           <PolicySection title="7. Children's Privacy">
             <Para>
-              Yardyman is not intended for children under 18. We do not knowingly collect personal information from minors. If you believe a minor has provided us information, please contact us and we will remove it promptly.
+              Localibo is not intended for children under 18. We do not knowingly collect personal information from minors. If you believe a minor has provided us information, please contact us and we will remove it promptly.
             </Para>
           </PolicySection>
 
@@ -186,9 +186,9 @@ export default function PrivacyPage() {
             ]} />
             <SubTitle>For Providers and Clients</SubTitle>
             <Bullets items={[
-              "We are not liable for any loss, damage, theft, injury, or misconduct that may occur during or after a service engagement arranged through Yardyman.",
+              "We are not liable for any loss, damage, theft, injury, or misconduct that may occur during or after a service engagement arranged through Localibo.",
               "If a client fails to pay or if a provider causes damage, these matters are strictly between the involved parties.",
-              "Yardyman functions solely as a connection platform and does not mediate payments or guarantee outcomes.",
+              "Localibo functions solely as a connection platform and does not mediate payments or guarantee outcomes.",
             ]} />
           </PolicySection>
 
@@ -201,7 +201,7 @@ export default function PrivacyPage() {
 
           <PolicySection title="10. Changes to This Privacy Policy">
             <Para>
-              We may update this Privacy Policy from time to time. Changes will be effective once posted on the platform. Your continued use of Yardyman after any changes constitutes your acceptance of the updated policy.
+              We may update this Privacy Policy from time to time. Changes will be effective once posted on the platform. Your continued use of Localibo after any changes constitutes your acceptance of the updated policy.
             </Para>
           </PolicySection>
 

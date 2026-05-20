@@ -3,8 +3,8 @@ import Link from "next/link";
 import LocationTabs from "./LocationTabs";
 
 export const metadata: Metadata = {
-  title: "How to Enable Location Access — Yardyman",
-  description: "Step-by-step instructions to enable location access for Yardyman in Chrome, Safari, Firefox, Edge, and on iOS and Android devices.",
+  title: "How to Enable Location Access — Localibo",
+  description: "Step-by-step instructions to enable location access for Localibo in Chrome, Safari, Firefox, Edge, and on iOS and Android devices.",
 };
 
 export default function HowToEnableLocationPage() {
@@ -67,7 +67,7 @@ export default function HowToEnableLocationPage() {
             How to Enable Location
           </h2>
           <p style={{ margin: 0, fontSize: 15, color: "#6b7280", lineHeight: 1.7, maxWidth: 480, marginInline: "auto" }}>
-            Select your browser or device below and follow the steps to allow Yardyman to access your location.
+            Select your browser or device below and follow the steps to allow Localibo to access your location.
           </p>
         </div>
 
@@ -109,7 +109,7 @@ export default function HowToEnableLocationPage() {
             padding: "13px 28px",
             textDecoration: "none",
           }}>
-            Back to Yardyman
+            Back to Localibo
           </Link>
         </div>
       </div>

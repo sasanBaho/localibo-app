@@ -11,7 +11,7 @@ import {
 } from "@/components/blog/BlogPostLayout";
 
 export const metadata: Metadata = {
-  title: "How Lawn Mowing Can Be the Perfect Side Hustle to Make Extra Money | Yardyman Blog",
+  title: "How Lawn Mowing Can Be the Perfect Side Hustle to Make Extra Money | Localibo Blog",
   description:
     "Looking for a side hustle that pays well, fits your schedule, and requires no special degree? Lawn mowing is one of the most profitable and flexible ways to earn extra income — here's exactly how to get started.",
   keywords: [
@@ -47,7 +47,7 @@ export default function LawnMowingSideHustle() {
         If you've been searching for a side hustle that actually pays well, fits around your existing job, and doesn't require a business degree or special certification — lawn mowing might be the opportunity you've been overlooking. Across Canada and the US, thousands of people are quietly earning hundreds of extra dollars every weekend simply by cutting grass and caring for yards.
       </P>
       <P>
-        And with platforms like Yardyman connecting homeowners directly with local providers, getting your first clients has never been easier. No cold calls, no flyers, no awkward door-knocking. Just a profile and a lawnmower.
+        And with platforms like Localibo connecting homeowners directly with local providers, getting your first clients has never been easier. No cold calls, no flyers, no awkward door-knocking. Just a profile and a lawnmower.
       </P>
       <P>
         Here's a full breakdown of how lawn mowing works as a side hustle — what you can realistically earn, how to get started, and why it beats most other options out there.
@@ -123,9 +123,9 @@ export default function LawnMowingSideHustle() {
         The biggest challenge for any new side hustle is getting those first few paying customers. Here's the fastest path:
       </P>
 
-      <H3>Create your Yardyman profile</H3>
+      <H3>Create your Localibo profile</H3>
       <P>
-        Yardyman puts your profile on a map that homeowners in your area actively browse when they need lawn care. Instead of spending money on ads or printing flyers, you simply create a profile with your photo, services, and contact info — and homeowners who need help can find and call you directly. It's one of the fastest ways to get visible to local clients without any upfront cost.
+        Localibo puts your profile on a map that homeowners in your area actively browse when they need lawn care. Instead of spending money on ads or printing flyers, you simply create a profile with your photo, services, and contact info — and homeowners who need help can find and call you directly. It's one of the fastest ways to get visible to local clients without any upfront cost.
       </P>
 
       <H3>Tell your network</H3>
@@ -162,7 +162,7 @@ export default function LawnMowingSideHustle() {
         <><strong>A lawnmower:</strong> A basic push mower is enough to start. Upgrade to a self-propelled or ride-on as you grow.</>,
         <><strong>A string trimmer (weed whacker):</strong> For edging around fences, sidewalks, and garden beds. Clients expect clean edges.</>,
         <><strong>A leaf blower:</strong> For clearing clippings off driveways and paths after each job. A small touch that looks very professional.</>,
-        <><strong>A Yardyman profile:</strong> So homeowners in your area can find you, see your work, and contact you directly.</>,
+        <><strong>A Localibo profile:</strong> So homeowners in your area can find you, see your work, and contact you directly.</>,
         <><strong>Basic liability awareness:</strong> Know what's on the property before you mow. Ask the homeowner about sprinkler heads, garden edges, and any areas to avoid.</>,
       ]} />
 
@@ -174,11 +174,11 @@ export default function LawnMowingSideHustle() {
         Some providers eventually take lawn care full-time. Others keep it as a reliable, flexible side income that funds vacations, pays off debt, or builds savings. Either way, the earning potential is real — and it starts from the very first lawn you cut.
       </P>
       <P>
-        If you've been looking for a side hustle that pays fairly, fits your schedule, and doesn't require you to share your earnings with a platform taking a big commission — lawn mowing on Yardyman is one of the best opportunities available right now.
+        If you've been looking for a side hustle that pays fairly, fits your schedule, and doesn't require you to share your earnings with a platform taking a big commission — lawn mowing on Localibo is one of the best opportunities available right now.
       </P>
 
       <TipBox>
-        Start this weekend. Reach out to five people in your network today, create your Yardyman profile, and aim to complete your first paid job within 7 days. The hardest part is starting — after that, the momentum builds itself.
+        Start this weekend. Reach out to five people in your network today, create your Localibo profile, and aim to complete your first paid job within 7 days. The hardest part is starting — after that, the momentum builds itself.
       </TipBox>
     </BlogPostLayout>
   );

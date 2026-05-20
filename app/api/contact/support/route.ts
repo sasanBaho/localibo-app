@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey || apiKey === "re_your_api_key_here") {
     console.error("[support] RESEND_API_KEY is not configured");
-    return NextResponse.json({ error: "Email service is not configured. Please contact us at support@yardyman.com." }, { status: 503 });
+    return NextResponse.json({ error: "Email service is not configured. Please contact us at support@localibo.com." }, { status: 503 });
   }
 
   const resend = new Resend(apiKey);
@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const { error } = await resend.emails.send({
-      from: "Yardyman Support <noreply@yardyman.com>",
+      from: "Localibo Support <noreply@localibo.com>",
       to: "habibiansasan@gmail.com",
       replyTo: email,
       subject: `[Provider Support] ${sanitizeString(subject, 100)}`,

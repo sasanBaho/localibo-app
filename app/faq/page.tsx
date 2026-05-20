@@ -14,23 +14,23 @@ const FAQS: { q: string; a: string; link?: { href: string; label: string } }[] =
   },
   {
     q: "How do customers find me?",
-    a: "We actively promote Yardyman within local communities through advertising and outreach to help customers discover providers like you. However, the most powerful growth comes from happy clients — satisfied customers are more likely to recommend your services to friends and family, helping you build a loyal client base over time.",
+    a: "We actively promote Localibo within local communities through advertising and outreach to help customers discover providers like you. However, the most powerful growth comes from happy clients — satisfied customers are more likely to recommend your services to friends and family, helping you build a loyal client base over time.",
   },
   {
     q: "Can I set my own working hours?",
-    a: "Yes — you have full flexibility to choose when you want to work. As your own boss, you set your availability and schedule according to what works best for you. Whether you want to work full-time, part-time, or only on weekends, Yardyman gives you the freedom to run your business entirely on your own terms.",
+    a: "Yes — you have full flexibility to choose when you want to work. As your own boss, you set your availability and schedule according to what works best for you. Whether you want to work full-time, part-time, or only on weekends, Localibo gives you the freedom to run your business entirely on your own terms.",
   },
   {
     q: "What if I am away or on vacation?",
     a: 'You are in control. Simply turn off the "I\'m available" toggle in your profile and you will be hidden from the map until you are ready to take orders again. No need to cancel anything — just flip the switch.',
   },
   {
-    q: "What services can I offer on Yardyman?",
-    a: "Currently, Yardyman supports lawn care and snow removal services. We are continuously working to expand the range of services available on the platform, so stay tuned for future updates.",
+    q: "What services can I offer on Localibo?",
+    a: "Currently, Localibo supports lawn care and snow removal services. We are continuously working to expand the range of services available on the platform, so stay tuned for future updates.",
   },
   {
     q: "How do clients contact me?",
-    a: "Clients can reach you directly through Yardyman by calling or sending a text message to the phone number you registered with. Your contact information is visible to clients so they can get in touch without any delays.",
+    a: "Clients can reach you directly through Localibo by calling or sending a text message to the phone number you registered with. Your contact information is visible to clients so they can get in touch without any delays.",
   },
   {
     q: "Is my personal information safe?",
@@ -166,7 +166,7 @@ export default function FaqPage() {
           Frequently Asked Questions
         </h2>
         <p style={{ margin: "0 0 32px", fontSize: 15, color: "#6b7280", lineHeight: 1.7 }}>
-          Everything you need to know before you start your home-based business with Yardyman.
+          Everything you need to know before you start your home-based business with Localibo.
         </p>
 
         {/* FAQ accordion card */}
@@ -205,8 +205,8 @@ export default function FaqPage() {
             <p style={{ margin: "0 0 2px", fontSize: 15, fontWeight: 700, color: "#111827" }}>Still have questions?</p>
             <p style={{ margin: 0, fontSize: 13, color: "#6b7280" }}>
               {"Reach out to us at "}
-              <a href="mailto:hi@Yardyman.com" style={{ color: "#22c55e", textDecoration: "none", fontWeight: 600 }}>
-                hi@Yardyman.com
+              <a href="mailto:hi@Localibo.com" style={{ color: "#22c55e", textDecoration: "none", fontWeight: 600 }}>
+                hi@Localibo.com
               </a>
               {" and we will be happy to help."}
             </p>

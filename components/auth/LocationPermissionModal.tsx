@@ -54,7 +54,7 @@ const LocationPermissionModal: React.FC<LocationPermissionModalProps> = ({ onClo
         </h2>
 
         <p style={{ fontSize: 14, color: "#6b7280", margin: "0 0 12px", lineHeight: 1.65 }}>
-          Yardyman needs your location to show you on the map and connect you with nearby homeowners.
+          Localibo needs your location to show you on the map and connect you with nearby homeowners.
         </p>
 
         <p style={{ fontSize: 14, fontWeight: 600, color: "#374151", margin: "0 0 24px", lineHeight: 1.5 }}>

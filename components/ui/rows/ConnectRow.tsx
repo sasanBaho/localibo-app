@@ -8,7 +8,7 @@ export default function ConnectRow() {
           Connecting you with local snow removal service providers
         </h2>
         <p style={{ fontSize: 16, color: "#444" }}>
-          <b>Stay worry-free this winter with Yardyman.</b> Our app makes it simple to find and connect with reliable snow removal providers right in your neighborhood. Whether you need a quick one time driveway clearing or ongoing seasonal service, Yardyman helps you compare local options, view ratings, and contact providers directly! No contracts, no hassle. Enjoy a clear, safe property all winter long while supporting hardworking locals in your community.
+          <b>Stay worry-free this winter with Localibo.</b> Our app makes it simple to find and connect with reliable snow removal providers right in your neighborhood. Whether you need a quick one time driveway clearing or ongoing seasonal service, Localibo helps you compare local options, view ratings, and contact providers directly! No contracts, no hassle. Enjoy a clear, safe property all winter long while supporting hardworking locals in your community.
         </p>
       </div>
       <div style={{ width: 320, height: 320, background: "#ddd", borderRadius: 8, overflow: "hidden" }}>

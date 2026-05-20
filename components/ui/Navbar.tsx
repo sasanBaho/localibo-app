@@ -76,8 +76,8 @@ const Navbar: React.FC<NavbarProps> = ({
         {/* Logo */}
         <Link href="/" style={{ display: "flex", alignItems: "center", flexShrink: 0, marginRight: isWide ? 4 : 2 }}>
           <img
-            src="/yardyman-logo.png"
-            alt="Yardyman Logo"
+            src="/localibo-logo.png"
+            alt="Localibo Logo"
             style={{ width: isWide ? 36 : 32, height: isWide ? 36 : 32, objectFit: "contain", borderRadius: 4 }}
           />
         </Link>

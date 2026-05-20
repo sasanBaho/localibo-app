@@ -8,7 +8,7 @@ export default function TestimonialRow() {
       </div>
       <div style={{ maxWidth: 400, textAlign: "left" }}>
         <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: 12 }}>
-          I made $246 cleaning leaves and snow removing with Yardyman app in 10 days.
+          I made $246 cleaning leaves and snow removing with Localibo app in 10 days.
         </h2>
         <p style={{ fontSize: 16, marginBottom: 16 }}>
           You can start your own side job too.

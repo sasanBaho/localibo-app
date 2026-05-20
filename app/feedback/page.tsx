@@ -140,7 +140,7 @@ export default function FeedbackPage() {
         </div>
         <h2 style={{ margin: "0 0 8px", fontSize: 26, fontWeight: 700, color: "#111827" }}>Send Feedback</h2>
         <p style={{ margin: "0 0 32px", fontSize: 15, color: "#6b7280", lineHeight: 1.6 }}>
-          We'd love to hear from you. Your feedback helps us improve Yardyman for everyone.
+          We'd love to hear from you. Your feedback helps us improve Localibo for everyone.
         </p>
 
         {/* Form card */}
@@ -170,7 +170,7 @@ export default function FeedbackPage() {
               </div>
               <p style={{ margin: "0 0 6px", fontWeight: 700, fontSize: 17, color: "#111827" }}>Thanks for your feedback!</p>
               <p style={{ margin: "0 0 20px", fontSize: 14, color: "#6b7280", lineHeight: 1.6 }}>
-                We read every message and use it to make Yardyman better. We may follow up at your email if needed.
+                We read every message and use it to make Localibo better. We may follow up at your email if needed.
               </p>
               <button
                 onClick={() => setStatus("idle")}
@@ -321,7 +321,7 @@ export default function FeedbackPage() {
               {status === "error" && (
                 <p style={{ margin: 0, fontSize: 13, color: "#dc2626", background: "#fef2f2", border: "1px solid #fecaca", borderRadius: 8, padding: "10px 14px" }}>
                   {errorMsg || "Something went wrong. Please try again or email us at"}{" "}
-                  {!errorMsg && <a href="mailto:hi@yardyman.com" style={{ color: "#dc2626", fontWeight: 600 }}>hi@yardyman.com</a>}
+                  {!errorMsg && <a href="mailto:hi@localibo.com" style={{ color: "#dc2626", fontWeight: 600 }}>hi@localibo.com</a>}
                   {!errorMsg && "."}
                 </p>
               )}
@@ -346,7 +346,7 @@ export default function FeedbackPage() {
               </button>
 
               <p style={{ margin: 0, textAlign: "center", fontSize: 12, color: "#9ca3af" }}>
-                Your feedback goes directly to the Yardyman team.
+                Your feedback goes directly to the Localibo team.
               </p>
             </form>
           )}

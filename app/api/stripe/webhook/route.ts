@@ -29,14 +29,14 @@ async function sendReceiptEmail(email: string, invoice: Stripe.Invoice) {
   const invoiceUrl = invoice.hosted_invoice_url ?? "";
 
   await resend().emails.send({
-    from: "Yardyman <noreply@yardyman.com>",
+    from: "Localibo <noreply@localibo.com>",
     to: email,
-    subject: `Your Yardyman receipt — ${currency} ${amount}`,
+    subject: `Your Localibo receipt — ${currency} ${amount}`,
     html: `
       <div style="font-family:sans-serif;max-width:520px;margin:0 auto;color:#111827">
         <div style="background:#166534;padding:32px 24px;border-radius:12px 12px 0 0;text-align:center">
           <h1 style="color:#fff;margin:0;font-size:22px;font-weight:800">Payment Confirmed</h1>
-          <p style="color:rgba(255,255,255,0.75);margin:8px 0 0;font-size:14px">Thank you for subscribing to Yardyman</p>
+          <p style="color:rgba(255,255,255,0.75);margin:8px 0 0;font-size:14px">Thank you for subscribing to Localibo</p>
         </div>
         <div style="background:#fff;padding:32px 24px;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 12px 12px">
           <p style="margin:0 0 24px;font-size:15px;color:#374151">Hi there,</p>
@@ -53,7 +53,7 @@ async function sendReceiptEmail(email: string, invoice: Stripe.Invoice) {
           </div>
           ${invoiceUrl ? `<a href="${invoiceUrl}" style="display:inline-block;background:#166534;color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;margin-bottom:24px">View Invoice</a>` : ""}
           <p style="margin:24px 0 0;font-size:13px;color:#6b7280">
-            Questions? Reply to this email or reach us at <a href="mailto:hi@yardyman.com" style="color:#166534">hi@yardyman.com</a>
+            Questions? Reply to this email or reach us at <a href="mailto:hi@localibo.com" style="color:#166534">hi@localibo.com</a>
           </p>
         </div>
       </div>
@@ -72,9 +72,9 @@ async function sendCancellationEmail(email: string, subscription: Stripe.Subscri
   });
 
   await resend().emails.send({
-    from: "Yardyman <noreply@yardyman.com>",
+    from: "Localibo <noreply@localibo.com>",
     to: email,
-    subject: "Your Yardyman subscription has been cancelled",
+    subject: "Your Localibo subscription has been cancelled",
     html: `
       <div style="font-family:sans-serif;max-width:520px;margin:0 auto;color:#111827">
         <div style="background:#374151;padding:32px 24px;border-radius:12px 12px 0 0;text-align:center">
@@ -84,7 +84,7 @@ async function sendCancellationEmail(email: string, subscription: Stripe.Subscri
         <div style="background:#fff;padding:32px 24px;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 12px 12px">
           <p style="margin:0 0 24px;font-size:15px;color:#374151">Hi there,</p>
           <p style="margin:0 0 24px;font-size:15px;color:#374151">
-            Your Yardyman subscription has been cancelled. Your profile will remain visible until
+            Your Localibo subscription has been cancelled. Your profile will remain visible until
             <strong>${endDate}</strong>, after which it will be hidden from homeowners.
           </p>
           <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:16px 20px;margin-bottom:24px">
@@ -97,7 +97,7 @@ async function sendCancellationEmail(email: string, subscription: Stripe.Subscri
             Changed your mind? You can reactivate your subscription at any time from your profile settings.
           </p>
           <p style="margin:24px 0 0;font-size:13px;color:#6b7280">
-            Need help? Contact us at <a href="mailto:hi@yardyman.com" style="color:#166534">hi@yardyman.com</a>
+            Need help? Contact us at <a href="mailto:hi@localibo.com" style="color:#166534">hi@localibo.com</a>
           </p>
         </div>
       </div>
@@ -116,7 +116,7 @@ async function sendTrialEndingEmail(email: string, subscription: Stripe.Subscrip
   });
 
   await resend().emails.send({
-    from: "Yardyman <noreply@yardyman.com>",
+    from: "Localibo <noreply@localibo.com>",
     to: email,
     subject: "Your free trial ends in 3 days",
     html: `
@@ -142,7 +142,7 @@ async function sendTrialEndingEmail(email: string, subscription: Stripe.Subscrip
             no questions asked.
           </p>
           <p style="margin:24px 0 0;font-size:13px;color:#6b7280">
-            Questions? Reach us at <a href="mailto:hi@yardyman.com" style="color:#166534">hi@yardyman.com</a>
+            Questions? Reach us at <a href="mailto:hi@localibo.com" style="color:#166534">hi@localibo.com</a>
           </p>
         </div>
       </div>

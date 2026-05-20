@@ -130,7 +130,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
               <line x1="12" y1="16" x2="12.01" y2="16" />
             </svg>
             <p style={{ color: "#991b1b", fontSize: 13, margin: 0, lineHeight: 1.5 }}>
-              No account found for this phone number. Want to join Yardyman as a provider?
+              No account found for this phone number. Want to join Localibo as a provider?
             </p>
           </div>
           <button
@@ -200,7 +200,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
       </p>
 
       <div style={{ textAlign: "center", borderTop: "1px solid #f3f4f6", paddingTop: 16 }}>
-        <p style={{ color: "#6b7280", fontSize: 14, margin: "0 0 8px" }}>New to Yardyman?</p>
+        <p style={{ color: "#6b7280", fontSize: 14, margin: "0 0 8px" }}>New to Localibo?</p>
         <button
           onClick={onCreateAccount}
           style={{

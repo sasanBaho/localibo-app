@@ -11,21 +11,21 @@ import {
 } from "@/components/blog/BlogPostLayout";
 
 export const metadata: Metadata = {
-  title: "How to Catch Homeowners' Attention: Build a Profile That Gets You More Calls | Yardyman Blog",
+  title: "How to Catch Homeowners' Attention: Build a Profile That Gets You More Calls | Localibo Blog",
   description:
-    "Learn how to create a standout Yardyman provider profile with a professional photo, detailed service description, clear service area, and transparent pricing to get more calls from homeowners.",
+    "Learn how to create a standout Localibo provider profile with a professional photo, detailed service description, clear service area, and transparent pricing to get more calls from homeowners.",
   keywords: [
-    "yardyman provider tips",
+    "localibo provider tips",
     "lawn care provider profile",
     "how to get more clients lawn care",
     "provider profile optimization",
-    "attract homeowners yardyman",
+    "attract homeowners localibo",
     "snow removal provider tips",
   ],
   openGraph: {
     title: "How to Catch Homeowners' Attention: Build a Profile That Gets You More Calls",
     description:
-      "Your profile is your first impression. Follow these tips to create a Yardyman provider profile that earns trust and gets the phone ringing.",
+      "Your profile is your first impression. Follow these tips to create a Localibo provider profile that earns trust and gets the phone ringing.",
     type: "article",
     publishedTime: "2025-05-06",
   },
@@ -40,7 +40,7 @@ export default function Post1() {
       readTime="6 min"
     >
       <P>
-        On Yardyman, homeowners browse dozens of provider profiles before deciding who to call. Most of them make up their mind within seconds — based entirely on what your profile looks like. Your profile is your storefront. If it looks professional and trustworthy, your phone will ring. If it looks unfinished or vague, homeowners will scroll right past you.
+        On Localibo, homeowners browse dozens of provider profiles before deciding who to call. Most of them make up their mind within seconds — based entirely on what your profile looks like. Your profile is your storefront. If it looks professional and trustworthy, your phone will ring. If it looks unfinished or vague, homeowners will scroll right past you.
       </P>
       <P>
         The good news? You don't need a marketing degree to stand out. You just need to fill your profile the right way. Here's exactly how to do it.
@@ -86,7 +86,7 @@ export default function Post1() {
 
       <H2>3. Be Clear About the Areas You Cover</H2>
       <P>
-        Homeowners want to know right away whether you work in their neighborhood. Your location on Yardyman automatically places you on the map, but your description can reinforce this by mentioning the specific towns, neighborhoods, or areas you serve.
+        Homeowners want to know right away whether you work in their neighborhood. Your location on Localibo automatically places you on the map, but your description can reinforce this by mentioning the specific towns, neighborhoods, or areas you serve.
       </P>
       <P>
         This also helps you filter out calls that aren't worth your time. If you clearly state that you work within a 15-km radius of downtown, homeowners far outside that area will know to look elsewhere — saving both of you time.

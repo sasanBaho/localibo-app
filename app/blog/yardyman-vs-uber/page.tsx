@@ -11,11 +11,11 @@ import {
 } from "@/components/blog/BlogPostLayout";
 
 export const metadata: Metadata = {
-  title: "Working as a Yardyman Provider vs. Driving for Uber: Which Pays More? | Yardyman Blog",
+  title: "Working as a Localibo Provider vs. Driving for Uber: Which Pays More? | Localibo Blog",
   description:
-    "Thinking about driving for Uber or Lyft to make extra money? Before you sign up, read this honest comparison. Yardyman providers keep 100% of their earnings, set their own rates, and build a loyal client base — here's how it stacks up.",
+    "Thinking about driving for Uber or Lyft to make extra money? Before you sign up, read this honest comparison. Localibo providers keep 100% of their earnings, set their own rates, and build a loyal client base — here's how it stacks up.",
   keywords: [
-    "yardyman vs uber",
+    "localibo vs uber",
     "lawn care vs rideshare",
     "make more money than uber",
     "gig work comparison",
@@ -27,18 +27,18 @@ export const metadata: Metadata = {
     "lawn care business vs driving",
   ],
   openGraph: {
-    title: "Working as a Yardyman Provider vs. Driving for Uber: Which Pays More?",
+    title: "Working as a Localibo Provider vs. Driving for Uber: Which Pays More?",
     description:
-      "Uber takes 25–30% of every ride. Yardyman takes nothing. Here's an honest breakdown of which gig work option actually puts more money in your pocket.",
+      "Uber takes 25–30% of every ride. Localibo takes nothing. Here's an honest breakdown of which gig work option actually puts more money in your pocket.",
     type: "article",
     publishedTime: "2025-05-07",
   },
 };
 
-export default function YardymanVsUber() {
+export default function LocaliboVsUber() {
   return (
     <BlogPostLayout
-      title="Working as a Yardyman Provider vs. Driving for Uber: Which Pays More?"
+      title="Working as a Localibo Provider vs. Driving for Uber: Which Pays More?"
       category="Grow Your Business"
       publishDate="May 7, 2025"
       readTime="8 min"
@@ -47,7 +47,7 @@ export default function YardymanVsUber() {
         Driving for Uber or Lyft has become the default answer whenever someone needs extra income. It's easy to understand why — you already have a car, the app is familiar, and you can start immediately. But once the novelty wears off and you do the real math, most rideshare drivers are surprised by how little they actually keep after gas, wear and tear, and platform commissions.
       </P>
       <P>
-        Working as a Yardyman lawn care provider is a different model entirely — and for most people who try both, it wins on almost every dimension that matters: earnings per hour, freedom, client relationships, and long-term growth. Here's an honest, side-by-side look at both options.
+        Working as a Localibo lawn care provider is a different model entirely — and for most people who try both, it wins on almost every dimension that matters: earnings per hour, freedom, client relationships, and long-term growth. Here's an honest, side-by-side look at both options.
       </P>
 
       <img
@@ -75,7 +75,7 @@ export default function YardymanVsUber() {
       </P>
 
       <TipBox>
-        Yardyman charges zero commission. Every dollar a homeowner pays you goes directly into your pocket. No percentage cut, no per-job fee, no hidden deductions.
+        Localibo charges zero commission. Every dollar a homeowner pays you goes directly into your pocket. No percentage cut, no per-job fee, no hidden deductions.
       </TipBox>
 
       <Divider />
@@ -94,17 +94,17 @@ export default function YardymanVsUber() {
         "Effective hourly rate: $8–$15/hr",
       ]} />
 
-      <H3>Yardyman provider — 5-hour shift (4–5 lawns)</H3>
+      <H3>Localibo provider — 5-hour shift (4–5 lawns)</H3>
       <BulletList items={[
         "4 lawns at $55 average: $220",
-        "Yardyman commission: $0",
+        "Localibo commission: $0",
         "Gas (local neighborhood driving): ~$5–$10",
         <><strong>Net earnings: approximately $210–$215</strong></>,
         "Effective hourly rate: $42–$43/hr",
       ]} />
 
       <P>
-        The difference is stark. A Yardyman provider working a shorter shift brings home more than double — sometimes triple — what a rideshare driver earns in a longer one. And the Yardyman provider isn't putting hundreds of kilometers on their car to do it.
+        The difference is stark. A Localibo provider working a shorter shift brings home more than double — sometimes triple — what a rideshare driver earns in a longer one. And the Localibo provider isn't putting hundreds of kilometers on their car to do it.
       </P>
 
         <img
@@ -124,7 +124,7 @@ export default function YardymanVsUber() {
 
       <H2>You Keep 100% of What You Charge</H2>
       <P>
-        This is the fundamental difference between Yardyman and every major rideshare or delivery platform: <strong>Yardyman does not take a commission.</strong>
+        This is the fundamental difference between Localibo and every major rideshare or delivery platform: <strong>Localibo does not take a commission.</strong>
       </P>
       <P>
         When you set your rate at $60 for a lawn, you receive $60. When a homeowner pays you $80 for a larger property with edging and trimming, you receive $80. There is no algorithm deducting a percentage, no surge-then-clawback pricing, and no waiting days for a payout transfer.
@@ -134,7 +134,7 @@ export default function YardymanVsUber() {
       </P>
 
       <TipBox>
-        On Yardyman, you negotiate your rate directly with the homeowner. Loyal clients who book you every two weeks often happily pay a premium because they trust you — and that relationship is entirely yours to build.
+        On Localibo, you negotiate your rate directly with the homeowner. Loyal clients who book you every two weeks often happily pay a premium because they trust you — and that relationship is entirely yours to build.
       </TipBox>
 
       <Divider />
@@ -144,7 +144,7 @@ export default function YardymanVsUber() {
         This is the hidden cost that Uber drivers consistently underestimate. Rideshare driving is hard on a vehicle. The constant starting, stopping, idling in traffic, and high mileage accumulation leads to faster brake wear, tire replacement, oil changes, and eventually engine issues. Many drivers don't realize until they try to sell their car that thousands of rideshare kilometers have significantly reduced its value.
       </P>
       <P>
-        As a Yardyman lawn care provider, your vehicle use is minimal by comparison. You drive to a neighborhood, work for several hours on foot, then drive home or to the next nearby property. Most providers work within a small radius and drive only a few kilometers between jobs. Your vehicle stays in far better condition — and holds its value.
+        As a Localibo lawn care provider, your vehicle use is minimal by comparison. You drive to a neighborhood, work for several hours on foot, then drive home or to the next nearby property. Most providers work within a small radius and drive only a few kilometers between jobs. Your vehicle stays in far better condition — and holds its value.
       </P>
 
       <Divider />
@@ -154,7 +154,7 @@ export default function YardymanVsUber() {
         Uber markets itself as the ultimate flexible gig — and in theory, it is. You can log on anytime. But in practice, the best earnings happen during specific surge windows: Friday evenings, Saturday nights, early mornings around airport runs. If you want to earn well, you're somewhat constrained to working when the algorithm rewards it — which often means late nights and weekends in high-traffic periods.
       </P>
       <P>
-        With Yardyman, your schedule is genuinely yours. You decide which days you work. You book clients at times that suit you. You build a recurring schedule that you can plan your life around. Most lawn care providers work Saturday and Sunday mornings — a clean, predictable window that doesn't interfere with evenings or family time.
+        With Localibo, your schedule is genuinely yours. You decide which days you work. You book clients at times that suit you. You build a recurring schedule that you can plan your life around. Most lawn care providers work Saturday and Sunday mornings — a clean, predictable window that doesn't interfere with evenings or family time.
       </P>
       <P>
         And because you have regular clients who book in advance, you're not sitting in a parking lot waiting for a ping. You know on Sunday morning that you have four lawns booked — you wake up, show up, do the work, get paid.
@@ -170,7 +170,7 @@ export default function YardymanVsUber() {
         Lawn care is the opposite. A homeowner who books you once and has a good experience will book you again — every two weeks, for an entire season. One satisfied client can be worth $600–$1,200 in a single summer. And when they refer a neighbor, that neighbor becomes another recurring client.
       </P>
       <P>
-        Over time, a Yardyman provider with 10 loyal repeat clients has a stable, predictable income that grows season over season — without spending anything on marketing. That kind of compounding simply doesn't exist in rideshare work.
+        Over time, a Localibo provider with 10 loyal repeat clients has a stable, predictable income that grows season over season — without spending anything on marketing. That kind of compounding simply doesn't exist in rideshare work.
       </P>
 
       <TipBox>
@@ -181,30 +181,30 @@ export default function YardymanVsUber() {
 
       <H2>Side-by-Side Summary</H2>
       <BulletList items={[
-        <><strong>Commission taken:</strong> Uber 25–30% — Yardyman 0%</>,
-        <><strong>Effective hourly rate:</strong> Uber $8–$15/hr net — Yardyman $35–$60/hr net</>,
-        <><strong>Vehicle wear:</strong> Uber high (constant driving) — Yardyman low (neighborhood only)</>,
-        <><strong>Repeat income:</strong> Uber none (every trip starts over) — Yardyman high (recurring seasonal clients)</>,
-        <><strong>Schedule control:</strong> Uber partially (tied to surge windows) — Yardyman fully (you set your calendar)</>,
-        <><strong>Income growth over time:</strong> Uber flat — Yardyman compounds through referrals and repeat clients</>,
-        <><strong>Price control:</strong> Uber set by algorithm — Yardyman set by you</>,
+        <><strong>Commission taken:</strong> Uber 25–30% — Localibo 0%</>,
+        <><strong>Effective hourly rate:</strong> Uber $8–$15/hr net — Localibo $35–$60/hr net</>,
+        <><strong>Vehicle wear:</strong> Uber high (constant driving) — Localibo low (neighborhood only)</>,
+        <><strong>Repeat income:</strong> Uber none (every trip starts over) — Localibo high (recurring seasonal clients)</>,
+        <><strong>Schedule control:</strong> Uber partially (tied to surge windows) — Localibo fully (you set your calendar)</>,
+        <><strong>Income growth over time:</strong> Uber flat — Localibo compounds through referrals and repeat clients</>,
+        <><strong>Price control:</strong> Uber set by algorithm — Localibo set by you</>,
       ]} />
 
       <Divider />
 
-      <H2>Who Is Yardyman Best For?</H2>
+      <H2>Who Is Localibo Best For?</H2>
       <P>
-        Yardyman works best for people who want a side hustle that pays well without giving away a chunk of every dollar to a platform. If you enjoy working outdoors, don't mind physical work, and want to build something that grows — lawn care is an excellent fit.
+        Localibo works best for people who want a side hustle that pays well without giving away a chunk of every dollar to a platform. If you enjoy working outdoors, don't mind physical work, and want to build something that grows — lawn care is an excellent fit.
       </P>
       <P>
-        You don't need experience. You don't need certification. You don't need a large startup investment. You need a lawnmower, a trimmer, and a profile on Yardyman. From there, the platform connects you with homeowners in your area who are actively looking for someone just like you.
+        You don't need experience. You don't need certification. You don't need a large startup investment. You need a lawnmower, a trimmer, and a profile on Localibo. From there, the platform connects you with homeowners in your area who are actively looking for someone just like you.
       </P>
       <P>
-        The math is clear. The freedom is real. And unlike rideshare driving, the income you build with Yardyman belongs entirely to you — no commission, no algorithm, no percentage taken off the top.
+        The math is clear. The freedom is real. And unlike rideshare driving, the income you build with Localibo belongs entirely to you — no commission, no algorithm, no percentage taken off the top.
       </P>
 
       <TipBox>
-        Ready to try it? Create your Yardyman profile today. It takes less than 10 minutes and costs nothing. Your first client could be calling you this weekend.
+        Ready to try it? Create your Localibo profile today. It takes less than 10 minutes and costs nothing. Your first client could be calling you this weekend.
       </TipBox>
     </BlogPostLayout>
   );

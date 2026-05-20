@@ -279,8 +279,8 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({
           flexShrink: 0,
         }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <img src="/yardyman-logo.png" alt="Yardyman" style={{ width: 30, height: 30, borderRadius: 6, objectFit: "contain" }} />
-            <span style={{ fontWeight: 700, fontSize: 17, color: "#111827" }}>Yardyman</span>
+            <img src="/localibo-logo.png" alt="Localibo" style={{ width: 30, height: 30, borderRadius: 6, objectFit: "contain" }} />
+            <span style={{ fontWeight: 700, fontSize: 17, color: "#111827" }}>Localibo</span>
           </div>
           <button
             onClick={onClose}

@@ -66,7 +66,7 @@ export function BlogPostLayout({ children, title, readTime, publishDate, categor
           </svg>
         </Link>
         <span style={{ fontSize: 15, fontWeight: 600, color: "#111827", flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-          Yardyman Blog
+          Localibo Blog
         </span>
       </header>
 
@@ -110,7 +110,7 @@ export function BlogPostLayout({ children, title, readTime, publishDate, categor
                 <circle cx="9" cy="7" r="4" />
               </svg>
             </div>
-            <span style={{ fontSize: 13, color: "#374151", fontWeight: 600 }}>Yardyman Team</span>
+            <span style={{ fontSize: 13, color: "#374151", fontWeight: 600 }}>Localibo Team</span>
           </div>
           <span style={{ color: "#d1d5db", fontSize: 13 }}>·</span>
           <span style={{ fontSize: 13, color: "#6b7280" }}>{publishDate}</span>
@@ -136,7 +136,7 @@ export function BlogPostLayout({ children, title, readTime, publishDate, categor
             Ready to grow your business?
           </p>
           <p style={{ margin: "0 0 20px", fontSize: 14, color: "#6b7280", lineHeight: 1.6 }}>
-            Join Yardyman and start connecting with homeowners in your area today.
+            Join Localibo and start connecting with homeowners in your area today.
           </p>
           <Link href="/" style={{
             display: "inline-block",

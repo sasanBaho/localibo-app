@@ -10,7 +10,7 @@ import ViewTracker from "./ViewTracker";
 export const revalidate = 3600;
 export const dynamicParams = true;
 
-const BASE_URL = "https://yardyman.com";
+const BASE_URL = "https://localibo.com";
 const ACTIVE_STATUSES = ["active", "trialing"];
 
 const SERVICE_MAP: Record<string, { key: string; label: string }> = {
@@ -117,7 +117,7 @@ export async function generateMetadata({
     alternates: { canonical: `${BASE_URL}/provider/${city}/${service}/${name}` },
     openGraph: {
       type: "profile",
-      title: `${providerName} - ${serviceLabel} in ${cityName} | Yardyman`,
+      title: `${providerName} - ${serviceLabel} in ${cityName} | Localibo`,
       description: `${providerName} offers ${serviceLabel.toLowerCase()} in ${cityName}.${ratingPart} Contact directly for a free quote.`,
       images: p.imageUrl ? [{ url: p.imageUrl, width: 400, height: 400, alt: `${providerName} profile photo` }] : [],
     },
@@ -169,7 +169,7 @@ export default async function ProviderPage({
   const otherServices = services.filter((s) => s !== svc.key && SERVICE_SLUG[s]);
 
   const smsBody = encodeURIComponent(
-    `Hi, I found your profile on Yardyman and I'd like to get a quote for your ${serviceLabel.toLowerCase()} service. Are you available?`
+    `Hi, I found your profile on Localibo and I'd like to get a quote for your ${serviceLabel.toLowerCase()} service. Are you available?`
   );
 
   const localBusinessSchema: Record<string, any> = {
@@ -224,8 +224,8 @@ export default async function ProviderPage({
             </svg>
           </Link>
           <Link href="/" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
-            <img src="/yardyman-logo.png" alt="Yardyman" style={{ width: 28, height: 28, objectFit: "contain", borderRadius: 4 }} />
-            <span style={{ fontSize: 15, fontWeight: 700, color: "#111827" }}>Yardyman</span>
+            <img src="/localibo-logo.png" alt="Localibo" style={{ width: 28, height: 28, objectFit: "contain", borderRadius: 4 }} />
+            <span style={{ fontSize: 15, fontWeight: 700, color: "#111827" }}>Localibo</span>
           </Link>
         </header>
 

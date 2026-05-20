@@ -151,7 +151,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
   const _nameSlug = profileState.nameSlug ?? slugifyStr(profileState.name ?? "");
   const profileUrl =
     _citySlug && _nameSlug
-      ? `https://yardyman.com/provider/${_citySlug}/${firstServiceSlug}/${_nameSlug}`
+      ? `https://localibo.com/provider/${_citySlug}/${firstServiceSlug}/${_nameSlug}`
       : null;
 
   async function computeNameSlug(uid: string, name: string, citySlug: string): Promise<{ nameSlug: string; nameSlugBase: string }> {
@@ -178,7 +178,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
   async function handleShare() {
     if (!profileUrl) return;
     if (navigator.share) {
-      await navigator.share({ title: `${profile.name} on Yardyman`, url: profileUrl });
+      await navigator.share({ title: `${profile.name} on Localibo`, url: profileUrl });
     } else {
       handleCopyLink();
     }

@@ -5,9 +5,9 @@ import type { ReactNode } from "react";
 export const metadata: Metadata = {
   title: "Terms & Conditions",
   description:
-    "Read Yardyman's Terms & Conditions governing use of the platform for both service providers and clients. Understand your rights and responsibilities.",
+    "Read Localibo's Terms & Conditions governing use of the platform for both service providers and clients. Understand your rights and responsibilities.",
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://yardyman.com/terms" },
+  alternates: { canonical: "https://localibo.com/terms" },
 };
 
 function PageHeader({ title }: { title: string }) {
@@ -76,7 +76,7 @@ function ContactBox() {
     <div style={{ background: "#f0fdf4", borderRadius: 12, padding: "14px 16px", marginTop: 8 }}>
       <p style={{ margin: "0 0 5px", fontSize: 14, color: "#374151" }}>
         <strong>Email:</strong>{" "}
-        <a href="mailto:hi@yardyman.com" style={{ color: "#22c55e", textDecoration: "none" }}>hi@yardyman.com</a>
+        <a href="mailto:hi@localibo.com" style={{ color: "#22c55e", textDecoration: "none" }}>hi@localibo.com</a>
       </p>
     </div>
   );
@@ -109,7 +109,7 @@ export default function TermsPage() {
         <h2 style={{ margin: "0 0 6px", fontSize: 26, fontWeight: 700, color: "#111827" }}>Terms &amp; Conditions</h2>
         <p style={{ margin: "0 0 8px", fontSize: 13, color: "#9ca3af" }}>Last updated: Sept 27, 2025</p>
         <p style={{ margin: "0 0 32px", fontSize: 15, color: "#6b7280", lineHeight: 1.7 }}>
-          These Terms &amp; Conditions govern the use of the Yardyman platform. By accessing or using Yardyman, you agree to be bound by these Terms. If you do not agree, do not use the platform.
+          These Terms &amp; Conditions govern the use of the Localibo platform. By accessing or using Localibo, you agree to be bound by these Terms. If you do not agree, do not use the platform.
         </p>
 
         <div style={{ background: "#fff", borderRadius: 16, padding: "28px 24px", boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}>
@@ -121,14 +121,14 @@ export default function TermsPage() {
             </Para>
             <SubTitle>Clients</SubTitle>
             <Para>
-              Clients may use Yardyman without creating an account. By using the platform, you agree to abide by these Terms.
+              Clients may use Localibo without creating an account. By using the platform, you agree to abide by these Terms.
             </Para>
           </PolicySection>
 
           <PolicySection title="2. Use of the Platform">
             <Bullets items={[
-              "Yardyman provides a digital platform that connects clients with local service providers.",
-              "Yardyman does not manage, employ, endorse, or guarantee any provider or service.",
+              "Localibo provides a digital platform that connects clients with local service providers.",
+              "Localibo does not manage, employ, endorse, or guarantee any provider or service.",
               "All interactions, communications, and transactions are strictly between clients and providers.",
             ]} />
           </PolicySection>
@@ -144,19 +144,19 @@ export default function TermsPage() {
             <Bullets items={[
               "You are solely responsible for the quality, safety, and legality of the services you provide.",
               "You agree to handle client inquiries and transactions in good faith.",
-              "Yardyman bears no responsibility for disputes, cancellations, or unsatisfactory services.",
+              "Localibo bears no responsibility for disputes, cancellations, or unsatisfactory services.",
             ]} />
           </PolicySection>
 
           <PolicySection title="4. Terms for Clients">
             <SubTitle>Independent Providers</SubTitle>
             <Bullets items={[
-              "You understand that providers are independent third parties, not employees or representatives of Yardyman.",
+              "You understand that providers are independent third parties, not employees or representatives of Localibo.",
               "You are responsible for evaluating providers before engaging their services.",
             ]} />
             <SubTitle>No Guarantee</SubTitle>
             <Bullets items={[
-              "Yardyman does not guarantee the reliability, safety, availability, or quality of any services offered by providers.",
+              "Localibo does not guarantee the reliability, safety, availability, or quality of any services offered by providers.",
               "All transactions and agreements are strictly between you and the provider.",
             ]} />
           </PolicySection>
@@ -173,29 +173,29 @@ export default function TermsPage() {
 
           <PolicySection title="6. Limitation of Liability">
             <Bullets items={[
-              'Yardyman is provided "as is" without warranties of any kind.',
-              "Yardyman is not responsible for any losses, damages, injuries, or disputes arising from interactions between clients and providers.",
-              "To the fullest extent permitted by law, Yardyman disclaims all liability related to your use of the platform.",
+              'Localibo is provided "as is" without warranties of any kind.',
+              "Localibo is not responsible for any losses, damages, injuries, or disputes arising from interactions between clients and providers.",
+              "To the fullest extent permitted by law, Localibo disclaims all liability related to your use of the platform.",
             ]} />
           </PolicySection>
 
           <PolicySection title="7. Termination">
             <Para>
-              Yardyman reserves the right to suspend or terminate access to any user or provider who violates these Terms or engages in harmful conduct.
+              Localibo reserves the right to suspend or terminate access to any user or provider who violates these Terms or engages in harmful conduct.
             </Para>
           </PolicySection>
 
           <PolicySection title="8. Disclaimer">
             <Bullets items={[
-              "Yardyman is a neutral platform and does not control or monitor the services of providers.",
-              "Yardyman does not guarantee the accuracy of listings, availability of providers, or outcomes of services.",
-              "Users assume all risks when contacting or engaging with providers through Yardyman.",
+              "Localibo is a neutral platform and does not control or monitor the services of providers.",
+              "Localibo does not guarantee the accuracy of listings, availability of providers, or outcomes of services.",
+              "Users assume all risks when contacting or engaging with providers through Localibo.",
             ]} />
           </PolicySection>
 
           <PolicySection title="9. Changes to Terms">
             <Para>
-              We may update these Terms from time to time. Continued use of Yardyman after changes are posted constitutes acceptance of the revised Terms.
+              We may update these Terms from time to time. Continued use of Localibo after changes are posted constitutes acceptance of the revised Terms.
             </Para>
           </PolicySection>
 

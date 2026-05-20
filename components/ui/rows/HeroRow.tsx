@@ -10,7 +10,7 @@ export default function HeroRow() {
         Connect with local helpers for snow removal, lawn mowing, leaves removal and more, making yard care effortless all year round.
       </p>
       <button style={{ background: "#3cb371", color: "#fff", border: 0, borderRadius: 4, padding: "12px 32px", fontSize: 18, cursor: "pointer" }}>
-        Get the Yardyman app
+        Get the Localibo app
       </button>
     </section>
   );

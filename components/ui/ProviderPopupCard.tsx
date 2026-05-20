@@ -377,7 +377,7 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
                   Call
                 </a>
                 <a
-                  href={`sms:${phone}?body=${encodeURIComponent(`Hi, I found your profile on Yardyman and I'd like to get a quote for your ${serviceLabel.toLowerCase()} service. Are you available?`)}`}
+                  href={`sms:${phone}?body=${encodeURIComponent(`Hi, I found your profile on Localibo and I'd like to get a quote for your ${serviceLabel.toLowerCase()} service. Are you available?`)}`}
                   onClick={() => { trackEvent("Provider_Message_Tapped", getAnalyticsPayload()); recordInteraction("message"); }}
                   style={{
                     flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8,

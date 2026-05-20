@@ -3,7 +3,7 @@ import { BlogPostLayout, P } from "@/components/blog/BlogPostLayout";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Lawn Care & Snow Removal Services Near You in Ontario | Yardyman",
+  title: "Lawn Care & Snow Removal Services Near You in Ontario | Localibo",
   description:
     "Find local providers for bush trimming, lawn mowing, snow removal, leaf removal, gutter cleaning, and more in Newmarket, Richmond Hill, Barrie, Aurora, Vaughan, and across Ontario.",
   keywords: [
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
     "pre-emergent weed control",
     "local lawn care provider",
     "hire lawn care Ontario",
-    "yardyman services",
+    "localibo services",
   ],
   alternates: {
-    canonical: "https://yardyman.com/blog/lawn-care-services",
+    canonical: "https://localibo.com/blog/lawn-care-services",
   },
   openGraph: {
-    title: "Lawn Care & Snow Removal Services Near You in Ontario | Yardyman",
+    title: "Lawn Care & Snow Removal Services Near You in Ontario | Localibo",
     description:
       "Connect with local providers for every outdoor service — lawn mowing, bush trimming, snow removal, and more — in Newmarket, Richmond Hill, Barrie, and across Ontario.",
     type: "article",
@@ -148,13 +148,13 @@ const itemListSchema = {
   "@type": "ItemList",
   name: "Lawn Care & Snow Removal Services in Ontario",
   description:
-    "A complete list of lawn care and snow removal services available through Yardyman in Ontario.",
+    "A complete list of lawn care and snow removal services available through Localibo in Ontario.",
   numberOfItems: SERVICES.length,
   itemListElement: SERVICES.map((svc, i) => ({
     "@type": "ListItem",
     position: i + 1,
     name: svc.name,
-    url: `https://yardyman.com/blog/lawn-care-services#${svc.slug}`,
+    url: `https://localibo.com/blog/lawn-care-services#${svc.slug}`,
     description: svc.description,
   })),
 };
@@ -174,13 +174,13 @@ export default function LawnCareServicesPost() {
       >
         <P>
           Looking for a reliable local provider for lawn mowing, bush trimming,
-          snow removal, or any other outdoor service? Yardyman connects
+          snow removal, or any other outdoor service? Localibo connects
           homeowners across Ontario with vetted local providers who offer exactly
           what you need — at rates you negotiate directly, with no middleman
           taking a cut.
         </P>
         <P>
-          Below is a complete guide to every service available through Yardyman,
+          Below is a complete guide to every service available through Localibo,
           what each one involves, and why you might need it.
         </P>
 
@@ -229,7 +229,7 @@ export default function LawnCareServicesPost() {
             Find a provider near you
           </p>
           <p style={{ margin: "0 0 18px", fontSize: 14, color: "#6b7280", lineHeight: 1.6 }}>
-            Browse local providers on the Yardyman map and contact them directly
+            Browse local providers on the Localibo map and contact them directly
             — no commission, no booking fee.
           </p>
           <Link
@@ -251,7 +251,7 @@ export default function LawnCareServicesPost() {
           </h2>
           <P>
             If you offer any of the services above, make sure they&apos;re listed
-            on your Yardyman profile so homeowners in your area can find you.
+            on your Localibo profile so homeowners in your area can find you.
             The more specific your service list and description, the more calls
             you&apos;ll receive.
           </P>

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAdminDb } from "@/lib/firebaseAdmin";
 
-const BASE_URL = "https://yardyman.com";
+const BASE_URL = "https://localibo.com";
 
 const SERVICE_SLUG: Record<string, string> = {
   "service-one": "lawn-care",
@@ -25,7 +25,7 @@ const blogPosts = [
   "10-tips-returning-customers",
   "stand-out-profile-tips",
   "safe-job-practices",
-  "yardyman-vs-uber",
+  "localibo-vs-uber",
 ].map((slug) => ({
   url: `${BASE_URL}/blog/${slug}`,
   priority: 0.7,

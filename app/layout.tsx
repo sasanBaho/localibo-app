@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const BASE_URL = "https://yardyman.com";
+const BASE_URL = "https://localibo.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Find Lawn Care & Snow Removal Providers Near You | Yardyman",
-    template: "%s | Yardyman",
+    default: "Find Lawn Care & Snow Removal Providers Near You | Localibo",
+    template: "%s | Localibo",
   },
   description:
     "Find trusted, local lawn care and snow removal contractors in your area. Connect directly with vetted service providers, view ratings, and get quotes today.",
@@ -33,11 +33,11 @@ export const metadata: Metadata = {
     "hire snow removal",
     "lawn care Ontario",
     "snow removal Ontario",
-    "yardyman",
+    "localibo",
   ],
-  authors: [{ name: "Yardyman", url: BASE_URL }],
-  creator: "Yardyman",
-  publisher: "Yardyman",
+  authors: [{ name: "Localibo", url: BASE_URL }],
+  creator: "Localibo",
+  publisher: "Localibo",
   robots: {
     index: true,
     follow: true,
@@ -47,8 +47,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_CA",
     url: BASE_URL,
-    siteName: "Yardyman",
-    title: "Find Lawn Care & Snow Removal Providers Near You | Yardyman",
+    siteName: "Localibo",
+    title: "Find Lawn Care & Snow Removal Providers Near You | Localibo",
     description:
       "Find trusted, local lawn care and snow removal contractors in your area. Connect directly with vetted service providers, view ratings, and get quotes today.",
     images: [
@@ -56,20 +56,20 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Yardyman — Find Local Lawn Care & Snow Removal Providers",
+        alt: "Localibo — Find Local Lawn Care & Snow Removal Providers",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Find Lawn Care & Snow Removal Providers Near You | Yardyman",
+    title: "Find Lawn Care & Snow Removal Providers Near You | Localibo",
     description:
       "Find trusted, local lawn care and snow removal contractors in your area. Connect directly with service providers and get quotes today.",
     images: ["/og-image.png"],
   },
   icons: {
-    icon: "/yardyman-logo.png",
-    apple: "/yardyman-logo.png",
+    icon: "/localibo-logo.png",
+    apple: "/localibo-logo.png",
   },
   alternates: {
     canonical: BASE_URL,
@@ -88,15 +88,15 @@ const schemaOrg = {
     {
       "@type": "Organization",
       "@id": `${BASE_URL}/#organization`,
-      name: "Yardyman",
+      name: "Localibo",
       url: BASE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${BASE_URL}/yardyman-logo.png`,
+        url: `${BASE_URL}/localibo-logo.png`,
       },
       contactPoint: {
         "@type": "ContactPoint",
-        email: "hi@yardyman.com",
+        email: "hi@localibo.com",
         contactType: "customer support",
       },
     },
@@ -104,7 +104,7 @@ const schemaOrg = {
       "@type": "WebSite",
       "@id": `${BASE_URL}/#website`,
       url: BASE_URL,
-      name: "Yardyman",
+      name: "Localibo",
       publisher: { "@id": `${BASE_URL}/#organization` },
       potentialAction: {
         "@type": "SearchAction",
@@ -123,7 +123,7 @@ const schemaOrg = {
       provider: { "@id": `${BASE_URL}/#organization` },
       areaServed: { "@type": "Country", name: "Canada" },
       description:
-        "Find trusted local lawn care and mowing providers near you through Yardyman.",
+        "Find trusted local lawn care and mowing providers near you through Localibo.",
     },
     {
       "@type": "Service",
@@ -133,7 +133,7 @@ const schemaOrg = {
       provider: { "@id": `${BASE_URL}/#organization` },
       areaServed: { "@type": "Country", name: "Canada" },
       description:
-        "Find trusted local snow removal contractors near you through Yardyman.",
+        "Find trusted local snow removal contractors near you through Localibo.",
     },
   ],
 };

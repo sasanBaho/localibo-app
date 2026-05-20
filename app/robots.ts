@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/api/stripe/", "/api/contact/", "/api/providers/"],
     },
-    sitemap: "https://yardyman.com/sitemap.xml",
+    sitemap: "https://localibo.com/sitemap.xml",
   };
 }

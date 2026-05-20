@@ -164,7 +164,7 @@ const CreateAccountModal: React.FC<CreateAccountModalProps> = ({
             Become a Provider
           </h2>
           <p style={{ fontSize: 14, color: "#6b7280", margin: 0 }}>
-            Join Yardyman and start getting clients
+            Join Localibo and start getting clients
           </p>
         </div>
 

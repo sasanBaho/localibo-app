@@ -11,16 +11,16 @@ import {
 } from "@/components/blog/BlogPostLayout";
 
 export const metadata: Metadata = {
-  title: "The Safe and Professional Way to Do Every Job: Call Before You Start | Yardyman Blog",
+  title: "The Safe and Professional Way to Do Every Job: Call Before You Start | Localibo Blog",
   description:
-    "Discover the simple habit that every Yardyman provider should follow: always call the homeowner when you arrive before starting any work. Learn why it protects you, builds trust, and makes every job run smoother.",
+    "Discover the simple habit that every Localibo provider should follow: always call the homeowner when you arrive before starting any work. Learn why it protects you, builds trust, and makes every job run smoother.",
   keywords: [
-    "yardyman provider safety tips",
+    "localibo provider safety tips",
     "professional lawn care practices",
     "how to be a professional provider",
     "call homeowner before starting job",
     "safe job practices yard work",
-    "yardyman best practices",
+    "localibo best practices",
   ],
   openGraph: {
     title: "The Safe and Professional Way to Do Every Job: Call Before You Start",
@@ -40,7 +40,7 @@ export default function Post2() {
       readTime="5 min"
     >
       <P>
-        It takes 30 seconds. One phone call when you pull up to a property. And yet, this single habit separates the most trusted, most-booked providers on Yardyman from everyone else. It's not about the tools you use or how fast you work — it's about communication. And it starts the moment you arrive.
+        It takes 30 seconds. One phone call when you pull up to a property. And yet, this single habit separates the most trusted, most-booked providers on Localibo from everyone else. It's not about the tools you use or how fast you work — it's about communication. And it starts the moment you arrive.
       </P>
       <P>
         In this post, we'll explain exactly why calling a homeowner when you arrive — before you touch anything — is the most professional and safest thing you can do as a provider.
@@ -101,7 +101,7 @@ export default function Post2() {
       }}>
         <strong style={{ fontStyle: "normal" }}>Example:</strong>
         <br />
-        "Hi [Name], it's [Your Name] from Yardyman. I've just arrived at your property. I wanted to check in quickly before I start — is there anything specific you'd like me to focus on, or anything I should avoid? Sounds great, I'll get right to it and let you know when I'm done."
+        "Hi [Name], it's [Your Name] from Localibo. I've just arrived at your property. I wanted to check in quickly before I start — is there anything specific you'd like me to focus on, or anything I should avoid? Sounds great, I'll get right to it and let you know when I'm done."
       </div>
       <P>
         That's it. Short, professional, and reassuring. Most calls take under a minute — and the impact lasts a long time.
@@ -120,14 +120,14 @@ export default function Post2() {
         "Reduces the chance of a negative review based on a minor issue that could have been fixed on the spot",
       ]} />
       <TipBox>
-        Providers who do a completion walk-through with homeowners receive significantly more five-star reviews than those who simply finish and leave. It's one of the easiest ways to earn top ratings on Yardyman.
+        Providers who do a completion walk-through with homeowners receive significantly more five-star reviews than those who simply finish and leave. It's one of the easiest ways to earn top ratings on Localibo.
       </TipBox>
 
       <Divider />
 
       <H2>Building Trust One Job at a Time</H2>
       <P>
-        The providers who build the strongest reputations on Yardyman aren't always the fastest or the cheapest. They're the ones who communicate clearly, show up reliably, and treat every homeowner with respect. A quick phone call when you arrive is a small act that signals all three of those things at once.
+        The providers who build the strongest reputations on Localibo aren't always the fastest or the cheapest. They're the ones who communicate clearly, show up reliably, and treat every homeowner with respect. A quick phone call when you arrive is a small act that signals all three of those things at once.
       </P>
       <P>
         Start making it a habit on your very next job. You'll notice the difference immediately — in how homeowners respond, in the reviews you receive, and in the bookings that follow.

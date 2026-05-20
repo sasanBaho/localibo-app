@@ -7,7 +7,7 @@ async function getCityAndCountry(lat: number, lng: number): Promise<{ city: stri
   try {
     const res = await fetch(
       `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`,
-      { headers: { "Accept-Language": "en", "User-Agent": "YardymanApp/1.0" } }
+      { headers: { "Accept-Language": "en", "User-Agent": "LocaliboApp/1.0" } }
     );
     const data = await res.json();
     return {

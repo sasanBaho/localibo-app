@@ -5,9 +5,9 @@ import type { ReactNode } from "react";
 export const metadata: Metadata = {
   title: "Refund Policy",
   description:
-    "Yardyman offers a 30-day money-back guarantee if you don't receive any client leads. Read our full refund policy to understand eligibility and how to request a refund.",
+    "Localibo offers a 30-day money-back guarantee if you don't receive any client leads. Read our full refund policy to understand eligibility and how to request a refund.",
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://yardyman.com/refund" },
+  alternates: { canonical: "https://localibo.com/refund" },
 };
 
 function PageHeader({ title }: { title: string }) {
@@ -80,11 +80,11 @@ function ContactBox() {
     <div style={{ background: "#f0fdf4", borderRadius: 12, padding: "14px 16px", marginTop: 8 }}>
       <p style={{ margin: "0 0 5px", fontSize: 14, color: "#374151" }}>
         <strong>Email:</strong>{" "}
-        <a href="mailto:refund@yardyman.com" style={{ color: "#22c55e", textDecoration: "none" }}>refund@yardyman.com</a>
+        <a href="mailto:refund@localibo.com" style={{ color: "#22c55e", textDecoration: "none" }}>refund@localibo.com</a>
       </p>
       <p style={{ margin: 0, fontSize: 14, color: "#374151" }}>
         <strong>Website:</strong>{" "}
-        <a href="https://yardyman.com" target="_blank" rel="noopener noreferrer" style={{ color: "#22c55e", textDecoration: "none" }}>yardyman.com</a>
+        <a href="https://localibo.com" target="_blank" rel="noopener noreferrer" style={{ color: "#22c55e", textDecoration: "none" }}>localibo.com</a>
       </p>
     </div>
   );
@@ -115,19 +115,19 @@ export default function RefundPage() {
         <h2 style={{ margin: "0 0 6px", fontSize: 26, fontWeight: 700, color: "#111827" }}>Refund Policy</h2>
         <p style={{ margin: "0 0 8px", fontSize: 13, color: "#9ca3af" }}>Last updated: June 1, 2025</p>
         <p style={{ margin: "0 0 32px", fontSize: 15, color: "#6b7280", lineHeight: 1.7 }}>
-          At Yardyman, we are committed to provider satisfaction. This Refund Policy outlines the terms under which refunds may be issued. It forms part of our Terms of Use and applies to all providers who have made a purchase through our official channels.
+          At Localibo, we are committed to provider satisfaction. This Refund Policy outlines the terms under which refunds may be issued. It forms part of our Terms of Use and applies to all providers who have made a purchase through our official channels.
         </p>
 
         <div style={{ background: "#fff", borderRadius: 16, padding: "28px 24px", boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}>
 
           <PolicySection title="1. Eligibility for Refund">
             <Para>
-              We offer a 30-day money-back guarantee from the date of purchase if you did not receive any client through Yardyman. This policy applies regardless of your country of residence, ensuring a fair experience for all providers.
+              We offer a 30-day money-back guarantee from the date of purchase if you did not receive any client through Localibo. This policy applies regardless of your country of residence, ensuring a fair experience for all providers.
             </Para>
             <Para>To be eligible for a refund:</Para>
             <Bullets items={[
               "Your request must be received within thirty (30) calendar days of the original purchase date.",
-              "You must submit your request via email to refund@yardyman.com.",
+              "You must submit your request via email to refund@localibo.com.",
               "Include your phone number and the email address used during checkout.",
               "Include a brief explanation of the reason for the refund.",
               "Optionally include your order ID or the last 4 digits of your payment card for verification.",
@@ -138,7 +138,7 @@ export default function RefundPage() {
           <PolicySection title="2. Method and Processing of Refunds">
             <Bullets items={[
               "Approved refunds will be issued via PayPal.",
-              "Refunds are issued minus 2.5% of the original payment amount. This deduction reflects the Stripe commission fee that is not paid to Yardyman and therefore cannot be refunded.",
+              "Refunds are issued minus 2.5% of the original payment amount. This deduction reflects the Stripe commission fee that is not paid to Localibo and therefore cannot be refunded.",
               "We do not charge any additional refund handling or processing fees.",
             ]} />
           </PolicySection>
@@ -167,12 +167,12 @@ export default function RefundPage() {
 
           <PolicySection title="5. How to Submit a Refund Request">
             <Para>
-              Send an email to <strong>refund@yardyman.com</strong> with the subject line: <em>Refund Request &ndash; Yardyman</em>
+              Send an email to <strong>refund@localibo.com</strong> with the subject line: <em>Refund Request &ndash; Localibo</em>
             </Para>
             <Para>Your email should include:</Para>
             <Bullets items={[
               "The email address used during the original purchase.",
-              "Your name (exactly as used on Yardyman) and phone number.",
+              "Your name (exactly as used on Localibo) and phone number.",
               "A short explanation of your reason for requesting a refund.",
               "Optional: your order number or proof of purchase.",
             ]} />

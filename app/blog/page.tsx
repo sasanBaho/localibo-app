@@ -3,23 +3,23 @@ import Link from "next/link";
 import PostCard from "@/components/blog/PostCard";
 
 export const metadata: Metadata = {
-  title: "Yardyman Blog — Tips for Lawn Care & Snow Removal Providers",
+  title: "Localibo Blog — Tips for Lawn Care & Snow Removal Providers",
   description:
-    "Practical tips and guides to help Yardyman providers attract more clients, work safely, and build a thriving yard care business. Written by the Yardyman team.",
+    "Practical tips and guides to help Localibo providers attract more clients, work safely, and build a thriving yard care business. Written by the Localibo team.",
   keywords: [
-    "yardyman blog",
+    "localibo blog",
     "lawn care provider tips",
     "snow removal business tips",
     "how to grow yard care business",
-    "yardyman provider guide",
+    "localibo provider guide",
     "lawn mowing side hustle",
     "make extra money lawn care",
-    "yardyman vs uber",
+    "localibo vs uber",
   ],
   openGraph: {
-    title: "Yardyman Blog — Tips for Lawn Care & Snow Removal Providers",
+    title: "Localibo Blog — Tips for Lawn Care & Snow Removal Providers",
     description:
-      "Practical guides to help Yardyman providers win more clients and grow their business.",
+      "Practical guides to help Localibo providers win more clients and grow their business.",
     type: "website",
   },
 };
@@ -50,11 +50,11 @@ const POSTS = [
     image: "/lawn-mowing.png",
   },
   {
-    slug: "yardyman-vs-uber",
+    slug: "localibo-vs-uber",
     category: "Grow Your Business",
-    title: "Working as a Yardyman Provider vs. Driving for Uber: Which Pays More?",
+    title: "Working as a Localibo Provider vs. Driving for Uber: Which Pays More?",
     excerpt:
-      "Uber takes 25–30% of every ride. Yardyman takes nothing. Here's an honest side-by-side comparison of real earnings, schedule freedom, and long-term income potential.",
+      "Uber takes 25–30% of every ride. Localibo takes nothing. Here's an honest side-by-side comparison of real earnings, schedule freedom, and long-term income potential.",
     readTime: "8 min",
     date: "May 7, 2025",
     accent: "#6366f1",
@@ -158,7 +158,7 @@ export default function BlogPage() {
             </svg>
           </div>
           <h2 style={{ margin: "0 0 10px", fontSize: 28, fontWeight: 800, color: "#111827" }}>
-            Yardyman Blog
+            Localibo Blog
           </h2>
           <p style={{ margin: 0, fontSize: 15, color: "#6b7280", lineHeight: 1.7, maxWidth: 500 }}>
             Practical tips and guides to help providers attract more clients, work professionally, and build a business that grows every season.
@@ -185,7 +185,7 @@ export default function BlogPage() {
             Not a provider yet?
           </p>
           <p style={{ margin: "0 0 20px", fontSize: 14, color: "#6b7280", lineHeight: 1.6 }}>
-            Join Yardyman and start connecting with homeowners in your area. It only takes a few minutes to create your profile.
+            Join Localibo and start connecting with homeowners in your area. It only takes a few minutes to create your profile.
           </p>
           <Link href="/" style={{
             display: "inline-block",

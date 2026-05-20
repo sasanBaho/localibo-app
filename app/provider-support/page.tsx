@@ -314,7 +314,7 @@ export default function ProviderSupportPage() {
               {status === "error" && (
                 <p style={{ margin: 0, fontSize: 13, color: "#dc2626", background: "#fef2f2", border: "1px solid #fecaca", borderRadius: 8, padding: "10px 14px" }}>
                   {errorMsg || "Something went wrong. Please try again or email us directly at"}{" "}
-                  {!errorMsg && <a href="mailto:support@yardyman.com" style={{ color: "#dc2626", fontWeight: 600 }}>support@yardyman.com</a>}
+                  {!errorMsg && <a href="mailto:support@localibo.com" style={{ color: "#dc2626", fontWeight: 600 }}>support@localibo.com</a>}
                   {!errorMsg && "."}
                 </p>
               )}
@@ -359,7 +359,7 @@ export default function ProviderSupportPage() {
           />
           <FaqItem
             question="How do homeowners find my profile?"
-            answer="Once you create an account and enable availability, your profile appears as a pin on the Yardyman map for homeowners in your area."
+            answer="Once you create an account and enable availability, your profile appears as a pin on the Localibo map for homeowners in your area."
           />
           <FaqItem
             question="What happens after my free trial ends?"
