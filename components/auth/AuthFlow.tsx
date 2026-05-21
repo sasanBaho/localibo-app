@@ -200,6 +200,8 @@ const AuthFlow: React.FC<AuthFlowProps> = ({
         description: servicesData.descriptions,
         hasTools: servicesData.hasTools,
         paymentMethods: servicesData.paymentMethods,
+        hasDelivery: servicesData.hasDelivery,
+        serviceLocation: servicesData.serviceLocation,
         subscriptionStatus: "unsubscribed",
         isAvailable: true,
         instagramID: "",
@@ -207,8 +209,6 @@ const AuthFlow: React.FC<AuthFlowProps> = ({
         gotCallCount: 0,
         gotMessageCount: 0,
         instaViewCount: 0,
-        hasDelivery: false,
-        serviceLocation: [],
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
       });

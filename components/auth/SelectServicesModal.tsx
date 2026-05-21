@@ -36,12 +36,14 @@ export interface ServicesFormData {
   descriptions: Record<string, string>;
   hasTools: boolean;
   paymentMethods: string[];
+  serviceLocation: string[];
+  hasDelivery: boolean;
 }
 
 interface SelectServicesModalProps {
   onClose: () => void;
   onDone: (data: ServicesFormData) => void;
-  initialData?: ServicesFormData;
+  initialData?: Partial<ServicesFormData>;
 }
 
 const Checkbox: React.FC<{ checked: boolean; onChange: () => void }> = ({ checked, onChange }) => (
@@ -89,66 +91,70 @@ const RadioDot: React.FC<{ checked: boolean; onChange: () => void }> = ({ checke
   />
 );
 
+const SERVICE_LOCATION_OPTIONS = [
+  { value: "onCustomerLocation", label: "At customer's location" },
+  { value: "onProviderLocation", label: "At provider's location" },
+];
+
 const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDone, initialData }) => {
   const [services, setServices] = useState<Record<ServiceId, ServiceState>>(() => {
-    if (initialData) {
-      return {
-        "service-one": {
-          selected: initialData.selectedServices.includes("service-one"),
-          description: initialData.descriptions["service-one"] ?? "",
-          hasTools: false,
-        },
-        "service-two": {
-          selected: initialData.selectedServices.includes("service-two"),
-          description: initialData.descriptions["service-two"] ?? "",
-          hasTools: false,
-        },
-        "service-three": {
-          selected: initialData.selectedServices.includes("service-three"),
-          description: initialData.descriptions["service-three"] ?? "",
-          hasTools: false,
-        },
-      };
-    }
+    const sel = initialData?.selectedServices ?? [];
+    const desc = initialData?.descriptions ?? {};
     return {
-      "service-one": { selected: false, description: "", hasTools: false },
-      "service-two": { selected: false, description: "", hasTools: false },
-      "service-three": { selected: false, description: "", hasTools: false },
+      "service-one": { selected: sel.includes("service-one"), description: desc["service-one"] ?? "", hasTools: false },
+      "service-two": { selected: sel.includes("service-two"), description: desc["service-two"] ?? "", hasTools: false },
+      "service-three": { selected: sel.includes("service-three"), description: desc["service-three"] ?? "", hasTools: false },
     };
   });
+
   const [payments, setPayments] = useState<Record<string, boolean>>(() => {
-    if (initialData) {
-      return {
-        Cash: initialData.paymentMethods.includes("Cash"),
-        "Credit Card": initialData.paymentMethods.includes("Credit Card"),
-        "e-Transfer": initialData.paymentMethods.includes("e-Transfer"),
-      };
-    }
-    return { Cash: false, "Credit Card": false, "e-Transfer": false };
+    const pm = initialData?.paymentMethods ?? [];
+    return {
+      Cash: pm.includes("Cash"),
+      "Credit Card": pm.includes("Credit Card"),
+      "e-Transfer": pm.includes("e-Transfer"),
+    };
   });
+
+  const [serviceLocation, setServiceLocation] = useState<string[]>(
+    initialData?.serviceLocation ?? []
+  );
+
+  const [hasDelivery, setHasDelivery] = useState<boolean | null>(
+    initialData?.hasDelivery !== undefined ? initialData.hasDelivery : null
+  );
 
   const update = (id: ServiceId, patch: Partial<ServiceState>) =>
     setServices((prev) => ({ ...prev, [id]: { ...prev[id], ...patch } }));
 
+  const toggleLocation = (value: string) =>
+    setServiceLocation((prev) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
+    );
+
   const selected = SERVICES.filter((s) => services[s.id].selected);
   const allDescribed = selected.every((s) => services[s.id].description.trim());
   const anyPayment = Object.values(payments).some(Boolean);
-  const canDone = selected.length > 0 && allDescribed && anyPayment;
+
+  const hasBeautyOrTailor = services["service-one"].selected || services["service-two"].selected;
+  const hasCook = services["service-three"].selected;
+  const locationValid = !hasBeautyOrTailor || serviceLocation.length > 0;
+  const deliveryValid = !hasCook || hasDelivery !== null;
+
+  const canDone = selected.length > 0 && allDescribed && anyPayment && locationValid && deliveryValid;
 
   const handleDone = () => {
     if (!canDone) return;
     const selectedIds = selected.map((s) => s.id);
     const descriptions: Record<string, string> = {};
-    selectedIds.forEach((id) => {
-      descriptions[id] = services[id].description;
-    });
+    selectedIds.forEach((id) => { descriptions[id] = services[id].description; });
     onDone({
       selectedServices: selectedIds,
       descriptions,
       hasTools: initialData?.hasTools ?? false,
-      paymentMethods: Object.entries(payments)
-        .filter(([, v]) => v)
-        .map(([k]) => k),
+      paymentMethods: Object.entries(payments).filter(([, v]) => v).map(([k]) => k),
+      serviceLocation: hasBeautyOrTailor ? serviceLocation : [],
+      hasDelivery: hasCook ? (hasDelivery ?? false) : false,
     });
   };
 
@@ -189,7 +195,6 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
                   background: state.selected ? "rgba(0,0,0,0.25)" : "rgba(0,0,0,0.08)",
                 }}
               />
-              {/* Service label with inline circle indicator */}
               <div
                 style={{
                   position: "absolute",
@@ -230,7 +235,6 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
 
             {state.selected && (
               <>
-                
                 <label style={{ fontWeight: 600, fontSize: 15, display: "block", marginBottom: 6 }}>
                   Description: <span style={{ color: "#e53e3e" }}>*</span>
                 </label>
@@ -249,52 +253,62 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
                     resize: "none",
                     boxSizing: "border-box",
                     fontFamily: "inherit",
-                    marginBottom: svc.hasToolsOption ? 12 : 0,
+                    marginBottom: 0,
                   }}
                 />
-                <a
-                  href="/blog/lawn-care-services"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ display: "inline-block", fontSize: 12, color: "#a393c9", fontWeight: 600, textDecoration: "none", marginBottom: 10 }}
-                >
-                Service suggestions you can add to your description →
-                </a>
               </>
-            )}
-
-            {/* Tools radio — always visible for snow service */}
-            {svc.hasToolsOption && (
-              <div style={{ marginTop: state.selected ? 0 : 4 }}>
-                {(["I have tools", "I will use home-owner's tools"] as const).map(
-                  (label, i) => {
-                    const isChecked = i === 0 ? state.hasTools : !state.hasTools;
-                    return (
-                      <label
-                        key={label}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 10,
-                          cursor: "pointer",
-                          marginBottom: 8,
-                          fontSize: 15,
-                        }}
-                      >
-                        <RadioDot
-                          checked={isChecked}
-                          onChange={() => update(svc.id, { hasTools: i === 0 })}
-                        />
-                        {label}
-                      </label>
-                    );
-                  }
-                )}
-              </div>
             )}
           </div>
         );
       })}
+
+      {/* Service location — shown once when beauty or tailor is selected */}
+      {hasBeautyOrTailor && (
+        <div style={{ marginBottom: 28 }}>
+          <label style={{ fontWeight: 700, fontSize: 16, display: "block", marginBottom: 6 }}>
+            Service location: <span style={{ color: "#e53e3e" }}>*</span>
+          </label>
+          <p style={{ color: "#888", fontSize: 13, marginBottom: 12, marginTop: 0 }}>
+            Where do you perform your service?
+          </p>
+          {SERVICE_LOCATION_OPTIONS.map((opt) => (
+            <label
+              key={opt.value}
+              style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer", marginBottom: 12, fontSize: 15 }}
+            >
+              <Checkbox
+                checked={serviceLocation.includes(opt.value)}
+                onChange={() => toggleLocation(opt.value)}
+              />
+              {opt.label}
+            </label>
+          ))}
+        </div>
+      )}
+
+      {/* Delivery — shown when cook is selected */}
+      {hasCook && (
+        <div style={{ marginBottom: 28 }}>
+          <label style={{ fontWeight: 700, fontSize: 16, display: "block", marginBottom: 6 }}>
+            Delivery: <span style={{ color: "#e53e3e" }}>*</span>
+          </label>
+          <p style={{ color: "#888", fontSize: 13, marginBottom: 12, marginTop: 0 }}>
+            Do you offer delivery?
+          </p>
+          {([{ label: "Has delivery", value: true }, { label: "Client pickup", value: false }] as const).map((opt) => (
+            <label
+              key={opt.label}
+              style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer", marginBottom: 12, fontSize: 15 }}
+            >
+              <RadioDot
+                checked={hasDelivery === opt.value}
+                onChange={() => setHasDelivery(opt.value)}
+              />
+              {opt.label}
+            </label>
+          ))}
+        </div>
+      )}
 
       {/* Payment methods */}
       <div style={{ marginBottom: 32 }}>
@@ -305,19 +319,11 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
           {Object.keys(payments).map((method) => (
             <label
               key={method}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-                cursor: "pointer",
-                fontSize: 15,
-              }}
+              style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", fontSize: 15 }}
             >
               <Checkbox
                 checked={payments[method]}
-                onChange={() =>
-                  setPayments((prev) => ({ ...prev, [method]: !prev[method] }))
-                }
+                onChange={() => setPayments((prev) => ({ ...prev, [method]: !prev[method] }))}
               />
               {method}
             </label>

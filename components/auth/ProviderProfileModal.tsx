@@ -44,6 +44,8 @@ export interface ProviderProfile {
   descriptions: Record<string, string>;
   hasTools: boolean;
   paymentMethods: string[];
+  serviceLocation?: string[];
+  hasDelivery?: boolean;
   isAvailable: boolean;
   profileViews: number;
   subscriptionStatus?: string;
@@ -375,6 +377,8 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
         description: data.descriptions,
         hasTools: data.hasTools,
         paymentMethods: data.paymentMethods,
+        hasDelivery: data.hasDelivery,
+        serviceLocation: data.serviceLocation,
       });
       const updated: ProviderProfile = {
         ...profileState,
@@ -438,6 +442,8 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
           descriptions: profileState.descriptions,
           hasTools: profileState.hasTools,
           paymentMethods: profileState.paymentMethods,
+          serviceLocation: profileState.serviceLocation ?? [],
+          hasDelivery: profileState.hasDelivery ?? false,
         }}
       />
     );
