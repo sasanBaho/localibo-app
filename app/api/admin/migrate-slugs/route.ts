@@ -11,44 +11,57 @@ export async function POST(req: NextRequest) {
   }
 
   const db = getAdminDb();
-  const snap = await db
-    .collection("providers")
-    .orderBy("profileViewCount", "desc")
-    .get();
+  const snap = await db.collection("providers").get();
 
-  // Track slugs per city to handle collisions: city -> Set of used nameSlug values
+  // Build a map of already-assigned slugs per city so we handle collisions correctly
+  // across ALL providers (not just ones being updated)
   const usedSlugs: Record<string, Set<string>> = {};
+  for (const docSnap of snap.docs) {
+    const d = docSnap.data();
+    if (d.citySlug && d.nameSlug) {
+      if (!usedSlugs[d.citySlug]) usedSlugs[d.citySlug] = new Set();
+      usedSlugs[d.citySlug].add(d.nameSlug);
+    }
+  }
 
-  const batch = db.batch();
-  let count = 0;
+  let updated = 0;
+  let skipped = 0;
+  let batch = db.batch();
+  let batchCount = 0;
 
   for (const docSnap of snap.docs) {
     const d = docSnap.data();
+
+    // Skip providers that already have all three fields
+    if (d.citySlug && d.nameSlug && d.nameSlugBase) {
+      skipped++;
+      continue;
+    }
+
     const citySlug = slugifyStr(d.city ?? "");
     const nameBase = slugifyStr(d.providerName ?? "");
-
-    if (!citySlug || !nameBase) continue;
+    if (!citySlug || !nameBase) { skipped++; continue; }
 
     if (!usedSlugs[citySlug]) usedSlugs[citySlug] = new Set();
 
     let nameSlug = nameBase;
-    if (usedSlugs[citySlug].has(nameBase)) {
-      let i = 2;
-      while (usedSlugs[citySlug].has(`${nameBase}-${i}`)) i++;
+    for (let i = 2; usedSlugs[citySlug].has(nameSlug); i++) {
       nameSlug = `${nameBase}-${i}`;
     }
     usedSlugs[citySlug].add(nameSlug);
 
     batch.update(docSnap.ref, { citySlug, nameSlug, nameSlugBase: nameBase });
-    count++;
+    updated++;
+    batchCount++;
 
-    // Firestore batch limit is 500
-    if (count % 499 === 0) {
+    if (batchCount === 499) {
       await batch.commit();
+      batch = db.batch();
+      batchCount = 0;
     }
   }
 
-  await batch.commit();
+  if (batchCount > 0) await batch.commit();
 
-  return NextResponse.json({ ok: true, updated: count });
+  return NextResponse.json({ ok: true, updated, skipped });
 }

@@ -4,6 +4,7 @@ import { ConfirmationResult, UserCredential } from "firebase/auth";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 import { auth, storage, db, collection, query, where, getDocs, setDoc, doc, serverTimestamp } from "@/firebase";
+import { slugifyStr } from "@/lib/slugify";
 import LoginModal from "./LoginModal";
 import CreateAccountModal, { SignupFormData } from "./CreateAccountModal";
 import VerifyCodeModal from "./VerifyCodeModal";
@@ -184,6 +185,15 @@ const AuthFlow: React.FC<AuthFlowProps> = ({
         country = location.country;
       }
 
+      const citySlug = slugifyStr(city);
+      const nameBase = slugifyStr(signupData.name);
+      const existingSnap = await getDocs(
+        query(collection(db, "providers"), where("citySlug", "==", citySlug), where("nameSlugBase", "==", nameBase))
+      );
+      let nameSlug = nameBase;
+      const usedSlugs = new Set(existingSnap.docs.filter((d) => d.id !== user.uid).map((d) => d.data().nameSlug as string));
+      for (let i = 2; usedSlugs.has(nameSlug); i++) nameSlug = `${nameBase}-${i}`;
+
       await setDoc(doc(db, "providers", user.uid), {
         uid: user.uid,
         id: user.uid,
@@ -196,6 +206,9 @@ const AuthFlow: React.FC<AuthFlowProps> = ({
         geohash: encodeGeohash(lat, lng),
         city,
         country,
+        citySlug,
+        nameSlug,
+        nameSlugBase: nameBase,
         selectedServices: servicesData.selectedServices,
         description: servicesData.descriptions,
         hasTools: servicesData.hasTools,

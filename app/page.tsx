@@ -271,6 +271,9 @@ export default function Home() {
             ratingsCount: d.ratingsCount,
             latitude: d.latitude,
             longitude: d.longitude,
+            citySlug: d.citySlug,
+            nameSlug: d.nameSlug,
+            nameSlugBase: d.nameSlugBase,
           });
           setProviderLocation({ lat: d.latitude ?? 0, lng: d.longitude ?? 0 });
           setProviderStripeSubId(d.stripeSubscriptionId ?? null);
@@ -349,6 +352,9 @@ export default function Home() {
             ratingsCount: data.ratingsCount,
             latitude: data.latitude,
             longitude: data.longitude,
+            citySlug: data.citySlug,
+            nameSlug: data.nameSlug,
+            nameSlugBase: data.nameSlugBase,
           });
           setProviderStripeSubId(data.stripeSubscriptionId ?? null);
           if (data.latitude && data.longitude) {
@@ -817,6 +823,9 @@ export default function Home() {
                 ratingsCount: data.ratingsCount,
                 latitude: data.latitude,
                 longitude: data.longitude,
+                citySlug: data.citySlug,
+                nameSlug: data.nameSlug,
+                nameSlugBase: data.nameSlugBase,
               });
               if (data.latitude && data.longitude) {
                 setProviderLocation({ lat: data.latitude, lng: data.longitude });
