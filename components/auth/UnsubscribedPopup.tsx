@@ -54,11 +54,11 @@ const UnsubscribedPopup: React.FC<UnsubscribedPopupProps> = ({
         </div>
 
         {profileViews > 0 && (
-          <div style={{ background: "#f0fdf4", borderRadius: 12, padding: "12px 16px", marginBottom: 16, display: "flex", alignItems: "center", gap: 10 }}>
-            <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+          <div style={{ background: "#ede9fe", borderRadius: 12, padding: "12px 16px", marginBottom: 16, display: "flex", alignItems: "center", gap: 10 }}>
+            <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
               <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" />
             </svg>
-            <p style={{ margin: 0, fontSize: 14, color: "#166534" }}>
+            <p style={{ margin: 0, fontSize: 14, color: "#6b21a8" }}>
               You had <strong>{profileViews}</strong> profile {profileViews === 1 ? "view" : "views"} — reactivate to start getting customers.
             </p>
           </div>
@@ -72,7 +72,7 @@ const UnsubscribedPopup: React.FC<UnsubscribedPopupProps> = ({
 
         <button
           onClick={onGoLive}
-          style={{ width: "100%", padding: "15px 0", borderRadius: 999, background: "#22c55e", color: "#fff", fontWeight: 700, fontSize: 17, border: "none", cursor: "pointer", marginBottom: 10 }}
+          style={{ width: "100%", padding: "15px 0", borderRadius: 999, background: "#a393c9", color: "#fff", fontWeight: 700, fontSize: 17, border: "none", cursor: "pointer", marginBottom: 10 }}
         >
           {isCancelled ? "Reactivate Subscription" : "Start 30-Day Free Trial"}
         </button>

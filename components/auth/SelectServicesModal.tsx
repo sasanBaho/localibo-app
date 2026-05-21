@@ -51,8 +51,8 @@ const Checkbox: React.FC<{ checked: boolean; onChange: () => void }> = ({ checke
       width: 22,
       height: 22,
       borderRadius: 5,
-      border: `2px solid ${checked ? "#22c55e" : "#ccc"}`,
-      background: checked ? "#22c55e" : "#fff",
+      border: `2px solid ${checked ? "#a393c9" : "#ccc"}`,
+      background: checked ? "#a393c9" : "#fff",
       cursor: "pointer",
       display: "flex",
       alignItems: "center",
@@ -81,8 +81,8 @@ const RadioDot: React.FC<{ checked: boolean; onChange: () => void }> = ({ checke
       width: 22,
       height: 22,
       borderRadius: "50%",
-      border: `2px solid ${checked ? "#22c55e" : "#ccc"}`,
-      background: checked ? "#22c55e" : "#fff",
+      border: `2px solid ${checked ? "#a393c9" : "#ccc"}`,
+      background: checked ? "#a393c9" : "#fff",
       cursor: "pointer",
       flexShrink: 0,
     }}
@@ -153,7 +153,7 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
   };
 
   return (
-    <ModalBase onClose={onClose} closeButtonColor="#22c55e">
+    <ModalBase onClose={onClose} closeButtonColor="#a393c9">
       <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 4, paddingRight: 40, marginTop: 4 }}>
         Select your service(s):
       </h2>
@@ -211,7 +211,7 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
                   width: 26,
                   height: 26,
                   borderRadius: "50%",
-                  background: state.selected ? "#22c55e" : "#fff",
+                  background: state.selected ? "#a393c9" : "#fff",
                   border: state.selected ? "none" : "2px solid #bbb",
                   display: "flex",
                   alignItems: "center",
@@ -256,7 +256,7 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
                   href="/blog/lawn-care-services"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ display: "inline-block", fontSize: 12, color: "#22c55e", fontWeight: 600, textDecoration: "none", marginBottom: 10 }}
+                  style={{ display: "inline-block", fontSize: 12, color: "#a393c9", fontWeight: 600, textDecoration: "none", marginBottom: 10 }}
                 >
                 Service suggestions you can add to your description →
                 </a>
@@ -331,7 +331,7 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
         style={{
           width: "100%",
           padding: "18px",
-          background: canDone ? "#22c55e" : "#ddd",
+          background: canDone ? "#a393c9" : "#ddd",
           color: "#fff",
           border: "none",
           borderRadius: 999,

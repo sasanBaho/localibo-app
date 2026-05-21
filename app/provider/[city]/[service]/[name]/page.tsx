@@ -354,12 +354,12 @@ export default async function ProviderPage({
                       {paymentMethods.map((method: string) => (
                         <span key={method} style={{
                           display: "inline-flex", alignItems: "center", gap: 5,
-                          background: "#f0fdf4", border: "1px solid #bbf7d0",
+                          background: "#ede9fe", border: "1px solid #c4b5fd",
                           borderRadius: 999, padding: "5px 11px",
-                          fontSize: 12, fontWeight: 600, color: "#166534",
+                          fontSize: 12, fontWeight: 600, color: "#6b21a8",
                         }}>
                           <svg width={12} height={12} viewBox="0 0 20 20" fill="none">
-                            <path d="M5 10.5L9 14.5L15 7.5" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M5 10.5L9 14.5L15 7.5" stroke="#a393c9" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                           {method}
                         </span>

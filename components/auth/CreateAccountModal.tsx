@@ -59,7 +59,7 @@ const CreateAccountModal: React.FC<CreateAccountModalProps> = ({
     width: "100%",
     padding: "14px 16px",
     background: "#f9fafb",
-    border: `1.5px solid ${focusedField === fieldName ? "#22c55e" : hasError ? "#f87171" : "#e5e7eb"}`,
+    border: `1.5px solid ${focusedField === fieldName ? "#a393c9" : hasError ? "#f87171" : "#e5e7eb"}`,
     borderRadius: 12,
     fontSize: 15,
     outline: "none",
@@ -126,7 +126,7 @@ const CreateAccountModal: React.FC<CreateAccountModalProps> = ({
         />
       )}
 
-      <ModalBase onClose={onClose} closeButtonColor="#22c55e">
+      <ModalBase onClose={onClose} closeButtonColor="#a393c9">
         <div id="recaptcha-create" />
 
         {/* Hidden file input — "image/*" lets iOS show its native Camera/Library sheet */}
@@ -147,13 +147,13 @@ const CreateAccountModal: React.FC<CreateAccountModalProps> = ({
             width: 56,
             height: 56,
             borderRadius: "50%",
-            background: "#f0fdf4",
+            background: "#ede9fe",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             margin: "0 auto 14px",
           }}>
-            <svg width={28} height={28} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width={28} height={28} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" />
               <circle cx="9" cy="7" r="4" />
               <line x1="19" y1="8" x2="19" y2="14" />
@@ -178,8 +178,8 @@ const CreateAccountModal: React.FC<CreateAccountModalProps> = ({
               width: 100,
               height: 100,
               borderRadius: "50%",
-              background: photoPreview ? "transparent" : "#f0fdf4",
-              border: photoPreview ? "3px solid #22c55e" : "2px dashed #86efac",
+              background: photoPreview ? "transparent" : "#ede9fe",
+              border: photoPreview ? "3px solid #a393c9" : "2px dashed #c4b5fd",
               cursor: "pointer",
               display: "flex",
               flexDirection: "column",
@@ -215,11 +215,11 @@ const CreateAccountModal: React.FC<CreateAccountModalProps> = ({
               </>
             ) : (
               <>
-                <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" />
                   <circle cx="12" cy="13" r="4" />
                 </svg>
-                <span style={{ color: "#22c55e", fontSize: 11, marginTop: 6, fontWeight: 600 }}>Add Photo</span>
+                <span style={{ color: "#a393c9", fontSize: 11, marginTop: 6, fontWeight: 600 }}>Add Photo</span>
               </>
             )}
           </button>
@@ -300,7 +300,7 @@ const CreateAccountModal: React.FC<CreateAccountModalProps> = ({
           style={{
             width: "100%",
             padding: "16px",
-            background: isValid && !loading ? "#22c55e" : "#e5e7eb",
+            background: isValid && !loading ? "#a393c9" : "#e5e7eb",
             color: isValid && !loading ? "#fff" : "#9ca3af",
             border: "none",
             borderRadius: 14,
@@ -328,7 +328,7 @@ const CreateAccountModal: React.FC<CreateAccountModalProps> = ({
             style={{
               background: "none",
               border: "none",
-              color: "#22c55e",
+              color: "#a393c9",
               fontSize: 15,
               fontWeight: 700,
               cursor: "pointer",

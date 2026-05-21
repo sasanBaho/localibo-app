@@ -72,7 +72,7 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ onClose, onPlanSe
   }, []);
 
   return (
-    <ModalBase onClose={onClose} closeButtonColor="#22c55e">
+    <ModalBase onClose={onClose} closeButtonColor="#a393c9">
       <div style={{ paddingTop: 8 }}>
         <h2 style={{ margin: "0 0 4px", fontSize: 22, fontWeight: 800, color: "#111" }}>
           Choose a Plan
@@ -123,8 +123,8 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ onClose, onPlanSe
                     justifyContent: "space-between",
                     padding: "16px 18px",
                     borderRadius: 16,
-                    border: isSelected ? "2.5px solid #22c55e" : "2px solid #e5e7eb",
-                    background: isSelected ? "#f0fdf4" : "#fff",
+                    border: isSelected ? "2.5px solid #a393c9" : "2px solid #e5e7eb",
+                    background: isSelected ? "#ede9fe" : "#fff",
                     cursor: "pointer",
                     textAlign: "left",
                     transition: "border-color 0.15s, background 0.15s",
@@ -151,7 +151,7 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ onClose, onPlanSe
                       position: "absolute",
                       top: -11,
                       right: 14,
-                      background: "#22c55e",
+                      background: "#a393c9",
                       color: "#fff",
                       fontSize: 11,
                       fontWeight: 700,
@@ -167,8 +167,8 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ onClose, onPlanSe
                       width: 22,
                       height: 22,
                       borderRadius: "50%",
-                      border: isSelected ? "2px solid #22c55e" : "2px solid #d1d5db",
-                      background: isSelected ? "#22c55e" : "#fff",
+                      border: isSelected ? "2px solid #a393c9" : "2px solid #d1d5db",
+                      background: isSelected ? "#a393c9" : "#fff",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -212,17 +212,17 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ onClose, onPlanSe
         <div style={{
           marginTop: 20,
           padding: "12px 14px",
-          background: "#f0fdf4",
+          background: "#ede9fe",
           borderRadius: 12,
           display: "flex",
           gap: 10,
           alignItems: "flex-start",
         }}>
           <svg width={18} height={18} viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0, marginTop: 1 }}>
-            <circle cx="12" cy="12" r="10" stroke="#22c55e" strokeWidth="2" />
-            <path d="M12 8v4m0 4h.01" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" />
+            <circle cx="12" cy="12" r="10" stroke="#a393c9" strokeWidth="2" />
+            <path d="M12 8v4m0 4h.01" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" />
           </svg>
-          <p style={{ margin: 0, fontSize: 13, color: "#166534", lineHeight: 1.5 }}>
+          <p style={{ margin: 0, fontSize: 13, color: "#6b21a8", lineHeight: 1.5 }}>
             Your first month is completely free. Your card won't be charged until after the trial ends.
           </p>
         </div>
@@ -235,7 +235,7 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ onClose, onPlanSe
             width: "100%",
             padding: "15px 0",
             borderRadius: 999,
-            background: selectedPriceId && !loading && !fetching ? "#22c55e" : "#d1d5db",
+            background: selectedPriceId && !loading && !fetching ? "#a393c9" : "#d1d5db",
             color: "#fff",
             fontWeight: 700,
             fontSize: 17,

@@ -52,13 +52,13 @@ export default function HowToEnableLocationPage() {
             width: 64,
             height: 64,
             borderRadius: "50%",
-            background: "#f0fdf4",
+            background: "#ede9fe",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             margin: "0 auto 16px",
           }}>
-            <svg width={30} height={30} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width={30} height={30} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
@@ -101,7 +101,7 @@ export default function HowToEnableLocationPage() {
             display: "inline-flex",
             alignItems: "center",
             gap: 8,
-            background: "#22c55e",
+            background: "#a393c9",
             color: "#fff",
             fontWeight: 700,
             fontSize: 15,

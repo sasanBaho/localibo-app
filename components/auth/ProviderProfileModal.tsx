@@ -78,7 +78,7 @@ const GreenCheck: React.FC = () => (
       width: 14,
       height: 14,
       borderRadius: "50%",
-      background: "#22c55e",
+      background: "#a393c9",
       flexShrink: 0,
     }}
   >
@@ -447,7 +447,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
     return (
       <div style={{ position: "fixed", inset: 0, zIndex: 600, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,0.45)" }}>
         <div style={{ background: "#fff", borderRadius: 16, padding: "32px 40px", textAlign: "center" }}>
-          <div style={{ width: 40, height: 40, border: "4px solid #e0e0e0", borderTopColor: "#22c55e", borderRadius: "50%", animation: "spin 0.8s linear infinite", margin: "0 auto 16px" }} />
+          <div style={{ width: 40, height: 40, border: "4px solid #e0e0e0", borderTopColor: "#a393c9", borderRadius: "50%", animation: "spin 0.8s linear infinite", margin: "0 auto 16px" }} />
           <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
           <p style={{ margin: 0, fontWeight: 600, fontSize: 16 }}>Saving changes…</p>
         </div>
@@ -469,7 +469,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
     return (
       <div style={{ position: "fixed", inset: 0, zIndex: 600, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,0.45)" }}>
         <div style={{ background: "#fff", borderRadius: 16, padding: "32px 40px", textAlign: "center" }}>
-          <div style={{ width: 40, height: 40, border: "4px solid #e0e0e0", borderTopColor: "#22c55e", borderRadius: "50%", animation: "spin 0.8s linear infinite", margin: "0 auto 16px" }} />
+          <div style={{ width: 40, height: 40, border: "4px solid #e0e0e0", borderTopColor: "#a393c9", borderRadius: "50%", animation: "spin 0.8s linear infinite", margin: "0 auto 16px" }} />
           <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
           <p style={{ margin: 0, fontWeight: 600, fontSize: 16 }}>Uploading photo…</p>
         </div>
@@ -569,7 +569,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
               width: 32,
               height: 32,
               borderRadius: "50%",
-              background: "#22c55e",
+              background: "#a393c9",
               border: "none",
               color: "#fff",
               fontSize: 20,
@@ -600,7 +600,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                   width: 103,
                   height: 103,
                   borderRadius: "50%",
-                  background: "#22c55e" , // outer colored circle
+                  background: "#a393c9" , // outer colored circle
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -625,7 +625,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                   height: 100,
                   borderRadius: "50%",
                   background: "#ccc",
-                  border: "3px solid #22c55e",
+                  border: "3px solid #a393c9",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -647,7 +647,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                 width: 30,
                 height: 30,
                 borderRadius: "50%",
-                background: "#22c55e",
+                background: "#a393c9",
                 border: "none",
                 display: "flex",
                 alignItems: "center",
@@ -689,7 +689,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                     fontSize: 18,
                     fontWeight: 700,
                     border: "none",
-                    borderBottom: "2px solid #22c55e",
+                    borderBottom: "2px solid #a393c9",
                     outline: "none",
                     background: "transparent",
                     textAlign: "center",
@@ -701,7 +701,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                   onClick={handleNameSave}
                   disabled={savingName}
                   style={{
-                    background: "#22c55e",
+                    background: "#a393c9",
                     border: "none",
                     borderRadius: 999,
                     color: "#fff",
@@ -733,7 +733,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                   style={{ background: "none", border: "none", cursor: "pointer", padding: 0 }}
                   aria-label="Edit name"
                 >
-                  <svg width={17} height={17} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2">
+                  <svg width={17} height={17} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2">
                     <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
                     <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
                   </svg>
@@ -763,7 +763,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                 <circle cx="12" cy="10" r="3" />
               </svg>
               <span style={{ textDecoration: "underline" }}>{profileState.city}</span>
-              <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
                 <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
               </svg>
@@ -778,7 +778,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                 style={{ background: "none", border: "none", cursor: "pointer", padding: 0, marginLeft: 2 }}
                 aria-label="Edit phone"
               >
-                <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2">
+                <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2">
                   <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
                   <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
                 </svg>
@@ -808,7 +808,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                     placeholder="+1 (555) 000-0000"
                     type="tel"
                     autoFocus
-                    style={{ width: "100%", fontSize: 15, border: "none", borderBottom: "2px solid #22c55e", outline: "none", background: "transparent", padding: "4px 2px", marginBottom: 8, boxSizing: "border-box" }}
+                    style={{ width: "100%", fontSize: 15, border: "none", borderBottom: "2px solid #a393c9", outline: "none", background: "transparent", padding: "4px 2px", marginBottom: 8, boxSizing: "border-box" }}
                   />
                   <p style={{ margin: "0 0 12px", fontSize: 11, color: "#888" }}>
                     Use international format, e.g. +1 416 555 0100
@@ -816,7 +816,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                   <button
                     onClick={handleSendPhoneCode}
                     disabled={sendingCode || !newPhoneInput.trim()}
-                    style={{ width: "100%", background: sendingCode || !newPhoneInput.trim() ? "#d1fae5" : "#22c55e", color: "#fff", border: "none", borderRadius: 999, padding: "10px", fontWeight: 700, fontSize: 14, cursor: sendingCode || !newPhoneInput.trim() ? "not-allowed" : "pointer" }}
+                    style={{ width: "100%", background: sendingCode || !newPhoneInput.trim() ? "#ede9fe" : "#a393c9", color: "#fff", border: "none", borderRadius: 999, padding: "10px", fontWeight: 700, fontSize: 14, cursor: sendingCode || !newPhoneInput.trim() ? "not-allowed" : "pointer" }}
                   >
                     {sendingCode ? "Sending…" : "Send Verification Code"}
                   </button>
@@ -835,12 +835,12 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                     inputMode="numeric"
                     maxLength={6}
                     autoFocus
-                    style={{ width: "100%", fontSize: 22, fontWeight: 700, letterSpacing: 8, textAlign: "center", border: "none", borderBottom: "2px solid #22c55e", outline: "none", background: "transparent", padding: "4px 2px", marginBottom: 12, boxSizing: "border-box" }}
+                    style={{ width: "100%", fontSize: 22, fontWeight: 700, letterSpacing: 8, textAlign: "center", border: "none", borderBottom: "2px solid #a393c9", outline: "none", background: "transparent", padding: "4px 2px", marginBottom: 12, boxSizing: "border-box" }}
                   />
                   <button
                     onClick={handleVerifyPhoneCode}
                     disabled={verifyingPhone || phoneCode.length < 6}
-                    style={{ width: "100%", background: verifyingPhone || phoneCode.length < 6 ? "#d1fae5" : "#22c55e", color: "#fff", border: "none", borderRadius: 999, padding: "10px", fontWeight: 700, fontSize: 14, cursor: verifyingPhone || phoneCode.length < 6 ? "not-allowed" : "pointer" }}
+                    style={{ width: "100%", background: verifyingPhone || phoneCode.length < 6 ? "#ede9fe" : "#a393c9", color: "#fff", border: "none", borderRadius: 999, padding: "10px", fontWeight: 700, fontSize: 14, cursor: verifyingPhone || phoneCode.length < 6 ? "not-allowed" : "pointer" }}
                   >
                     {verifyingPhone ? "Verifying…" : "Verify & Update Phone"}
                   </button>
@@ -880,7 +880,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                     style={{
                       fontSize: 14,
                       border: "none",
-                      borderBottom: "2px solid #22c55e",
+                      borderBottom: "2px solid #a393c9",
                       outline: "none",
                       background: "transparent",
                       textAlign: "center",
@@ -892,7 +892,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                     onClick={handleEmailSave}
                     disabled={savingEmail}
                     style={{
-                      background: "#22c55e",
+                      background: "#a393c9",
                       border: "none",
                       borderRadius: 999,
                       color: "#fff",
@@ -917,7 +917,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                   style={{ background: "none", border: "none", cursor: "pointer", padding: 0 }}
                   aria-label="Edit email"
                 >
-                  <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2">
+                  <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2">
                     <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
                     <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
                   </svg>
@@ -1013,7 +1013,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                 height: 30,
                 borderRadius: 999,
                 border: "none",
-                background: isAvailable ? "#22c55e" : "#bbb",
+                background: isAvailable ? "#a393c9" : "#bbb",
                 cursor: "pointer",
                 position: "relative",
                 padding: 0,
@@ -1057,7 +1057,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
               style={{
                 background: "none",
                 border: "none",
-                color: "#22c55e",
+                color: "#a393c9",
                 fontSize: 15,
                 fontWeight: 600,
                 cursor: "pointer",
@@ -1066,7 +1066,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                 gap: 5,
               }}
             >
-              <svg width={15} height={15} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width={15} height={15} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
                 <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
               </svg>
@@ -1098,7 +1098,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
 
           {/* Tools preference */}
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 15, marginTop: 4 }}>
-              <BsCircleFill color="#22c55e" size={10} />
+              <BsCircleFill color="#a393c9" size={10} />
             <span style={{ fontSize: 14, color: "#555", fontWeight: 500 }}>
               {profileState.hasTools ? "I have tools" : "I will use home-owner's tools"}
             </span>
@@ -1206,7 +1206,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                         style={{
                           background: "none",
                           border: "none",
-                          color: reactivatingSubscription ? "#aaa" : "#22c55e",
+                          color: reactivatingSubscription ? "#aaa" : "#a393c9",
                           fontSize: 14,
                           textDecoration: "underline",
                           cursor: reactivatingSubscription ? "not-allowed" : "pointer",
@@ -1247,9 +1247,9 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                     onClick={handleCopyLink}
                     style={{
                       flex: 1, padding: "11px 0", borderRadius: 10,
-                      border: "1.5px solid #22c55e",
-                      background: copied ? "#22c55e" : "#fff",
-                      color: copied ? "#fff" : "#22c55e",
+                      border: "1.5px solid #a393c9",
+                      background: copied ? "#a393c9" : "#fff",
+                      color: copied ? "#fff" : "#a393c9",
                       fontWeight: 700, fontSize: 14, cursor: "pointer", transition: "all 0.2s",
                     }}
                   >
@@ -1259,7 +1259,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                     onClick={handleShare}
                     style={{
                       flex: 1, padding: "11px 0", borderRadius: 10,
-                      border: "none", background: "#22c55e", color: "#fff",
+                      border: "none", background: "#a393c9", color: "#fff",
                       fontWeight: 700, fontSize: 14, cursor: "pointer",
                     }}
                   >
@@ -1279,7 +1279,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
             <button
               onClick={async () => { await signOut(auth); onClose(); }}
               style={{
-                background: "#22c55e",
+                background: "#a393c9",
                 border: "none",
                 borderRadius: 999,
                 color: "#ffffff",

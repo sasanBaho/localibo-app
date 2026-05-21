@@ -44,14 +44,14 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
           width: 22,
           height: 22,
           borderRadius: "50%",
-          background: "#f0fdf4",
+          background: "#ede9fe",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           flexShrink: 0,
           marginTop: 1,
         }}>
-          <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="12" cy="12" r="10" />
             <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
             <line x1="12" y1="17" x2="12.01" y2="17" />
@@ -128,7 +128,7 @@ export default function ProviderSupportPage() {
 
   const focusStyle = (field: string): React.CSSProperties => ({
     ...inputStyle,
-    borderColor: focusedField === field ? "#22c55e" : "#e5e7eb",
+    borderColor: focusedField === field ? "#a393c9" : "#e5e7eb",
     boxShadow: focusedField === field ? "0 0 0 3px rgba(34,197,94,0.12)" : "none",
     transition: "border-color 0.15s, box-shadow 0.15s",
   });
@@ -144,13 +144,13 @@ export default function ProviderSupportPage() {
           width: 56,
           height: 56,
           borderRadius: "50%",
-          background: "#f0fdf4",
+          background: "#ede9fe",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           marginBottom: 16,
         }}>
-          <svg width={28} height={28} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width={28} height={28} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="12" cy="12" r="10" />
             <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
             <line x1="12" y1="17" x2="12.01" y2="17" />
@@ -180,13 +180,13 @@ export default function ProviderSupportPage() {
                 width: 56,
                 height: 56,
                 borderRadius: "50%",
-                background: "#f0fdf4",
+                background: "#ede9fe",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 margin: "0 auto 16px",
               }}>
-                <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
                   <polyline points="22 4 12 14.01 9 11.01" />
                 </svg>
@@ -323,7 +323,7 @@ export default function ProviderSupportPage() {
                 type="submit"
                 disabled={status === "loading"}
                 style={{
-                  background: status === "loading" ? "#86efac" : "#22c55e",
+                  background: status === "loading" ? "#c4b5fd" : "#a393c9",
                   color: "#fff",
                   border: "none",
                   borderRadius: 12,

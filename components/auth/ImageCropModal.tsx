@@ -282,7 +282,7 @@ const ImageCropModal: React.FC<ImageCropModalProps> = ({ src, onCrop, onCancel }
           onClick={handleCrop}
           disabled={!ready}
           style={{
-            background: ready ? "#22c55e" : "rgba(255,255,255,0.1)",
+            background: ready ? "#a393c9" : "rgba(255,255,255,0.1)",
             border: "none",
             borderRadius: 999,
             color: ready ? "#fff" : "rgba(255,255,255,0.3)",
@@ -400,7 +400,7 @@ const ImageCropModal: React.FC<ImageCropModalProps> = ({ src, onCrop, onCancel }
           onChange={onSlider}
           style={{
             flex: 1,
-            accentColor: "#22c55e",
+            accentColor: "#a393c9",
             cursor: "pointer",
             height: 3,
           }}

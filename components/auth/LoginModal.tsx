@@ -65,7 +65,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
   };
 
   return (
-    <ModalBase onClose={onClose} slideFrom={slideFrom} closeButtonColor="#22c55e">
+    <ModalBase onClose={onClose} slideFrom={slideFrom} closeButtonColor="#a393c9">
       <div id="recaptcha-login" />
 
       {/* Header */}
@@ -74,13 +74,13 @@ const LoginModal: React.FC<LoginModalProps> = ({
           width: 56,
           height: 56,
           borderRadius: "50%",
-          background: "#f0fdf4",
+          background: "#ede9fe",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           margin: "0 auto 14px",
         }}>
-          <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4" />
             <polyline points="10 17 15 12 10 7" />
             <line x1="15" y1="12" x2="3" y2="12" />
@@ -138,7 +138,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
             style={{
               width: "100%",
               padding: "11px 0",
-              background: "#22c55e",
+              background: "#a393c9",
               color: "#fff",
               border: "none",
               borderRadius: 9,
@@ -178,7 +178,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
         style={{
           width: "100%",
           padding: "16px",
-          background: isValid && !loading ? "#22c55e" : "#e5e7eb",
+          background: isValid && !loading ? "#a393c9" : "#e5e7eb",
           color: isValid && !loading ? "#fff" : "#9ca3af",
           border: "none",
           borderRadius: 14,
@@ -206,7 +206,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
           style={{
             background: "none",
             border: "none",
-            color: "#22c55e",
+            color: "#a393c9",
             fontSize: 15,
             fontWeight: 700,
             cursor: "pointer",

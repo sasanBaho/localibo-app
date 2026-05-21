@@ -37,13 +37,13 @@ const LocationPermissionModal: React.FC<LocationPermissionModalProps> = ({ onClo
           width: 68,
           height: 68,
           borderRadius: "50%",
-          background: "#f0fdf4",
+          background: "#ede9fe",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           margin: "0 auto 20px",
         }}>
-          <svg width={32} height={32} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width={32} height={32} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z" />
             <circle cx="12" cy="10" r="3" />
           </svg>
@@ -66,7 +66,7 @@ const LocationPermissionModal: React.FC<LocationPermissionModalProps> = ({ onClo
           style={{
             width: "100%",
             padding: "15px",
-            background: "#22c55e",
+            background: "#a393c9",
             color: "#fff",
             border: "none",
             borderRadius: 14,

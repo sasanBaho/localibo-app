@@ -34,7 +34,7 @@ async function sendReceiptEmail(email: string, invoice: Stripe.Invoice) {
     subject: `Your Localibo receipt — ${currency} ${amount}`,
     html: `
       <div style="font-family:sans-serif;max-width:520px;margin:0 auto;color:#111827">
-        <div style="background:#166534;padding:32px 24px;border-radius:12px 12px 0 0;text-align:center">
+        <div style="background:#6b21a8;padding:32px 24px;border-radius:12px 12px 0 0;text-align:center">
           <h1 style="color:#fff;margin:0;font-size:22px;font-weight:800">Payment Confirmed</h1>
           <p style="color:rgba(255,255,255,0.75);margin:8px 0 0;font-size:14px">Thank you for subscribing to Localibo</p>
         </div>
@@ -44,16 +44,16 @@ async function sendReceiptEmail(email: string, invoice: Stripe.Invoice) {
             We received your payment of <strong>${currency} $${amount}</strong> on ${date}.
             Your provider profile is now active and visible to homeowners in your area.
           </p>
-          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:16px 20px;margin-bottom:24px">
+          <div style="background:#ede9fe;border:1px solid #c4b5fd;border-radius:10px;padding:16px 20px;margin-bottom:24px">
             <div style="display:flex;justify-content:space-between;align-items:center">
-              <span style="font-size:14px;color:#166534;font-weight:600">Amount paid</span>
-              <span style="font-size:20px;color:#166534;font-weight:800">${currency} $${amount}</span>
+              <span style="font-size:14px;color:#6b21a8;font-weight:600">Amount paid</span>
+              <span style="font-size:20px;color:#6b21a8;font-weight:800">${currency} $${amount}</span>
             </div>
             <div style="margin-top:8px;font-size:13px;color:#16a34a">${date}</div>
           </div>
-          ${invoiceUrl ? `<a href="${invoiceUrl}" style="display:inline-block;background:#166534;color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;margin-bottom:24px">View Invoice</a>` : ""}
+          ${invoiceUrl ? `<a href="${invoiceUrl}" style="display:inline-block;background:#6b21a8;color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;margin-bottom:24px">View Invoice</a>` : ""}
           <p style="margin:24px 0 0;font-size:13px;color:#6b7280">
-            Questions? Reply to this email or reach us at <a href="mailto:hi@localibo.com" style="color:#166534">hi@localibo.com</a>
+            Questions? Reply to this email or reach us at <a href="mailto:hi@localibo.com" style="color:#6b21a8">hi@localibo.com</a>
           </p>
         </div>
       </div>
@@ -97,7 +97,7 @@ async function sendCancellationEmail(email: string, subscription: Stripe.Subscri
             Changed your mind? You can reactivate your subscription at any time from your profile settings.
           </p>
           <p style="margin:24px 0 0;font-size:13px;color:#6b7280">
-            Need help? Contact us at <a href="mailto:hi@localibo.com" style="color:#166534">hi@localibo.com</a>
+            Need help? Contact us at <a href="mailto:hi@localibo.com" style="color:#6b21a8">hi@localibo.com</a>
           </p>
         </div>
       </div>
@@ -121,7 +121,7 @@ async function sendTrialEndingEmail(email: string, subscription: Stripe.Subscrip
     subject: "Your free trial ends in 3 days",
     html: `
       <div style="font-family:sans-serif;max-width:520px;margin:0 auto;color:#111827">
-        <div style="background:#166534;padding:32px 24px;border-radius:12px 12px 0 0;text-align:center">
+        <div style="background:#6b21a8;padding:32px 24px;border-radius:12px 12px 0 0;text-align:center">
           <h1 style="color:#fff;margin:0;font-size:22px;font-weight:800">Trial Ending Soon</h1>
           <p style="color:rgba(255,255,255,0.75);margin:8px 0 0;font-size:14px">Your free trial ends on ${trialEnd}</p>
         </div>
@@ -142,7 +142,7 @@ async function sendTrialEndingEmail(email: string, subscription: Stripe.Subscrip
             no questions asked.
           </p>
           <p style="margin:24px 0 0;font-size:13px;color:#6b7280">
-            Questions? Reach us at <a href="mailto:hi@localibo.com" style="color:#166534">hi@localibo.com</a>
+            Questions? Reach us at <a href="mailto:hi@localibo.com" style="color:#6b21a8">hi@localibo.com</a>
           </p>
         </div>
       </div>

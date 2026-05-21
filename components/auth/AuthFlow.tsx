@@ -372,7 +372,7 @@ const AuthFlow: React.FC<AuthFlowProps> = ({
               width: 52,
               height: 52,
               border: "4px solid rgba(255,255,255,0.3)",
-              borderTopColor: "#22c55e",
+              borderTopColor: "#a393c9",
               borderRadius: "50%",
               animation: "spin 0.8s linear infinite",
             }}

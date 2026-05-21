@@ -76,7 +76,7 @@ const VerifyCodeModal: React.FC<VerifyCodeModalProps> = ({
   };
 
   return (
-    <ModalBase onClose={onClose} closeButtonColor="#22c55e">
+    <ModalBase onClose={onClose} closeButtonColor="#a393c9">
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 4 }}>
 
         {/* Header */}
@@ -89,7 +89,7 @@ const VerifyCodeModal: React.FC<VerifyCodeModalProps> = ({
               height: 80,
               borderRadius: "50%",
               objectFit: "cover",
-              border: "3px solid #22c55e",
+              border: "3px solid #a393c9",
               marginBottom: 16,
             }}
           />
@@ -98,13 +98,13 @@ const VerifyCodeModal: React.FC<VerifyCodeModalProps> = ({
             width: 56,
             height: 56,
             borderRadius: "50%",
-            background: "#f0fdf4",
+            background: "#ede9fe",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             marginBottom: 16,
           }}>
-            <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
             </svg>
           </div>
@@ -123,7 +123,7 @@ const VerifyCodeModal: React.FC<VerifyCodeModalProps> = ({
             style={{
               background: "none",
               border: "none",
-              color: "#22c55e",
+              color: "#a393c9",
               fontSize: 13,
               fontWeight: 600,
               cursor: "pointer",
@@ -154,13 +154,13 @@ const VerifyCodeModal: React.FC<VerifyCodeModalProps> = ({
                 flex: 1,
                 minWidth: 0,
                 height: 46,
-                border: `2px solid ${error ? "#fca5a5" : d ? "#22c55e" : "#e5e7eb"}`,
+                border: `2px solid ${error ? "#fca5a5" : d ? "#a393c9" : "#e5e7eb"}`,
                 borderRadius: 10,
                 fontSize: 18,
                 fontWeight: 700,
                 textAlign: "center",
                 outline: "none",
-                background: error ? "#fff5f5" : d ? "#f0fdf4" : "#f9fafb",
+                background: error ? "#fff5f5" : d ? "#ede9fe" : "#f9fafb",
                 color: "#111827",
                 cursor: "text",
                 transition: "border-color 0.15s, background 0.15s",
@@ -197,7 +197,7 @@ const VerifyCodeModal: React.FC<VerifyCodeModalProps> = ({
           style={{
             width: "100%",
             padding: "16px",
-            background: isComplete && !loading ? "#22c55e" : "#e5e7eb",
+            background: isComplete && !loading ? "#a393c9" : "#e5e7eb",
             color: isComplete && !loading ? "#fff" : "#9ca3af",
             border: "none",
             borderRadius: 14,
@@ -219,7 +219,7 @@ const VerifyCodeModal: React.FC<VerifyCodeModalProps> = ({
               style={{
                 background: "none",
                 border: "none",
-                color: "#22c55e",
+                color: "#a393c9",
                 fontSize: 15,
                 fontWeight: 700,
                 cursor: "pointer",

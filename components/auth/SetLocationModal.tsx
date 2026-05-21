@@ -148,7 +148,7 @@ export default function SetLocationModal({
                   height: 50,
                   borderRadius: "50%",
                   overflow: "hidden",
-                  border: "3px solid #22c55e",
+                  border: "3px solid #a393c9",
                   boxShadow: "0 4px 16px rgba(34,197,94,0.4), 0 2px 8px rgba(0,0,0,0.2)",
                   background: "#e5e7eb",
                   position: "relative",
@@ -166,7 +166,7 @@ export default function SetLocationModal({
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      background: "#22c55e",
+                      background: "#a393c9",
                     }}>
                       <svg width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
@@ -181,7 +181,7 @@ export default function SetLocationModal({
                   height: 0,
                   borderLeft: "6px solid transparent",
                   borderRight: "6px solid transparent",
-                  borderTop: "10px solid #22c55e",
+                  borderTop: "10px solid #a393c9",
                   margin: "0 auto",
                   marginTop: -1,
                 }} />
@@ -207,7 +207,7 @@ export default function SetLocationModal({
           marginBottom: 14,
           minHeight: 24,
         }}>
-          <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
             <circle cx="12" cy="10" r="3" />
           </svg>
@@ -227,7 +227,7 @@ export default function SetLocationModal({
           disabled={confirming || geocoding}
           style={{
             width: "100%",
-            background: confirming || geocoding ? "#86efac" : "#22c55e",
+            background: confirming || geocoding ? "#c4b5fd" : "#a393c9",
             color: "#fff",
             border: "none",
             borderRadius: 14,

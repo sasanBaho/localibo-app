@@ -91,20 +91,20 @@ const ViewsAnalyticsModal: React.FC<ViewsAnalyticsModalProps> = ({ viewsByMonth,
         {/* Total */}
         <div style={{
           margin: "16px 20px",
-          background: "#f0fdf4",
-          border: "1px solid #bbf7d0",
+          background: "#ede9fe",
+          border: "1px solid #c4b5fd",
           borderRadius: 14,
           padding: "14px 18px",
           display: "flex",
           alignItems: "center",
           gap: 12,
         }}>
-          <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
             <circle cx="12" cy="12" r="3" />
           </svg>
           <div>
-            <span style={{ fontSize: 22, fontWeight: 800, color: "#166534" }}>{totalViews}</span>
+            <span style={{ fontSize: 22, fontWeight: 800, color: "#6b21a8" }}>{totalViews}</span>
             <span style={{ fontSize: 13, color: "#16a34a", marginLeft: 6 }}>total views tracked</span>
           </div>
         </div>
@@ -140,7 +140,7 @@ const ViewsAnalyticsModal: React.FC<ViewsAnalyticsModalProps> = ({ viewsByMonth,
                       display: "block",
                       fontSize: 10,
                       fontWeight: 700,
-                      color: "#22c55e",
+                      color: "#a393c9",
                       textTransform: "uppercase",
                       letterSpacing: "0.05em",
                       marginTop: 1,
@@ -156,7 +156,7 @@ const ViewsAnalyticsModal: React.FC<ViewsAnalyticsModalProps> = ({ viewsByMonth,
                     height: "100%",
                     width: `${barPct}%`,
                     minWidth: count > 0 ? 6 : 0,
-                    background: isCurrentMonth ? "#22c55e" : "#86efac",
+                    background: isCurrentMonth ? "#a393c9" : "#c4b5fd",
                     borderRadius: 999,
                     transition: "width 0.3s ease",
                   }} />

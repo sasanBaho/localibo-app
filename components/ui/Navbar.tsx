@@ -156,10 +156,10 @@ const Navbar: React.FC<NavbarProps> = ({
                     }}
                   >
                     <span style={{
-                      width: 36, height: 36, borderRadius: "50%", background: "#f0fdf4",
+                      width: 36, height: 36, borderRadius: "50%", background: "#ede9fe",
                       display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
                     }}>
-                      <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" />
                         <circle cx="9" cy="7" r="4" />
                         <line x1="19" y1="8" x2="19" y2="14" />

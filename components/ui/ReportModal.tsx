@@ -211,7 +211,7 @@ const ReportModal: React.FC<ReportModalProps> = ({ providerId, providerName, onC
                   Provider Information
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px 14px" }}>
-                  <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="8" r="4" /><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
                   </svg>
                   <span style={{ fontWeight: 600, fontSize: 16 }}>{providerName || "Unknown Provider"}</span>
@@ -241,7 +241,7 @@ const ReportModal: React.FC<ReportModalProps> = ({ providerId, providerName, onC
                         textAlign: "left",
                       }}
                     >
-                      <span style={{ color: "#22c55e", flexShrink: 0 }}>{type.icon}</span>
+                      <span style={{ color: "#a393c9", flexShrink: 0 }}>{type.icon}</span>
                       <span style={{ flex: 1, fontSize: 15, color: "#222" }}>{type.label}</span>
                       {selectedType === type.value && (
                         <svg width={20} height={20} viewBox="0 0 24 24" fill="#007aff">
@@ -289,7 +289,7 @@ const ReportModal: React.FC<ReportModalProps> = ({ providerId, providerName, onC
               <div style={{ margin: "20px 16px 0" }}>
                 <div style={{ background: "#fff", borderRadius: 12, padding: "14px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-                    <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                     </svg>
                     <span style={{ fontWeight: 700, fontSize: 15 }}>Privacy Notice</span>

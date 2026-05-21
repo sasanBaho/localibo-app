@@ -16,7 +16,7 @@ const MapPreviewStep: React.FC<MapPreviewStepProps> = ({
   onLater,
 }) => {
   return (
-    <ModalBase onClose={onLater} closeButtonColor="#22c55e">
+    <ModalBase onClose={onLater} closeButtonColor="#a393c9">
       <div style={{ paddingTop: 8 }}>
         <h2 style={{ margin: "0 0 4px", fontSize: 22, fontWeight: 800, color: "#111" }}>
           You're almost live!
@@ -148,7 +148,7 @@ const MapPreviewStep: React.FC<MapPreviewStepProps> = ({
             width: "100%",
             padding: "15px 0",
             borderRadius: 999,
-            background: "#22c55e",
+            background: "#a393c9",
             color: "#fff",
             fontWeight: 700,
             fontSize: 17,
