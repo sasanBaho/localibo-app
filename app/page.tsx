@@ -638,8 +638,7 @@ export default function Home() {
           )}
 
           {/* Owner's own greyscale pin — only visible to themselves when unsubscribed and available */}
-          {showOwnPin && providerLocation && currentProviderData && currentProviderData.isAvailable !== false &&
-            currentProviderData.selectedServices?.includes(SERVICE_KEY[activeService]) && (
+          {showOwnPin && providerLocation && currentProviderData && currentProviderData.isAvailable !== false && (
             <MapMarker longitude={providerLocation.lng} latitude={providerLocation.lat}>
               <MarkerContent>
                 <div
