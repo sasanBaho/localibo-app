@@ -218,54 +218,33 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
                 </span>
               </div>
 
-              {/* Service badge */}
-              <div style={{
-                display: "inline-flex",
-                alignItems: "end",
-                gap: 5,
-                background: accentLight,
-                borderRadius: 999,
-                padding: "4px 10px 4px 6px",
-                marginBottom: 8,
-              }}>
-                <img src={serviceIcon} alt={serviceLabel} style={{ width: 22, height: 22, objectFit: "contain" }} />
-                <span style={{ fontSize: 12, fontWeight: 700, color: accentColor }}>{serviceLabel}</span>
-              </div>
+              {/* Service badge + Instagram */}
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 6, marginBottom: 8 }}>
+                <div style={{
+                  display: "inline-flex",
+                  alignItems: "end",
+                  gap: 5,
+                  background: accentLight,
+                  borderRadius: 999,
+                  padding: "4px 10px 4px 6px",
+                }}>
+                  <img src={serviceIcon} alt={serviceLabel} style={{ width: 22, height: 22, objectFit: "contain" }} />
+                  <span style={{ fontSize: 12, fontWeight: 700, color: accentColor }}>{serviceLabel}</span>
+                </div>
 
-              {/* Rating */}
-              <div
-                onClick={() => { if (!isOwnProfile) setShowRating(true); }}
-                style={{ cursor: isOwnProfile ? "default" : "pointer", display: "flex", alignItems: "center", gap: 4 }}
-                title={isOwnProfile ? undefined : "Tap to rate"}
-              >
-                {displayCount > 0 ? (
-                  <>
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} width={16} height={16} viewBox="0 0 24 24"
-                        fill={i < filledStars ? "#f59e0b" : "none"}
-                        stroke={i < filledStars ? "#f59e0b" : "#d1d5db"}
-                        strokeWidth="1.5">
-                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                      </svg>
-                    ))}
-                    <span style={{ fontWeight: 700, fontSize: 13, color: "#111827", marginLeft: 2 }}>
-                      {displayRating.toFixed(1)}
-                    </span>
-                    <span style={{ fontSize: 12, color: "#9ca3af" }}>({displayCount})</span>
-                  </>
-                ) : (
-                  <span
-                    onClick={(e) => { e.stopPropagation(); setShowRating(true); }}
-                    style={{
-                      fontSize: 12, fontWeight: 600, color: "#f59e0b",
-                      borderRadius: 999, padding: "3px 0px",
-                      display: "inline-flex", alignItems: "center", gap: 4,
-                      cursor: "pointer",
-                    }}>
-                    ★ Tap to rate
-                  </span>
+                {provider.instagramID && (
+                  <a
+                    href={`https://instagram.com/${provider.instagramID}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ display: "inline-flex", alignItems: "center", gap: 5, textDecoration: "none" }}
+                  >
+                    <img src="/instagram-icon.png" alt="Instagram" style={{ width: 16, height: 16, objectFit: "contain" }} />
+                    <span style={{ fontSize: 12, color: "#444445", textDecoration: "underline" }}>@{provider.instagramID}</span>
+                  </a>
                 )}
               </div>
+
             </div>
 
             {/* Close button */}
@@ -305,41 +284,72 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
           ) : null}
 
           {/* Details chips */}
-          <div style={{ padding: "12px 20px 0", display: "flex", flexDirection: "column", gap: 8 }}>
-            <div>
-              <span style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 5,
-                borderRadius: 999,
-                padding: "0px 5px 5px",
-                fontSize: 12,
-                fontWeight: 600,
-                color: "#0369A1",
+          <div style={{ padding: "12px 5px 0", display: "flex", flexDirection: "column", gap: 8 }}>
+            {(activeService === "beauty" || activeService === "tailor") ? (
+              (() => {
+                const serviceLocation: string[] = provider.serviceLocation ?? [];
+                if (!serviceLocation.length) return null;
+                return (
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginLeft: 10 }}>
+                    {serviceLocation.map((loc: string) => {
+                      const isCustomer = loc === "onCustomerLocation" || loc.toLowerCase().includes("customer");
+                      const label = isCustomer ? "At customer's location" : "At provider's location";
+                      return (
+                        <span key={loc} style={{ display: "inline-flex", alignItems: "center", gap: 2, fontSize: 12, fontWeight: 600, color: "#6b7280" }}>
+                          {isCustomer ? (
+                            <svg width={20} height={20} viewBox="0 0 24 24" fill={accentColor} >
+                              <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                            </svg>
+                          ) : (
+                            <svg width={20} height={20} viewBox="0 0 24 24" fill={accentColor} >
+                              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                          )}
+                          {label}
+                        </span>
+                      );
+                    })}
+                  </div>
+                );
+              })()
+            ) : (
+              <div style={{
+                display: "inline-flex", alignItems: "center", gap: 5, marginLeft: 10,
+                background: accentLight, borderRadius: 999, padding: "4px 10px 4px 8px",
+                alignSelf: "flex-start",
               }}>
-                <svg width={13} height={13} viewBox="0 0 24 24" fill="none" stroke="#0369A1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
-                </svg>
-                {provider.hasTools ? "Has own tools" : "Uses owner's tools"}
-              </span>
-            </div>
+                {provider.hasDelivery ? (
+                  <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke={accentColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="1" y="3" width="15" height="13" rx="1" />
+                    <path d="M16 8h4l3 5v3h-7V8z" />
+                    <circle cx="5.5" cy="18.5" r="2.5" />
+                    <circle cx="18.5" cy="18.5" r="2.5" />
+                  </svg>
+                ) : (
+                  <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke={accentColor}  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                )}
+                <span style={{ fontSize: 12, fontWeight: 700, color: "#5d5e61" }}>
+                  {provider.hasDelivery ? "Has delivery" : "Client pickup"}
+                </span>
+              </div>
+            )}
 
-            <div style={{ paddingBottom: 18, display: "flex", flexWrap: "wrap", gap: 8 }}>
+            <div style={{ paddingBottom: 18, display: "flex", flexWrap: "wrap", gap: 0 }}>
               {(provider.paymentMethods ?? []).map((method: string) => (
                 <span key={method} style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: 5,
-                  background: "#f0fdf4",
-                  border: "1px solid #bbf7d0",
-                  borderRadius: 999,
+                  gap: 2,
                   padding: "5px 11px",
                   fontSize: 12,
                   fontWeight: 600,
-                  color: "#166534",
+                  color: "#5d5e61",
                 }}>
-                  <svg width={12} height={12} viewBox="0 0 20 20" fill="none">
-                    <path d="M5 10.5L9 14.5L15 7.5" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <svg width={15} height={15} viewBox="0 0 20 20" fill="none">
+                    <path d="M5 10.5L9 14.5L15 3.5" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   {method}
                 </span>
@@ -355,11 +365,11 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
                 onClick={() => { trackEvent("Provider_Call_Tapped", getAnalyticsPayload()); recordInteraction("call"); }}
                 style={{
                   flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-                  background: accentColor + "80", color: "#fff", borderRadius: 14, padding: "13px 0",
+                  background: accentColor + "80", color: "#374151", borderRadius: 14, padding: "13px 0",
                   fontWeight: 700, fontSize: 15, textDecoration: "none",
                 }}
               >
-                <svg width={17} height={17} viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width={17} height={17} viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1.13h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.92a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                 </svg>
                 {formattedPhone}
@@ -371,12 +381,11 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
                   onClick={() => { trackEvent("Provider_Call_Tapped", getAnalyticsPayload()); recordInteraction("call"); }}
                   style={{
                     flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-                    background: accentColor + "80", color: "#fff", borderRadius: 14, padding: "14px 0",
+                    background: accentColor + "60", color: "#374151", borderRadius: 14, padding: "14px 0",
                     fontWeight: 700, fontSize: 16, textDecoration: "none",
-                    boxShadow: `0 4px 14px ${accentColor}44`,
                   }}
                 >
-                  <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1.13h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.92a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                   </svg>
                   Call
@@ -400,16 +409,50 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
           </div>
 
           {/* Footer: rating + report */}
-          {!isOwnProfile && (
-            <div style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
-              padding: "10px 20px 18px",
-              borderTop: "1px solid #f3f4f6",
-            }}>
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "10px 20px 18px",
+            borderTop: "1px solid #f3f4f6",
+          }}>
+            {/* Rating */}
+            <div
+              onClick={() => { if (!isOwnProfile) setShowRating(true); }}
+              style={{ cursor: isOwnProfile ? "default" : "pointer", display: "flex", alignItems: "center", gap: 4 }}
+              title={isOwnProfile ? undefined : "Tap to rate"}
+            >
+              {displayCount > 0 ? (
+                <>
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} width={16} height={16} viewBox="0 0 24 24"
+                      fill={i < filledStars ? "#f59e0b" : "none"}
+                      stroke={i < filledStars ? "#f59e0b" : "#d1d5db"}
+                      strokeWidth="1.5">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  ))}
+                  <span style={{ fontWeight: 700, fontSize: 13, color: "#111827", marginLeft: 2 }}>
+                    {displayRating.toFixed(1)}
+                  </span>
+                  <span style={{ fontSize: 12, color: "#9ca3af" }}>({displayCount})</span>
+                </>
+              ) : (
+                <>
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} width={16} height={16} viewBox="0 0 24 24"
+                      fill="none" stroke="#f59e0b" strokeWidth="1.5">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  ))}
+                  <span style={{ fontWeight: 700, fontSize: 13, color: "#6c6d6f", marginLeft: 2 }}>0.0</span>
+                  <span style={{ fontSize: 12, color: "#9ca3af" }}>(0)</span>
+                </>
+              )}
+            </div>
 
-              {/* Report */}
+            {/* Report */}
+            {!isOwnProfile && (
               <button
                 onClick={() => setShowReport(true)}
                 style={{
@@ -425,8 +468,8 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
                 </svg>
                 Report
               </button>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </>

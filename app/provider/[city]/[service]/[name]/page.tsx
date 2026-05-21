@@ -316,18 +316,38 @@ export default async function ProviderPage({
 
                 {/* Details chips */}
                 <div style={{ padding: "12px 0 0", display: "flex", flexDirection: "column", gap: 8 }}>
-                  <div>
-                    <span style={{
-                      display: "inline-flex", alignItems: "center", gap: 5,
-                      borderRadius: 999, padding: "0px 5px 5px",
-                      fontSize: 12, fontWeight: 600, color: "#0369A1",
-                    }}>
-                      <svg width={13} height={13} viewBox="0 0 24 24" fill="none" stroke="#0369A1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
-                      </svg>
-                      {provider.hasTools ? "Has own tools" : "Uses owner's tools"}
+                  {(svc.key === "service-one" || svc.key === "service-two") ? (
+                    (() => {
+                      const serviceLocation: string[] = provider.serviceLocation ?? [];
+                      if (!serviceLocation.length) return null;
+                      return (
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                          {serviceLocation.map((loc: string) => {
+                            const isCustomer = loc === "onCustomerLocation" || loc.toLowerCase().includes("customer");
+                            const label = isCustomer ? "At customer's location" : "At provider's location";
+                            return (
+                              <span key={loc} style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 12, fontWeight: 600, color: "#6b7280" }}>
+                                {isCustomer ? (
+                                  <svg width={16} height={16} viewBox="0 0 24 24" fill={accent}>
+                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                                  </svg>
+                                ) : (
+                                  <svg width={16} height={16} viewBox="0 0 24 24" fill={accent}>
+                                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                                  </svg>
+                                )}
+                                {label}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      );
+                    })()
+                  ) : (
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 12, fontWeight: 600, color: "#6b7280" }}>
+                      {provider.hasDelivery ? "Has delivery" : "Client pickup"}
                     </span>
-                  </div>
+                  )}
 
                   {paymentMethods.length > 0 && (
                     <div style={{ paddingBottom: 18, display: "flex", flexWrap: "wrap", gap: 8 }}>

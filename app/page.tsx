@@ -210,6 +210,13 @@ export default function Home() {
   useEffect(() => {
     if (!mounted) return;
     const params = new URLSearchParams(window.location.search);
+
+    const VALID_SERVICES = ["beauty", "tailor", "cook"] as const;
+    const serviceParam = (params.get("service") ?? params.get("utm") ?? "").toLowerCase();
+    if (VALID_SERVICES.includes(serviceParam as (typeof VALID_SERVICES)[number])) {
+      setActiveService(serviceParam as "beauty" | "tailor" | "cook");
+    }
+
     const sessionId = params.get("stripe_session_id");
     const cancelled = params.get("stripe_cancelled");
 
@@ -284,6 +291,8 @@ export default function Home() {
             phoneNumber: d.phoneNumber,
             selectedServices: Array.isArray(d.selectedServices) ? d.selectedServices : [],
             hasTools: d.hasTools || false,
+            hasDelivery: d.hasDelivery ?? false,
+            serviceLocation: Array.isArray(d.serviceLocation) ? d.serviceLocation : [],
             paymentMethods: Array.isArray(d.paymentMethods) ? d.paymentMethods : [],
             isAvailable: d.isAvailable ?? true,
             subscriptionStatus: d.subscriptionStatus,
@@ -405,6 +414,8 @@ export default function Home() {
           phoneNumber: data.phoneNumber,
           selectedServices: Array.isArray(data.selectedServices) ? data.selectedServices : [],
           hasTools: data.hasTools || false,
+          hasDelivery: data.hasDelivery ?? false,
+          serviceLocation: Array.isArray(data.serviceLocation) ? data.serviceLocation : [],
           paymentMethods: Array.isArray(data.paymentMethods) ? data.paymentMethods : [],
           isAvailable: data.isAvailable ?? true,
           subscriptionStatus: data.subscriptionStatus,
@@ -814,6 +825,8 @@ export default function Home() {
               phoneNumber: data.phoneNumber,
               selectedServices: Array.isArray(data.selectedServices) ? data.selectedServices : [],
               hasTools: data.hasTools || false,
+              hasDelivery: data.hasDelivery ?? false,
+              serviceLocation: Array.isArray(data.serviceLocation) ? data.serviceLocation : [],
               paymentMethods: Array.isArray(data.paymentMethods) ? data.paymentMethods : [],
               isAvailable: data.isAvailable ?? true,
               subscriptionStatus: data.subscriptionStatus ?? "unsubscribed",

@@ -13,6 +13,13 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      { source: "/beauty", destination: "/?service=beauty", permanent: false },
+      { source: "/tailor", destination: "/?service=tailor", permanent: false },
+      { source: "/cook",   destination: "/?service=cook",   permanent: false },
+    ];
+  },
   async headers() {
     return [
       {
