@@ -271,6 +271,9 @@ export default function Home() {
           });
           setProviderLocation({ lat: d.latitude ?? 0, lng: d.longitude ?? 0 });
           setProviderStripeSubId(d.stripeSubscriptionId ?? null);
+          const newStatus = d.subscriptionStatus ?? "unsubscribed";
+          setShowOwnPin(!["active", "trialing"].includes(newStatus));
+          setShowUnsubscribedPopup(false);
         }
         setShowProfile(true);
 
