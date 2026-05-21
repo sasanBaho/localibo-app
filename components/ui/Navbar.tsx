@@ -106,7 +106,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 height: isWide ? 32 : 28,
                 borderRadius: "50%",
                 objectFit: "cover",
-                border: "1.5px solid #3eab40",
+                border: "1.5px solid #a393c9",
               }}
             />
           </button>
