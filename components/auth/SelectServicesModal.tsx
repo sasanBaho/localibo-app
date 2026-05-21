@@ -3,24 +3,9 @@ import React, { useState } from "react";
 import ModalBase from "./ModalBase";
 
 const SERVICES = [
-  {
-    id: "service-one",
-    name: "Beauty",
-    image: "/service-one.png",
-    hasToolsOption: false,
-  },
-  {
-    id: "service-two",
-    name: "Tailor",
-    image: "/service-two.png",
-    hasToolsOption: false,
-  },
-  {
-    id: "service-three",
-    name: "Cook",
-    image: "/service-three.png",
-    hasToolsOption: false,
-  },
+  { id: "service-one", name: "Hair, Beauty & Styling", image: "/service-one.png" },
+  { id: "service-two", name: "Tailoring & Alterations", image: "/service-two.png" },
+  { id: "service-three", name: "Cooking & Baking", image: "/service-three.png" },
 ] as const;
 
 type ServiceId = (typeof SERVICES)[number]["id"];
@@ -29,6 +14,7 @@ interface ServiceState {
   selected: boolean;
   description: string;
   hasTools: boolean;
+  instagramID: string;
 }
 
 export interface ServicesFormData {
@@ -38,6 +24,7 @@ export interface ServicesFormData {
   paymentMethods: string[];
   serviceLocation: string[];
   hasDelivery: boolean;
+  instagramIDs: Record<string, string>;
 }
 
 interface SelectServicesModalProps {
@@ -100,10 +87,11 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
   const [services, setServices] = useState<Record<ServiceId, ServiceState>>(() => {
     const sel = initialData?.selectedServices ?? [];
     const desc = initialData?.descriptions ?? {};
+    const insta = initialData?.instagramIDs ?? {};
     return {
-      "service-one": { selected: sel.includes("service-one"), description: desc["service-one"] ?? "", hasTools: false },
-      "service-two": { selected: sel.includes("service-two"), description: desc["service-two"] ?? "", hasTools: false },
-      "service-three": { selected: sel.includes("service-three"), description: desc["service-three"] ?? "", hasTools: false },
+      "service-one": { selected: sel.includes("service-one"), description: desc["service-one"] ?? "", hasTools: false, instagramID: insta["service-one"] ?? "" },
+      "service-two": { selected: sel.includes("service-two"), description: desc["service-two"] ?? "", hasTools: false, instagramID: insta["service-two"] ?? "" },
+      "service-three": { selected: sel.includes("service-three"), description: desc["service-three"] ?? "", hasTools: false, instagramID: insta["service-three"] ?? "" },
     };
   });
 
@@ -147,7 +135,11 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
     if (!canDone) return;
     const selectedIds = selected.map((s) => s.id);
     const descriptions: Record<string, string> = {};
-    selectedIds.forEach((id) => { descriptions[id] = services[id].description; });
+    const instagramIDs: Record<string, string> = {};
+    selectedIds.forEach((id) => {
+      descriptions[id] = services[id].description;
+      instagramIDs[id] = services[id].instagramID;
+    });
     onDone({
       selectedServices: selectedIds,
       descriptions,
@@ -155,11 +147,18 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
       paymentMethods: Object.entries(payments).filter(([, v]) => v).map(([k]) => k),
       serviceLocation: hasBeautyOrTailor ? serviceLocation : [],
       hasDelivery: hasCook ? (hasDelivery ?? false) : false,
+      instagramIDs,
     });
   };
 
   return (
     <ModalBase onClose={onClose} closeButtonColor="#a393c9">
+      <style>{`
+        @keyframes expandIn {
+          from { opacity: 0; transform: translateY(-10px) scaleY(0.96); }
+          to   { opacity: 1; transform: translateY(0) scaleY(1); }
+        }
+      `}</style>
       <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 4, paddingRight: 40, marginTop: 4 }}>
         Select your service(s):
       </h2>
@@ -169,19 +168,23 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
 
       {SERVICES.map((svc) => {
         const state = services[svc.id];
+        const isBeautyOrTailor = svc.id === "service-one" || svc.id === "service-two";
+        const isCook = svc.id === "service-three";
+
         return (
-          <div key={svc.id} style={{ marginBottom: 28 }}>
-            {/* Service card */}
+          <div
+            key={svc.id}
+            style={{
+              marginBottom: 20,
+              borderRadius: 16,
+              border: `2px solid ${state.selected ? "#a393c9" : "#e5e7eb"}`,
+              overflow: "hidden",
+            }}
+          >
+            {/* Image header — click to toggle */}
             <div
               onClick={() => update(svc.id, { selected: !state.selected })}
-              style={{
-                position: "relative",
-                borderRadius: 14,
-                overflow: "hidden",
-                cursor: "pointer",
-                height: 160,
-                marginBottom: 14,
-              }}
+              style={{ position: "relative", height: 120, cursor: "pointer" }}
             >
               <img
                 src={svc.image}
@@ -200,29 +203,29 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
                   position: "absolute",
                   top: 10,
                   left: 10,
-                  right: 10,
-                  background: "rgba(255,255,255,0.92)",
+                  background: "rgba(255,255,255,0.55)",
                   borderRadius: 8,
                   padding: "5px 10px",
                   fontWeight: 700,
                   fontSize: 14,
-                  display: "flex",
+                  display: "inline-flex",
                   alignItems: "center",
                   gap: 8,
-                  maxWidth: "calc(100% - 20px)",
                 }}
               >
-                <div style={{
-                  width: 26,
-                  height: 26,
-                  borderRadius: "50%",
-                  background: state.selected ? "#a393c9" : "#fff",
-                  border: state.selected ? "none" : "2px solid #bbb",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                }}>
+                <div
+                  style={{
+                    width: 26,
+                    height: 26,
+                    borderRadius: "50%",
+                    background: state.selected ? "#a393c9" : "#fff",
+                    border: state.selected ? "none" : "2px solid #bbb",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
                   {state.selected && (
                     <svg width={14} height={14} viewBox="0 0 20 20" fill="none">
                       <path d="M5 10.5L9 14.5L15 7.5" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -233,9 +236,11 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
               </div>
             </div>
 
+            {/* Expanded form fields (shown when selected) */}
             {state.selected && (
-              <>
-                <label style={{ fontWeight: 600, fontSize: 15, display: "block", marginBottom: 6 }}>
+              <div style={{ padding: "16px 16px 20px", background: "#faf9ff", animation: "expandIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}>
+                {/* Description */}
+                <label style={{ fontWeight: 600, fontSize: 14, display: "block", marginBottom: 6 }}>
                   Description: <span style={{ color: "#e53e3e" }}>*</span>
                 </label>
                 <textarea
@@ -245,73 +250,142 @@ const SelectServicesModal: React.FC<SelectServicesModalProps> = ({ onClose, onDo
                   rows={3}
                   style={{
                     width: "100%",
-                    padding: "12px 14px",
+                    padding: "10px 12px",
                     border: "1px solid #e0e0e0",
                     borderRadius: 10,
-                    fontSize: 15,
+                    fontSize: 14,
                     outline: "none",
                     resize: "none",
                     boxSizing: "border-box",
                     fontFamily: "inherit",
-                    marginBottom: 0,
+                    marginBottom: 14,
+                    background: "#fff",
                   }}
                 />
-              </>
+
+                {/* Instagram ID */}
+                <label style={{ fontWeight: 600, fontSize: 14, display: "block", marginBottom: 6 }}>
+                  Instagram ID{" "}
+                  <span style={{ fontWeight: 400, color: "#888", fontSize: 12 }}>(optional)</span>
+                </label>
+                <div
+                  style={{
+                    position: "relative",
+                    marginBottom: isBeautyOrTailor || isCook ? 16 : 0,
+                  }}
+                >
+                  <span
+                    style={{
+                      position: "absolute",
+                      left: 12,
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      color: "#a393c9",
+                      fontWeight: 700,
+                      fontSize: 15,
+                      pointerEvents: "none",
+                      userSelect: "none",
+                    }}
+                  >
+                    @
+                  </span>
+                  <input
+                    type="text"
+                    value={state.instagramID}
+                    onChange={(e) =>
+                      update(svc.id, {
+                        instagramID: e.target.value.replace(/^@/, "").replace(/\s/g, ""),
+                      })
+                    }
+                    placeholder="your_instagram"
+                    style={{
+                      width: "100%",
+                      padding: "10px 12px 10px 28px",
+                      border: "1px solid #e0e0e0",
+                      borderRadius: 10,
+                      fontSize: 14,
+                      outline: "none",
+                      boxSizing: "border-box",
+                      fontFamily: "inherit",
+                      background: "#fff",
+                    }}
+                  />
+                </div>
+
+                {/* Service location (beauty + tailor) */}
+                {isBeautyOrTailor && (
+                  <div>
+                    <label style={{ fontWeight: 600, fontSize: 14, display: "block", marginBottom: 4 }}>
+                      Service location: <span style={{ color: "#e53e3e" }}>*</span>
+                    </label>
+                    <p style={{ color: "#888", fontSize: 12, marginBottom: 10, marginTop: 0 }}>
+                      Where do you perform your service?
+                    </p>
+                    {SERVICE_LOCATION_OPTIONS.map((opt) => (
+                      <label
+                        key={opt.value}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 10,
+                          cursor: "pointer",
+                          marginBottom: 10,
+                          fontSize: 14,
+                        }}
+                      >
+                        <Checkbox
+                          checked={serviceLocation.includes(opt.value)}
+                          onChange={() => toggleLocation(opt.value)}
+                        />
+                        {opt.label}
+                      </label>
+                    ))}
+                  </div>
+                )}
+
+                {/* Delivery (cook) */}
+                {isCook && (
+                  <div>
+                    <label style={{ fontWeight: 600, fontSize: 14, display: "block", marginBottom: 4 }}>
+                      Delivery: <span style={{ color: "#e53e3e" }}>*</span>
+                    </label>
+                    <p style={{ color: "#888", fontSize: 12, marginBottom: 10, marginTop: 0 }}>
+                      Do you offer delivery?
+                    </p>
+                    {(
+                      [
+                        { label: "Has delivery", value: true },
+                        { label: "Client pickup", value: false },
+                      ] as const
+                    ).map((opt) => (
+                      <label
+                        key={opt.label}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 10,
+                          cursor: "pointer",
+                          marginBottom: 10,
+                          fontSize: 14,
+                        }}
+                      >
+                        <RadioDot
+                          checked={hasDelivery === opt.value}
+                          onChange={() => setHasDelivery(opt.value)}
+                        />
+                        {opt.label}
+                      </label>
+                    ))}
+                  </div>
+                )}
+              </div>
             )}
           </div>
         );
       })}
 
-      {/* Service location — shown once when beauty or tailor is selected */}
-      {hasBeautyOrTailor && (
-        <div style={{ marginBottom: 28 }}>
-          <label style={{ fontWeight: 700, fontSize: 16, display: "block", marginBottom: 6 }}>
-            Service location: <span style={{ color: "#e53e3e" }}>*</span>
-          </label>
-          <p style={{ color: "#888", fontSize: 13, marginBottom: 12, marginTop: 0 }}>
-            Where do you perform your service?
-          </p>
-          {SERVICE_LOCATION_OPTIONS.map((opt) => (
-            <label
-              key={opt.value}
-              style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer", marginBottom: 12, fontSize: 15 }}
-            >
-              <Checkbox
-                checked={serviceLocation.includes(opt.value)}
-                onChange={() => toggleLocation(opt.value)}
-              />
-              {opt.label}
-            </label>
-          ))}
-        </div>
-      )}
-
-      {/* Delivery — shown when cook is selected */}
-      {hasCook && (
-        <div style={{ marginBottom: 28 }}>
-          <label style={{ fontWeight: 700, fontSize: 16, display: "block", marginBottom: 6 }}>
-            Delivery: <span style={{ color: "#e53e3e" }}>*</span>
-          </label>
-          <p style={{ color: "#888", fontSize: 13, marginBottom: 12, marginTop: 0 }}>
-            Do you offer delivery?
-          </p>
-          {([{ label: "Has delivery", value: true }, { label: "Client pickup", value: false }] as const).map((opt) => (
-            <label
-              key={opt.label}
-              style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer", marginBottom: 12, fontSize: 15 }}
-            >
-              <RadioDot
-                checked={hasDelivery === opt.value}
-                onChange={() => setHasDelivery(opt.value)}
-              />
-              {opt.label}
-            </label>
-          ))}
-        </div>
-      )}
-
       {/* Payment methods */}
-      <div style={{ marginBottom: 32 }}>
+      <div style={{ marginTop: 8, marginBottom: 32 }}>
         <label style={{ fontWeight: 700, fontSize: 16, display: "block", marginBottom: 14 }}>
           Payment methods:
         </label>

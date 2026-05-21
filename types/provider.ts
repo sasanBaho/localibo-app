@@ -30,6 +30,7 @@ export type Provider = {
   hasDelivery?: boolean;
   updatedAt?: Date;
   instagramID?: string;
+  instagramIDs?: Record<string, string>;
   email?: string;
 };
 

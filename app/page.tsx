@@ -263,6 +263,7 @@ export default function Home() {
             paymentMethods: Array.isArray(d.paymentMethods) ? d.paymentMethods : [],
             serviceLocation: Array.isArray(d.serviceLocation) ? d.serviceLocation : [],
             hasDelivery: d.hasDelivery ?? false,
+            instagramIDs: d.instagramIDs ?? {},
             isAvailable: d.isAvailable ?? true,
             profileViews: d.profileViewCount ?? 0,
             subscriptionStatus: d.subscriptionStatus,
@@ -290,6 +291,7 @@ export default function Home() {
             imageUrl: d.imageUrl,
             providerName: d.providerName,
             instagramID: d.instagramID,
+            instagramIDs: d.instagramIDs ?? {},
             rating: d.rating,
             ratingsCount: d.ratingsCount,
             description: d.description,
@@ -337,6 +339,9 @@ export default function Home() {
             descriptions: data.description && typeof data.description === "object" ? data.description : {},
             hasTools: data.hasTools ?? false,
             paymentMethods: Array.isArray(data.paymentMethods) ? data.paymentMethods : [],
+            serviceLocation: Array.isArray(data.serviceLocation) ? data.serviceLocation : [],
+            hasDelivery: data.hasDelivery ?? false,
+            instagramIDs: data.instagramIDs ?? {},
             isAvailable: data.isAvailable ?? true,
             profileViews: data.profileViewCount ?? data.profileViews ?? 0,
             subscriptionStatus: subStatus,
@@ -413,6 +418,7 @@ export default function Home() {
           imageUrl: data.imageUrl,
           providerName: data.providerName,
           instagramID: data.instagramID,
+          instagramIDs: data.instagramIDs ?? {},
           rating: data.rating,
           ratingsCount: data.ratingsCount,
           description: data.description,
@@ -562,9 +568,9 @@ export default function Home() {
       >
         {(
           [
-            { id: "beauty", label: "Beauty", icon: "/service-one-icon-black.png", active: "#ea7d9a"},
-            { id: "tailor", label: "Tailor", icon: "/service-two-icon-black.png", active: "#a393c9"},
-            { id: "cook",   label: "Cook",   icon: "/service-three-icon-black.png", active: "#53acff"},
+            { id: "beauty", label: "Beauty", iconColor: "/beauty-icon-color.png", iconGrey: "/beauty-icon-grey.png", active: "#ea7d9a"},
+            { id: "tailor", label: "Tailor", iconColor: "/tailor-icon-color.png", iconGrey: "/tailor-icon-grey.png", active: "#a393c9"},
+            { id: "cook",   label: "Cook",   iconColor: "/cook-icon-color.png",   iconGrey: "/cook-icon-grey.png",   active: "#53acff"},
           ] as const
         ).map((svc) => (
           <button
@@ -585,7 +591,7 @@ export default function Home() {
               transition: "all 0.15s ease",
             }}
           >
-            <img src={svc.icon} alt={svc.label} style={{ width: 22, height: 22, objectFit: "contain" }} />
+            <img src={activeService === svc.id ? svc.iconColor : svc.iconGrey} alt={svc.label} style={{ width: 27, height: 27, objectFit: "contain" }} />
             {!isSmallScreen && <span>{svc.label}</span>}
           </button>
         ))}
@@ -654,6 +660,9 @@ export default function Home() {
                     selectedServices: currentProviderData.selectedServices,
                     hasTools: currentProviderData.hasTools,
                     paymentMethods: currentProviderData.paymentMethods,
+                    instagramIDs: currentProviderData.instagramIDs ?? {},
+                    serviceLocation: currentProviderData.serviceLocation ?? [],
+                    hasDelivery: currentProviderData.hasDelivery ?? false,
                     subscriptionStatus: currentProviderData.subscriptionStatus,
                     rating: currentProviderData.rating,
                     ratingsCount: currentProviderData.ratingsCount,
@@ -800,6 +809,7 @@ export default function Home() {
                 paymentMethods: Array.isArray(data.paymentMethods) ? data.paymentMethods : [],
                 serviceLocation: Array.isArray(data.serviceLocation) ? data.serviceLocation : [],
                 hasDelivery: data.hasDelivery ?? false,
+                instagramIDs: data.instagramIDs ?? {},
                 isAvailable: data.isAvailable ?? true,
                 profileViews: data.profileViewCount ?? 0,
                 subscriptionStatus: subStatus,
@@ -825,6 +835,7 @@ export default function Home() {
               imageUrl: data.imageUrl,
               providerName: data.providerName,
               instagramID: data.instagramID,
+              instagramIDs: data.instagramIDs ?? {},
               rating: data.rating,
               ratingsCount: data.ratingsCount,
               description: data.description,

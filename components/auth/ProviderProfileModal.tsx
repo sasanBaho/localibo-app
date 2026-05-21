@@ -46,6 +46,7 @@ export interface ProviderProfile {
   paymentMethods: string[];
   serviceLocation?: string[];
   hasDelivery?: boolean;
+  instagramIDs?: Record<string, string>;
   isAvailable: boolean;
   profileViews: number;
   subscriptionStatus?: string;
@@ -66,9 +67,9 @@ interface ProviderProfileModalProps {
 }
 
 const SERVICE_META: Record<string, { shortName: string; icon: string }> = {
-  "service-one": { shortName: "Beauty", icon: "/service-one-icon-black.png" },
-  "service-two": { shortName: "Tailor", icon: "/service-two-icon-black.png" },
-  "service-three": { shortName: "Cook", icon: "/service-three-icon-black.png" },
+  "service-one": { shortName: "Beauty", icon: "/beauty-icon-color.png" },
+  "service-two": { shortName: "Tailor", icon: "/tailor-icon-color.png" },
+  "service-three": { shortName: "Cook", icon: "/cook-icon-color.png" },
 };
 
 const GreenCheck: React.FC = () => (
@@ -379,6 +380,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
         paymentMethods: data.paymentMethods,
         hasDelivery: data.hasDelivery,
         serviceLocation: data.serviceLocation,
+        instagramIDs: data.instagramIDs,
       });
       const updated: ProviderProfile = {
         ...profileState,
@@ -386,6 +388,9 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
         descriptions: data.descriptions,
         hasTools: data.hasTools,
         paymentMethods: data.paymentMethods,
+        serviceLocation: data.serviceLocation,
+        hasDelivery: data.hasDelivery,
+        instagramIDs: data.instagramIDs,
       };
       setProfileState(updated);
       onProfileUpdated?.(updated);
@@ -444,6 +449,7 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
           paymentMethods: profileState.paymentMethods,
           serviceLocation: profileState.serviceLocation ?? [],
           hasDelivery: profileState.hasDelivery ?? false,
+          instagramIDs: profileState.instagramIDs ?? {},
         }}
       />
     );

@@ -47,9 +47,9 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
   })();
 
   const SERVICE_CONFIG: Record<string, { label: string; key: string; color: string; light: string; icon: string }> = {
-    beauty: { label: "Beauty", key: "service-one", color: "#ea7d9a", light: "#fce4f0", icon: "/service-one-icon-black.png" },
-    tailor: { label: "Tailor", key: "service-two", color: "#a393c9", light: "#ede9fe", icon: "/service-two-icon-black.png" },
-    cook:   { label: "Cook",   key: "service-three", color: "#53acff", light: "#dbeeff", icon: "/service-three-icon-black.png" },
+    beauty: { label: "Beauty", key: "service-one", color: "#ea7d9a", light: "#fce4f0", icon: "/beauty-icon-color.png" },
+    tailor: { label: "Tailor", key: "service-two", color: "#a393c9", light: "#ede9fe", icon: "/tailor-icon-color.png" },
+    cook:   { label: "Cook",   key: "service-three", color: "#53acff", light: "#dbeeff", icon: "/cook-icon-color.png" },
   };
   const cfg = SERVICE_CONFIG[activeService ?? "beauty"] ?? SERVICE_CONFIG.beauty;
   const accentColor = cfg.color;
@@ -57,6 +57,11 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
   const serviceLabel = cfg.label;
   const serviceIcon = cfg.icon;
   const serviceKey = cfg.key;
+
+  const instagramHandle: string =
+    (provider.instagramIDs as Record<string, string> | undefined)?.[serviceKey] ||
+    provider.instagramID ||
+    "";
 
   const descriptionText = (() => {
     const d = provider.description;
@@ -232,15 +237,15 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
                   <span style={{ fontSize: 12, fontWeight: 700, color: accentColor }}>{serviceLabel}</span>
                 </div>
 
-                {provider.instagramID && (
+                {instagramHandle && (
                   <a
-                    href={`https://instagram.com/${provider.instagramID}`}
+                    href={`https://instagram.com/${instagramHandle}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ display: "inline-flex", alignItems: "center", gap: 5, textDecoration: "none" }}
                   >
                     <img src="/instagram-icon.png" alt="Instagram" style={{ width: 16, height: 16, objectFit: "contain" }} />
-                    <span style={{ fontSize: 12, color: "#444445", textDecoration: "underline" }}>@{provider.instagramID}</span>
+                    <span style={{ fontSize: 12, color: "#444445", textDecoration: "underline" }}>@{instagramHandle}</span>
                   </a>
                 )}
               </div>

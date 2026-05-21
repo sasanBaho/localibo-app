@@ -202,6 +202,7 @@ const AuthFlow: React.FC<AuthFlowProps> = ({
         paymentMethods: servicesData.paymentMethods,
         hasDelivery: servicesData.hasDelivery,
         serviceLocation: servicesData.serviceLocation,
+        instagramIDs: servicesData.instagramIDs,
         subscriptionStatus: "unsubscribed",
         isAvailable: true,
         instagramID: "",
