@@ -239,14 +239,14 @@ const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
     }
   };
 
-  const handleSubscribeNow = async (priceId: string) => {
+  const handleSubscribeNow = async (priceId: string, promoCode?: string) => {
     setSubscribeModalLoading(true);
     try {
       localStorage.setItem("stripeReturn", JSON.stringify({ uid: profile.uid }));
       const res = await fetch("/api/stripe/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ uid: profile.uid, email: profile.email, phone: profile.phone, priceId }),
+        body: JSON.stringify({ uid: profile.uid, email: profile.email, phone: profile.phone, priceId, promoCode }),
       });
       const data = await res.json();
       if (data.url) window.location.href = data.url;

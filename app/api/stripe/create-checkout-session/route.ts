@@ -1,12 +1,39 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
+import { getAdminDb } from "@/lib/firebaseAdmin";
+import { FieldValue } from "firebase-admin/firestore";
+
+async function validateAndConsumePromo(
+  code: string
+): Promise<{ trialDays: number } | null> {
+  const db = getAdminDb();
+  const ref = db.collection("promoCodes").doc(code.trim().toUpperCase());
+  const snap = await ref.get();
+  if (!snap.exists) return null;
+
+  const d = snap.data()!;
+  if (!d.active) return null;
+  if (d.maxUses > 0 && d.usedCount >= d.maxUses) return null;
+
+  await ref.update({ usedCount: FieldValue.increment(1) });
+  return { trialDays: d.trialDays as number };
+}
 
 export async function POST(req: NextRequest) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-  const { priceId, email, phone, uid } = await req.json();
+  const { priceId, email, phone, uid, promoCode } = await req.json();
 
   if (!priceId || !uid) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+  }
+
+  let trialDays = 30;
+  if (promoCode) {
+    const promo = await validateAndConsumePromo(promoCode);
+    if (!promo) {
+      return NextResponse.json({ error: "Invalid or expired promo code" }, { status: 400 });
+    }
+    trialDays = promo.trialDays;
   }
 
   const customer = await stripe.customers.create({
@@ -19,7 +46,7 @@ export async function POST(req: NextRequest) {
     mode: "subscription",
     customer: customer.id,
     line_items: [{ price: priceId, quantity: 1 }],
-    subscription_data: { trial_period_days: 30 },
+    subscription_data: { trial_period_days: trialDays },
     success_url: `${process.env.NEXT_PUBLIC_APP_URL}/?stripe_session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/?stripe_cancelled=true`,
   });

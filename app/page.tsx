@@ -526,7 +526,7 @@ export default function Home() {
     }
   };
 
-  const handleExistingProviderSubscribe = async (priceId: string) => {
+  const handleExistingProviderSubscribe = async (priceId: string, promoCode?: string) => {
     if (!currentProviderData) return;
     setSubscribeModalLoading(true);
     try {
@@ -534,7 +534,7 @@ export default function Home() {
       const res = await fetch("/api/stripe/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ priceId, uid: currentProviderData.uid, email: currentProviderData.email, phone: currentProviderData.phone }),
+        body: JSON.stringify({ priceId, uid: currentProviderData.uid, email: currentProviderData.email, phone: currentProviderData.phone, promoCode }),
       });
       const { url } = await res.json();
       window.location.href = url;

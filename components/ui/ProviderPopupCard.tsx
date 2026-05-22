@@ -46,16 +46,16 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
     return rawPhone;
   })();
 
-  const SERVICE_CONFIG: Record<string, { label: string; key: string; color: string; light: string; icon: string }> = {
-    beauty: { label: "Beauty", key: "service-one", color: "#ea7d9a", light: "#fce4f0", icon: "/beauty-icon-color.png" },
-    tailor: { label: "Tailor", key: "service-two", color: "#a393c9", light: "#ede9fe", icon: "/tailor-icon-color.png" },
-    cook:   { label: "Cook",   key: "service-three", color: "#53acff", light: "#dbeeff", icon: "/cook-icon-color.png" },
+  const SERVICE_CONFIG: Record<string, { label: string; key: string; color: string; light: string; icon: string; iconGrey: string }> = {
+    beauty: { label: "Beauty", key: "service-one", color: "#ea7d9a", light: "#fce4f0", icon: "/beauty-icon-color.png", iconGrey: "/beauty-icon-grey.png" },
+    tailor: { label: "Tailor", key: "service-two", color: "#a393c9", light: "#ede9fe", icon: "/tailor-icon-color.png", iconGrey: "/tailor-icon-grey.png" },
+    cook:   { label: "Cook",   key: "service-three", color: "#53acff", light: "#dbeeff", icon: "/cook-icon-color.png", iconGrey: "/cook-icon-grey.png" },
   };
   const cfg = SERVICE_CONFIG[activeService ?? "beauty"] ?? SERVICE_CONFIG.beauty;
   const accentColor = cfg.color;
   const accentLight = cfg.light;
   const serviceLabel = cfg.label;
-  const serviceIcon = cfg.icon;
+  const serviceIconGrey = cfg.iconGrey;
   const serviceKey = cfg.key;
 
   const instagramHandle: string =
@@ -209,33 +209,23 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
             </div>
 
             {/* Name + badges */}
-            <div style={{ flex: 1, minWidth: 0, paddingTop: 4 }}>
+            <div style={{ flex: 1, minWidth: 0, paddingTop: 10 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
                 <span style={{
-                  fontWeight: 800,
-                  fontSize: 19,
-                  color: "#111827",
+                  fontWeight: 600,
+                  fontSize: 18,
+                  color: "#444444",
                   whiteSpace: "nowrap",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
+                  letterSpacing: "0.01em",
                 }}>
                   {provider.providerName}
                 </span>
               </div>
 
-              {/* Service badge + Instagram */}
+              {/*Instagram */}
               <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 6, marginBottom: 8 }}>
-                <div style={{
-                  display: "inline-flex",
-                  alignItems: "end",
-                  gap: 5,
-                  background: accentLight,
-                  borderRadius: 999,
-                  padding: "4px 10px 4px 6px",
-                }}>
-                  <img src={serviceIcon} alt={serviceLabel} style={{ width: 22, height: 22, objectFit: "contain" }} />
-                  <span style={{ fontSize: 12, fontWeight: 700, color: accentColor }}>{serviceLabel}</span>
-                </div>
 
                 {instagramHandle && (
                   <a
@@ -245,7 +235,7 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
                     style={{ display: "inline-flex", alignItems: "center", gap: 5, textDecoration: "none" }}
                   >
                     <img src="/instagram-icon.png" alt="Instagram" style={{ width: 16, height: 16, objectFit: "contain" }} />
-                    <span style={{ fontSize: 12, color: "#444445", textDecoration: "underline" }}>@{instagramHandle}</span>
+                    <span style={{ fontSize: 14, color: "#444445", textDecoration: "underline" }}>@{instagramHandle}</span>
                   </a>
                 )}
               </div>
@@ -437,10 +427,10 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
                       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                     </svg>
                   ))}
-                  <span style={{ fontWeight: 700, fontSize: 13, color: "#111827", marginLeft: 2 }}>
+                  <span style={{ fontWeight: 700, fontSize: 13, color: "#6c6d6f", marginLeft: 2 }}>
                     {displayRating.toFixed(1)}
                   </span>
-                  <span style={{ fontSize: 12, color: "#9ca3af" }}>({displayCount})</span>
+                  <span style={{ fontSize: 12, color: "#6c6d6f" }}>({displayCount})</span>
                 </>
               ) : (
                 <>
@@ -451,7 +441,7 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
                     </svg>
                   ))}
                   <span style={{ fontWeight: 700, fontSize: 13, color: "#6c6d6f", marginLeft: 2 }}>0.0</span>
-                  <span style={{ fontSize: 12, color: "#9ca3af" }}>(0)</span>
+                  <span style={{ fontSize: 12, color: "#6c6d6f" }}>(0)</span>
                 </>
               )}
             </div>
@@ -462,12 +452,12 @@ const ProviderPopupCard: React.FC<ProviderPopupCardProps> = ({
                 onClick={() => setShowReport(true)}
                 style={{
                   display: "flex", alignItems: "center", gap: 5,
-                  background: "none", border: "1px solid #f4b385", borderRadius: 999,
+                  background: "none", border: "1px solid #f59e0b", borderRadius: 999,
                   cursor: "pointer", padding: "5px 12px",
-                  color: "#9ca3af", fontSize: 12, fontWeight: 500,
+                  color: "#818386", fontSize: 12, fontWeight: 500,
                 }}
               >
-                <svg width={13} height={13} viewBox="0 0 24 24" fill="none" stroke="#ff6a00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width={13} height={13} viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
                   <line x1="4" y1="22" x2="4" y2="15" />
                 </svg>

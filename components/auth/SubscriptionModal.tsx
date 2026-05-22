@@ -13,7 +13,7 @@ interface StripePlan {
 
 interface SubscriptionModalProps {
   onClose: () => void;
-  onPlanSelected: (priceId: string) => void;
+  onPlanSelected: (priceId: string, promoCode?: string) => void;
   loading: boolean;
 }
 
@@ -57,6 +57,10 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ onClose, onPlanSe
   const [fetchError, setFetchError] = useState(false);
   const [fetching, setFetching] = useState(true);
   const [selectedPriceId, setSelectedPriceId] = useState<string | null>(null);
+  const [promoInput, setPromoInput] = useState("");
+  const [promoStatus, setPromoStatus] = useState<"idle" | "checking" | "valid" | "invalid">("idle");
+  const [promoError, setPromoError] = useState("");
+  const [promoTrialDays, setPromoTrialDays] = useState(0);
 
   useEffect(() => {
     fetch("/api/stripe/prices")
@@ -70,6 +74,29 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ onClose, onPlanSe
         setFetching(false);
       });
   }, []);
+
+  async function applyPromo() {
+    const code = promoInput.trim();
+    if (!code) return;
+    setPromoStatus("checking");
+    try {
+      const res = await fetch(`/api/stripe/validate-promo?code=${encodeURIComponent(code)}`);
+      const data = await res.json();
+      if (data.valid) {
+        setPromoStatus("valid");
+        setPromoTrialDays(data.trialDays as number);
+        setPromoError("");
+      } else {
+        setPromoStatus("invalid");
+        setPromoError(data.reason || "Invalid or expired code");
+      }
+    } catch {
+      setPromoStatus("invalid");
+      setPromoError("Could not validate code. Please try again.");
+    }
+  }
+
+  const trialMonths = promoStatus === "valid" ? Math.round(promoTrialDays / 30) : 1;
 
   return (
     <ModalBase onClose={onClose} closeButtonColor="#a393c9">
@@ -95,6 +122,66 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ onClose, onPlanSe
           <p style={{ margin: 0, fontSize: 13, color: "#9a3412", lineHeight: 1.4, fontWeight: 600 }}>
             Limited offer ends July 1st — save 50% on 3 months &amp; 75% on yearly
           </p>
+        </div>
+
+        {/* Promo code */}
+        <div style={{ marginBottom: 16 }}>
+          <p style={{ margin: "0 0 6px", fontSize: 13, fontWeight: 600, color: "#555" }}>
+            Have a promo code?
+          </p>
+          <div style={{ display: "flex", gap: 8 }}>
+            <input
+              type="text"
+              value={promoInput}
+              onChange={(e) => {
+                setPromoInput(e.target.value);
+                if (promoStatus !== "idle") setPromoStatus("idle");
+              }}
+              onKeyDown={(e) => e.key === "Enter" && applyPromo()}
+              placeholder="Enter code"
+              style={{
+                flex: 1,
+                padding: "10px 14px",
+                borderRadius: 12,
+                border: promoStatus === "valid"
+                  ? "1.5px solid #22c55e"
+                  : promoStatus === "invalid"
+                  ? "1.5px solid #ef4444"
+                  : "1.5px solid #d1d5db",
+                fontSize: 14,
+                outline: "none",
+                textTransform: "uppercase",
+              }}
+            />
+            <button
+              onClick={applyPromo}
+              disabled={!promoInput.trim() || promoStatus === "checking"}
+              style={{
+                padding: "10px 18px",
+                borderRadius: 12,
+                border: "none",
+                background: "#a393c9",
+                color: "#fff",
+                fontWeight: 700,
+                fontSize: 14,
+                cursor: promoInput.trim() && promoStatus !== "checking" ? "pointer" : "not-allowed",
+                opacity: promoInput.trim() && promoStatus !== "checking" ? 1 : 0.5,
+                whiteSpace: "nowrap",
+              }}
+            >
+              {promoStatus === "checking" ? "…" : "Apply"}
+            </button>
+          </div>
+          {promoStatus === "valid" && (
+            <p style={{ margin: "6px 0 0", fontSize: 13, color: "#16a34a", fontWeight: 600 }}>
+              ✓ {trialMonths}-month free trial applied!
+            </p>
+          )}
+          {promoStatus === "invalid" && (
+            <p style={{ margin: "6px 0 0", fontSize: 13, color: "#ef4444" }}>
+              ✗ {promoError}
+            </p>
+          )}
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -223,12 +310,14 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ onClose, onPlanSe
             <path d="M12 8v4m0 4h.01" stroke="#a393c9" strokeWidth="2" strokeLinecap="round" />
           </svg>
           <p style={{ margin: 0, fontSize: 13, color: "#6b21a8", lineHeight: 1.5 }}>
-            Your first month is completely free. Your card won't be charged until after the trial ends.
+            {promoStatus === "valid"
+              ? `Your first ${trialMonths} months are completely free. Your card won't be charged until after the trial ends.`
+              : "Your first month is completely free. Your card won't be charged until after the trial ends."}
           </p>
         </div>
 
         <button
-          onClick={() => selectedPriceId && onPlanSelected(selectedPriceId)}
+          onClick={() => selectedPriceId && onPlanSelected(selectedPriceId, promoStatus === "valid" ? promoInput.trim().toUpperCase() : undefined)}
           disabled={!selectedPriceId || loading || fetching}
           style={{
             marginTop: 20,

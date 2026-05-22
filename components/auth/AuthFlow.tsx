@@ -235,7 +235,7 @@ const AuthFlow: React.FC<AuthFlowProps> = ({
     }
   };
 
-  const handleSubscriptionPlanSelected = async (priceId: string) => {
+  const handleSubscriptionPlanSelected = async (priceId: string, promoCode?: string) => {
     const user = auth.currentUser;
     if (!user || !signupData) return;
 
@@ -248,7 +248,7 @@ const AuthFlow: React.FC<AuthFlowProps> = ({
       const res = await fetch("/api/stripe/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ priceId, uid: user.uid, email: signupData.email, phone }),
+        body: JSON.stringify({ priceId, uid: user.uid, email: signupData.email, phone, promoCode }),
       });
       const { url } = await res.json();
       window.location.href = url;
