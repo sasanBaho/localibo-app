@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import ProviderPopupCard from "@/components/ui/ProviderPopupCard";
 import type { ProviderPopupCardProps } from "@/components/ui/ProviderPopupCard";
 import Navbar from "@/components/ui/Navbar";
@@ -202,10 +203,22 @@ export default function Home() {
   const [showSubscribeModal, setShowSubscribeModal] = useState(false);
   const [subscribeModalLoading, setSubscribeModalLoading] = useState(false);
   const [showOwnPin, setShowOwnPin] = useState(false);
+  const [showPromoBanner, setShowPromoBanner] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("promoBannerDismissed")) {
+      setShowPromoBanner(true);
+    }
+  }, []);
+
+  function dismissPromoBanner() {
+    sessionStorage.setItem("promoBannerDismissed", "1");
+    setShowPromoBanner(false);
+  }
 
   useEffect(() => {
     if (!mounted) return;
@@ -602,6 +615,60 @@ export default function Home() {
           </button>
         ))}
       </Navbar>
+
+      {showPromoBanner && !currentProviderData && (
+        <div style={{
+          position: "fixed",
+          top: 60,
+          left: 0,
+          right: 0,
+          zIndex: 190,
+          background: "#53acff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 6,
+          padding: "8px 40px 8px 16px",
+          fontSize: 14,
+          color: "#fff",
+          fontWeight: 600,
+          lineHeight: 1.3,
+        }}>
+
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+
+            <button
+              onClick={() => { setAuthDefaultStep("create"); setShowAuth(true); }}
+              style={{ background: "none", border: "none", color: "#fff", fontWeight: 700, fontSize: 14, cursor: "pointer", padding: 0, textDecoration: "underline", textUnderlineOffset: 2 }}
+            >
+              Join as a provider
+            </button>
+            {" · 1 month free · "}
+            <Link href="/refund" style={{ color: "#fff", textDecoration: "underline" }}>
+              Money back guarantee
+            </Link>
+          </span>
+          <button
+            onClick={dismissPromoBanner}
+            style={{
+              position: "absolute",
+              right: 12,
+              background: "none",
+              border: "none",
+              color: "#fff",
+              fontSize: 16,
+              cursor: "pointer",
+              lineHeight: 1,
+              padding: 4,
+              opacity: 0.8,
+            }}
+            aria-label="Dismiss"
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
       {/* Map Section */}
       <div
         style={{
